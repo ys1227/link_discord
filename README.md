@@ -89,3 +89,6 @@ XやMattermostで宣伝することを考えています。
 * LINE通知: LINE Messaging API
 * チャット機能: WebSocket(ActionCable)
 * 予約システム: simple_calendar(gem)
+
+### 画面遷移図
+https://www.figma.com/file/BQ9l33fGotPvEgNMRJQPXY/%E7%84%A1%E9%A1%8C?type=design&node-id=0-1&mode=design&t=WEr0CAEHUx6dLS9F-0
