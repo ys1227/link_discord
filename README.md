@@ -91,4 +91,4 @@ XやMattermostで宣伝することを考えています。
 * 予約システム: simple_calendar(gem)
 
 ### 画面遷移図
-https://www.figma.com/file/2gNj6sgpJEt75xCIRghJQz/Link_discord?type=design&mode=design&t=qiWt0HEO6qNaF3Gs-1
+https://www.figma.com/file/BQ9l33fGotPvEgNMRJQPXY/Link_discord?type=design&node-id=0%3A1&mode=design&t=aKdGn3DPRintsHKm-1
