@@ -94,4 +94,4 @@ XやMattermostで宣伝することを考えています。
 https://www.figma.com/file/BQ9l33fGotPvEgNMRJQPXY/Link_discord?type=design&node-id=0%3A1&mode=design&t=aKdGn3DPRintsHKm-1
 
 ### ER図
-![Alt text](../../Downloads/link_discord.svg)
+![サンプルER図](./link_discord.drawio)
