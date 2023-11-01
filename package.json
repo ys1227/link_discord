@@ -1,0 +1,15 @@
+{
+  "name": "app",
+  "private": "true",
+  "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "daisyui": "^3.9.4",
+    "esbuild": "^0.17.19",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify",
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
+  }
+}
