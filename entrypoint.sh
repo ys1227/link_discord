@@ -2,7 +2,7 @@
 set -e
 
 # Remove a potentially pre-existing server.pid for Rails.
-rm -f /link_discord/tmp/pids/server.pid
+rm -f /sample-app/tmp/pids/server.pid
 
 # 前者はコンパイル済みのアセットを削除、後者は新しくアセットをコンパイルする
 # production環境の場合のみJSとCSSをビルド

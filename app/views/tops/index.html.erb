@@ -1,7 +1,12 @@
-<h1 class="text-3xl font-bold underline">
-    Hello world!
-</h1>
-
-<button class="bg-gray-900 hover:bg-gray-800 text-white rounded px-4 py-2">tailwind</button>
-
-<button class="btn">daisyUI</button>
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content text-center">
+    <div class="max-w-md">
+      <h1 class="text-5xl font-bold">質問マッチング</h1>
+      <p class="py-6">discordで質問したり雑談をする仲間を集めに行こう!</p>
+      <%if logged_in?%>
+      <%=link_to "質問する", new_question_path, class:"btn btn-primary"%>
+      <%end%>
+      <%=link_to "見つけに行く", questions_path, data: { turbo: false }, class:"btn btn-primary"%>
+    </div>
+  </div>
+</div>

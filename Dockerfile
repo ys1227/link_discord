@@ -11,16 +11,16 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
   && apt-get install -y nodejs yarn
 
 # 作業ディレクトリを指定
-WORKDIR /link_discord
+WORKDIR /sample-app
 
 # ホストのGemfileとGemfile.lockをコンテナにコピー
-COPY Gemfile Gemfile.lock /link_discord//
+COPY Gemfile Gemfile.lock /sample-app/
 
 # bundle installを実行
 RUN bundle install
 
 # ホストのカレントディレクトリをコンテナにコピー
-COPY . /link_discord/
+COPY . /sample-app/
 
 # yarn.lockからインストール
 RUN yarn install --frozen-lockfile
