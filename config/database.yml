@@ -22,7 +22,7 @@ default: &default
 
 development:
   <<: *default
-  database: sample_app_development
+  database: link_discord_development
   host: db
   password: password
 
@@ -30,7 +30,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: sample_app
+  #username: link_discord
 
   # The password associated with the postgres role (username).
   #password:
@@ -58,7 +58,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: sample_app_test
+  database: link_discord_test
   host: db
   password: password
 
