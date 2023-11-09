@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  skip_before_action :require_login,only: %i[index show]
+  skip_before_action :check_logged_in,only: %i[index show]
   def new
     @question = Question.new
   end

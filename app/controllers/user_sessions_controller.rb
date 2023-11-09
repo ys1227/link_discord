@@ -1,20 +1,21 @@
 class UserSessionsController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
-  def new; end
-
+  skip_before_action :check_logged_in, only: :create
+  
   def create
-    @user = login(params[:email], params[:password])
-
-    if @user
-      redirect_to root_path, success: 'ログインに成功しました'
-    else
-      flash.now[:danger] = 'ログインに失敗しました'
-      render :new
+    if (user = User.find_or_create_from_auth_hash(auth_hash))
+      log_in user
     end
+    redirect_to root_path
+  end
+   
+  def destroy
+    log_out
+    redirect_to root_path, status: :see_other, danger: 'ログアウトしました'
   end
 
-  def destroy
-    logout
-    redirect_to root_path, status: :see_other, danger: 'ログアウトしました'
+  private
+
+  def auth_hash
+    request.env['omniauth.auth']
   end
 end

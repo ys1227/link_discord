@@ -3,7 +3,7 @@
     <div class="sm:flex sm:items-center sm:justify-between">
       <div class="text-center sm:text-left">
         <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
-          Discordで集まろう!
+        Link_Disco
         </h1>
           <p class="mt-1.5 text-sm text-gray-500">
             Let's ask everyone! 🎉
@@ -11,8 +11,8 @@
       </div>
       <div class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
         <%=link_to "ホームへ戻る",root_path,class:"inline-flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 bg-white px-5 py-3 text-gray-500 transition hover:text-gray-700 focus:outline-none"%>
-        <%=link_to "ログイン",login_path,class:"inline-flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 bg-white px-5 py-3 text-gray-500 transition hover:text-gray-700 focus:outline-none"%>
-      </div>
+        <%= button_to "Discordでログイン", "/auth/discord", method: :post, data: { turbo: false } %>
+        </div>
     </div>
   </div>
 </header>
