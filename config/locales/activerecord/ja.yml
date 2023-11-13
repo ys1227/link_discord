@@ -1,0 +1,20 @@
+ja:
+  enums:
+    question:
+      role:
+        inquiry: '質問'
+        small_talk: '雑談'
+        job_serching: '就活'
+        portfolio : 'アプリ'
+        others: その他
+  activerecord:
+    models:
+      question: '質問'
+    attributes:
+      question:
+        role: 'カテゴリー'
+        title: 'タイトル'
+        content: '内容'
+        deadline: '締切日時'
+          
+

@@ -54,6 +54,12 @@ gem 'draper'
 
 gem 'dotenv-rails'
 
+gem "simple_calendar", "~> 2.4"
+
+gem 'rails-i18n'
+
+gem 'enum_help'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

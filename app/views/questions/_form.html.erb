@@ -1,23 +1,26 @@
-<div class="min-h-screen flex flex-col justify-center items-center">
-  <div class="w-full max-w-screen-md p-6">
-    <h1 class="text-3xl font-bold mb-6">新しい投稿</h1>
-    <div class="bg-white p-6 rounded-lg shadow-lg">
-      <%= form_with model: @question,data: { turbo: false } do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
-      <div class="mb-6">
-        <%= f.label :title, class: "block text-xl text-gray-700 font-bold mb-2" %>
-        <%= f.text_field :title, class: "block w-full px-4 py-2 border rounded-md shadow-inner focus:outline-none focus:border-blue-500" %>
+<div class="box1 min-h-screen flex justify-center items-center bg-gray-800 p-10">
+  <div class="boxx flex flex-col justify-around w-full md:w-2/3 lg:w-1/2 h-auto bg-gray-700 border-solid border-4 rounded-lg border-gray-600 p-6">
+    <%= form_with model: @question, data: { turbo: false } do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="mb-6 bg-gray-600 p-4 rounded-lg">
+        <%=f.label :role, class:"text-white mb-2"%>
+        <%= f.select :role, Question.roles_i18n.invert, {include_blank: "カテゴリーを選択してください"}, class: "mb-3 sm:mb-0 mr-9 border border-line-200 rounded-[3px] rounded-[3px] py-3 pl-6 w-52 h-12 font-bold"%>
       </div>
-
-      <div class="mb-6">
-        <%= f.label :content, class: "block text-xl text-gray-700 font-bold mb-2" %>
-        <%= f.text_area :content, id: 'markdown-editor', class: "block w-full px-4 py-3 border rounded-md shadow-inner focus:outline-none focus:border-blue-500", rows: 10 %>
+      <div class="mb-6 bg-gray-600 p-4 rounded-lg">
+        <%= f.label :title, class: "block text-white mb-2" %>
+        <%= f.text_field :title, class: "w-full bg-gray-500 text-white p-2 rounded border border-gray-400 focus:outline-none" %>  
       </div>
-
-      <div class="text-right">
-        <%= f.submit '投稿', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+      <div class="mb-6 bg-gray-600 p-4 rounded-lg">
+        <%= f.label :content, class: "block text-white mb-2" %>
+        <%= f.text_area :content, id: 'markdown-editor', class: "w-full bg-gray-500 text-white p-2 rounded border border-gray-400 focus:outline-none", rows: 4 %>
       </div>
-      <% end %>
-    </div>
+      <div class="mb-6 bg-gray-600 p-4 rounded-lg">
+        <%=f.label :deadline, class: "block text-white mb-2"%>
+        <%=f.datetime_select :deadline, class: "w-full bg-gray-500 text-white p-2 rounded border border-gray-400 focus:outline-none"%>
+      </div>
+      <div class="mb-6 bg-gray-600 p-4 rounded-lg">
+        <%= f.submit '投稿', class: "w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none" %>
+      </div>
+    <% end %>
   </div>
 </div>
