@@ -6,6 +6,7 @@ module.exports = {
     './app/javascript/**/*.js',
     './node_modules/preline/dist/*.js'
   ],
+  
   plugins: [
     require("daisyui"),
     require('preline/plugin'),

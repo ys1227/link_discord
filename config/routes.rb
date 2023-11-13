@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :questions
   resources :users, only: %i[new create]
+  resources :reservations
 
   mount ActionCable.server => '/cable'
   get 'rooms/show/:id' => 'rooms#show', :as => :chat

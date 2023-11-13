@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Discord風のボタンスタイル */
+.w-full.bg-blue-500:hover {
+  background-color: #5865f2; /* Discordのブランドカラーに似た色 */
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+/* 入力フィールドの角を丸くする */
+.bg-gray-500 {
+  border-radius: 8px;
+}
+
+.bg-discord-dark {
+  background-color: #36393f; /* Discordのダークテーマ背景色 */
+}
+
+.text-discord-blurple {
+  color: #7289da; /* Discordのブループル色 */
+}
+
+.inline-flex.items-center {
+  border: 2px solid #7289da; /* ボーダー色もDiscord風に */
+  padding: 0.5rem 1rem; /* パディングを調整 */
+  border-radius: 0.5rem; /* 角を丸くする */
+  transition: background-color 0.2s; /* 色が変わる際のアニメーションを追加 */
+}
+
+.inline-flex.items-center:hover {
+  background-color: #7289da; /* ホバー時の背景色 */
+  color: white; /* ホバー時の文字色 */
+}
+
+.bg-discord-dark {
+  background-color: #23272A; /* Discordのダークテーマの背景色 */
+}
+
+.text-discord-blurple {
+  color: #7289da; /* Discordのブランドカラー */
+}
+
+.bg-discord-container {
+  background-color: #2C2F33; /* Discordのコンテナの背景色 */
+}

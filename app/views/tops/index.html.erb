@@ -1,12 +1,14 @@
-<div class="hero min-h-screen bg-base-200">
-  <div class="hero-content text-center">
-    <div class="max-w-md">
-      <h1 class="text-5xl font-bold">質問マッチング</h1>
-      <p class="py-6">discordで質問したり雑談をする仲間を集めに行こう!</p>
-      <%if logged_in?%>
-      <%=link_to "質問する", new_question_path, class:"btn btn-primary"%>
-      <%end%>
-      <%=link_to "見つけに行く", questions_path, data: { turbo: false }, class:"btn btn-primary"%>
+<div class="min-h-screen flex items-center justify-center bg-white-600">
+  <div class="text-center">
+    <div class="mb-8">
+      <!-- 仮のイラストパスを実際のものに置き換える -->
     </div>
+    <h1 class="text-5xl font-bold text-black">Discordで集まろう</h1>
+    <p class="py-6 text-black">Discordで質問したり雑談をする仲間を集めに行こう!</p>
+    <% if logged_in? %>
+      <%= link_to "質問する", new_question_path, class: "btn btn-primary" %>
+      <%= link_to "予約する", "#", class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to "見つけに行く", questions_path, class: "btn btn-primary" %>
   </div>
 </div>

@@ -1,17 +1,23 @@
 <div class="p-4 lg:w-1/3">
-  <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-    <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">
-    <br><%=question.user.name%></br>
-    <br><%=question.title%></br>
-    </h1>
-      <p class="leading-relaxed mb-3">
-        <%=question.content%>
-      </p>
-      <%=link_to "質問を見に行く", question_path(question), class:"text-indigo-500 inline-flex items-center"%>
-      <p>
-      <%=link_to "チャット", chat_path(question), class:"text-indigo-500 inline-flex items-center"%>
-      </p>
+  <div class="h-full bg-discord-dark bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+    <div class="mb-4">
+      <div class="flex justify-center items-center mb-2">
+        <%= image_tag question.user.image, alt: question.user.name, class: "h-16 w-16 rounded-full" %>
+        <h2 class="title-font sm:text-2xl text-xl font-medium text-white ml-4">
+          <%= question.user.name %>
+        </h2>
+      </div>
+      <div class="bg-discord-container p-4 rounded-lg">
+        <p class="text-white font-bold border-solid border-2 border-white"><%= question.role_i18n %></p>
+        <p class="text-white mb-3"><%= l question.deadline %></p>
+        <h2 class="text-white font-bold mb-3"><%= question.title %></h2>
+        <p class="text-white leading-relaxed mb-3">
+          <%= question.content %>
+        </p>
+      </div>
+    </div>
+    <%= link_to "質問を見に行く", question_path(question), class: "text-discord-blurple inline-flex items-center mt-4" %>
+    <%= link_to "チャット", chat_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %>
+    <%= link_to "予約する", "#", class: "text-discord-blurple inline-flex items-center mt-2" %>
   </div>
 </div>
-
-

@@ -10,16 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_06_115403) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_09_105952) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "role", default: 0, null: false
-  end
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
@@ -32,14 +25,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_06_115403) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
+    t.string "title", null: false
+    t.text "content", null: false
+    t.integer "role", default: 0, null: false
+    t.datetime "deadline", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id"
     t.bigint "user_id"
-    t.index ["category_id"], name: "index_questions_on_category_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "deadline", null: false
+    t.datetime "start_time", null: false
+    t.boolean "is_closed", default: false
+    t.date "day", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_reservations_on_question_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,4 +63,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_06_115403) do
   add_foreign_key "messages", "questions"
   add_foreign_key "messages", "users"
   add_foreign_key "questions", "users"
+  add_foreign_key "reservations", "questions"
+  add_foreign_key "reservations", "users"
 end

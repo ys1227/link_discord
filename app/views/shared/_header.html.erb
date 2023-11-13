@@ -1,23 +1,20 @@
-<header class="bg-gray-50">
-  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-    <div class="sm:flex sm:items-center sm:justify-between">
-      <div class="text-center sm:text-left">
-        <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
+<header class="bg-gray-800 w-full">
+  <div class="mx-auto max-w-full px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-white sm:text-3xl">
           Link_Disco
         </h1>
-        <p class="mt-1.5 text-sm text-gray-500">
-          Let's ask everyone! 🎉
-        </p>
       </div>
-      <div class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
-        <%= link_to "ホームへ戻る", root_path, class: "inline-flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 bg-white px-5 py-3 text-gray-500 transition hover:text-gray-700 focus:outline-none" %>
-        <%= link_to "ログアウト", log_out_path, class: "inline-flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 bg-white px-5 py-3 text-gray-500 transition hover:text-gray-700 focus:outline-none", data: { turbo_method: :delete } %>
-        <div class='dropdown-item'>
-          <%= current_user.name %>
-          <% if current_user.image.present? %>
-          <%= image_tag current_user.image, alt: current_user.name %>
-          <% end %>
-        </div>
+      <div class="flex items-center">
+        <%= link_to "ホームへ戻る", root_path, class: "inline-flex items-center justify-center gap-1.5 rounded-lg bg-gray-600 px-5 py-3 text-white transition hover:bg-indigo-700 focus:outline-none" %>
+        <%= link_to "ログアウト", log_out_path, method: :delete, class: "inline-flex items-center justify-center gap-1.5 rounded-lg bg-gray-600 px-5 py-3 text-white transition hover:bg-red-700 focus:outline-none mr-4" %>
+        <% if current_user.image.present? %>
+          <%= image_tag current_user.image, alt: current_user.name, class: "h-16 w-16 rounded-full" %>
+          <p class="ml-2 text-white">
+            <%= current_user.name %>
+          </p>
+        <% end %>
       </div>
     </div>
   </div>
