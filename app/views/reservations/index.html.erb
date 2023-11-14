@@ -1,0 +1,19 @@
+<div class="min-h-screen bg-white">
+  <div class="flex justify-center mx-auto flex-col w-1/2">
+    <%= form_with(model: [@question, @reservation],method: "patch", local: true, class: "shadow-md rounded px-8 pt-6 pb-8 mb-4 bg-white") do |f| %>
+      <% @question_reservations.each do |reservation| %>
+        <div class="flex flex-col border-2 border-discord-blurple my-2 p-4 bg-white rounded">
+          <p class="text-black text-sm font-bold mb-2"><%= (l reservation.start_time, format: :short) %></p>
+          <%= f.fields_for reservation do |rf| %>
+            <%= render 'shared/error_messages', object: rf.object %>
+            <div class="mb-4">
+              <%= rf.label :rank, "希望順位", class: "block text-black text-sm font-bold mb-2" %>
+              <%= rf.select :rank, Reservation.ranks_i18n.invert, { include_blank: "希望順位を選択してください" }, class: "block appearance-none w-full bg-gray-100 text-black border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <%= f.submit "設定", class: "bg-discord-blurple hover:bg-discord-blurple-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    <% end %>
+  </div>
+</div>

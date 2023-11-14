@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reservations/index'
+  get 'reservations/create'
   root :to => 'tops#index'
   
   get 'auth/:provider/callback', to: 'user_sessions#create'
@@ -10,9 +12,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :questions
+  resources :questions do
+    resources :reservations
+  end
   resources :users, only: %i[new create]
-  resources :reservations
 
   mount ActionCable.server => '/cable'
   get 'rooms/show/:id' => 'rooms#show', :as => :chat

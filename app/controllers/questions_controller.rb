@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
   def create 
     @question = current_user.questions.build(question_params)
     if @question.save
-      redirect_to questions_path, success: '投稿が成功しました'
+      redirect_to question_reservations_path(@question), success: '投稿が成功しました'
     else
       flash.now[:danger] ='投稿が失敗しました' 
       render :new, status: :unprocessable_entity
