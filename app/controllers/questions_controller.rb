@@ -43,6 +43,11 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def show_reservations
+    @question = Question.find(params[:id])
+    @question_reservatins = @question.reservations
+  end
+
   private
 
   def question_params

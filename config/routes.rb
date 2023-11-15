@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :questions do
+    member do
+      get :show_reservations
+    end
     resources :reservations do
       collection do
         patch :bulk_update

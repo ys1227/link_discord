@@ -33,7 +33,7 @@ class Reservation < ApplicationRecord
       0, # 秒は0秒として扱いますが、必要に応じて変更
       Rails.application.config.time_zone # アプリケーションのタイムゾーンに合わせます
     )
-    if selected_datetime >= @question.deadline
+    if selected_datetime <= @question.deadline
       errors.add(:start_time, "は募集締め切りに設定した時間より遅い時間を選択してください")
     end
   end

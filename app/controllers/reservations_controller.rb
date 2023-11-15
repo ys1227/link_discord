@@ -43,8 +43,6 @@ class ReservationsController < ApplicationController
       render :index, status: :unprocessable_entity
   end
 
-  def show
-  end
 
   def destroy
     @question = Question.find(params[:question_id])
