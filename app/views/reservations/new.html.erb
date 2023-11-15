@@ -13,7 +13,7 @@
       <%= render 'shared/error_messages', object: f.object %>
       <div class="mb-6">
         <%= f.label :start_time, "開始時刻", class: "block text-white text-sm font-bold mb-2" %>
-        <%= f.datetime_select :start_time, { minute_step: 60, start_hour: 9, end_hour: 23 }, class: "block appearance-none w-full bg-discord-input text-white border border-discord-input-border rounded py-3 px-4 leading-tight focus:outline-none focus:border-discord-focus" %>
+        <%= f.datetime_select :start_time, { minute_step: 60, start_hour: 9, end_hour: 23, start_year: 2023, end_year: 2024 }, class: "block appearance-none w-full bg-discord-input text-white border border-discord-input-border rounded py-3 px-4 leading-tight focus:outline-none focus:border-discord-focus" %>
       </div>
       <div class="flex items-center justify-center">
         <%= f.submit "これで登録する", class: "bg-discord-blurple hover:bg-discord-blurple-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
@@ -34,15 +34,17 @@
     <% end %>-->
 
     <div class="flex justify-center mx-auto flex-col w-1/2">
-      <% @reservations.each do |reservation| %>
-      <div class="border-2 border-indigo-600 my-2 p-4">
-        <%= link_to "削除する", question_reservation_path(@question, reservation), data: { turbo_method: :delete }, class: "text-indigo-600 hover:text-indigo-800" %>
-        <%=(l reservation.start_time, format: :short)%>
-      </div>
+    <% @question_reservations.each do |reservation| %>
+      <% if reservation.persisted? %>
+        <div class="border-2 border-indigo-600 my-2 p-4">
+          <%= link_to "削除する", question_reservation_path(@question, reservation), data: { turbo_method: :delete }, class: "text-indigo-600 hover:text-indigo-800" %>
+          <%=(l reservation.start_time, format: :short)%>
+        </div>
       <% end %>
+    <% end %>
     </div>
     <div class="flex justify-center">
-    <%= link_to "次のスッテプへ", question_reservations_path, class: " border-2 border-sollid boder-black text-indigo-600 hover:text-indigo-800" %>
+    <%= link_to "次のSTEPへ", question_reservations_path, class: " border-2 border-sollid border-black text-black hover:text-indigo-800" %>
     </div>
   </div>
 </div>

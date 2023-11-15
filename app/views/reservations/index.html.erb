@@ -15,5 +15,12 @@
       <% end %>
       <%= f.submit "設定", class: "bg-discord-blurple hover:bg-discord-blurple-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
     <% end %>
+    <%=link_to "戻る", new_question_reservation_path(@question,@reservation)%>
   </div>
 </div>
+
+<div class="min-h-screen bg-white">
+  <%= form_with(model: [@question, @reservation],method: "patch", local: true, class: "shadow-md rounded px-8 pt-6 pb-8 mb-4 bg-white") do |f| %>
+    <% @question_reservations.each do |reservation| %>
+  <%end%>
+  </div>
