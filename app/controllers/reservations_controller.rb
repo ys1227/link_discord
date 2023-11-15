@@ -26,16 +26,21 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def update
+  def bulk_update
     @question = Question.find(params[:question_id])
-    @reservations = @question.reservations
-
-    if @reservations.update(second_reservation_params)
-      redirect_to questions_path, success: '募集時間が登録できました'
-    else
-      flash.now[:danger] ="投稿に失敗しました"
-      render :index, status: :unprocessable_entity
+    @question_reservations = @question.reservations || []
+    @reservations_params = second_reservation_params
+    ActiveRecord::Base.transaction do
+      @reservations_params.each do |reservation_param|
+        reservation = Reservation.find(reservation_param[:id])
+        reservation.update!(rank: reservation_param[:rank])
+      end
     end
+
+    redirect_to questions_path, success: '募集時間が登録できました'
+    rescue ActiveRecord::RecordInvalid
+      flash.now[:danger] = "投稿に失敗しました"
+      render :index, status: :unprocessable_entity
   end
 
   def show
@@ -56,6 +61,11 @@ class ReservationsController < ApplicationController
   end
 
   def second_reservation_params
-    params.require(:reservation).permit(:rank)
+    permitted_params = params.require(:reservations).permit!
+    reservations_params = permitted_params.to_h.map do |_, data|
+      { id: data[:id], rank: data[:rank] }
+    end
   end
 end
+
+

@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :questions do
-    resources :reservations
+    resources :reservations do
+      collection do
+        patch :bulk_update
+      end
+    end
   end
   resources :users, only: %i[new create]
 
