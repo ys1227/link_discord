@@ -5,8 +5,10 @@ class Reservation < ApplicationRecord
   validates :start_time, presence:true
   validate :start_check
   validate :reservation_count_check
-  validate :rank_count_check
-  validate :rank_not_default_check
+  validate :rank_count_check, on: :bulk_update
+  validate :rank_not_default_check, on: :bulk_update
+  validate :reservation_time_check, on: :create
+
   #validate :deadline_check
 
 
@@ -50,6 +52,17 @@ class Reservation < ApplicationRecord
       end
   end
 
+  def reservation_time_check
+    start_times = []
+    @question = Question.find(self.question.id)
+    @question_reservations = @question.reservations
+      @question.reservations.each do |reservation|
+        start_times << reservation.start_time
+      end
+    if  start_times.include?(self.start_time)
+      errors.add(:start_time,"が重複して登録されています。")
+    end
+  end
   #{ id: data[:id], rank: data[:rank] }
 
   def rank_count_check
@@ -59,7 +72,7 @@ class Reservation < ApplicationRecord
       @question.reservations.each do |reservation|
         ranks << reservation.rank
       end
-    if  ranks.include?(self.rank)
+    if  ranks.include?(self.rank && self.rank != "default")
       errors.add(:rank,"が重複して登録されています。")
     end
   end
@@ -67,7 +80,7 @@ class Reservation < ApplicationRecord
   def rank_not_default_check
     @question = Question.find(self.question.id)
     if self.rank == "default"
-      errors.add(:rank,"が-になっています。希望順位を選択してください。")
+      errors.add(:rank,"が-になっています。")
     end
   end
 

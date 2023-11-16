@@ -35,14 +35,18 @@ class ReservationsController < ApplicationController
     ActiveRecord::Base.transaction do
       @reservations_params.each do |reservation_param|
         reservation = Reservation.find(reservation_param[:id])
-        unless reservation.update(rank: reservation_param[:rank])
+        reservation.rank = reservation_param[:rank]
+  
+        if reservation.valid?(:bulk_update)
+          reservation.save!
+        else
           reservation.errors.full_messages.each do |message|
-            reservation = Reservation.find(reservation_param[:id])
             errors << "#{l reservation.start_time, format: :short} #{message}"
           end
-          raise ActiveRecord::Rollback  # トランザクションをロールバック
         end
       end
+    rescue ActiveRecord::RecordInvalid
+      raise ActiveRecord::Rollback # トランザクションをロールバック
     end
   
     if errors.empty?
