@@ -28,21 +28,31 @@ class ReservationsController < ApplicationController
 
   def bulk_update
     @question = Question.find(params[:question_id])
-    @question_reservations = @question.reservations || []
+    @question_reservations = @question.reservations
     @reservations_params = second_reservation_params
+    errors = []
+  
     ActiveRecord::Base.transaction do
       @reservations_params.each do |reservation_param|
         reservation = Reservation.find(reservation_param[:id])
-        reservation.update!(rank: reservation_param[:rank])
+        unless reservation.update(rank: reservation_param[:rank])
+          reservation.errors.full_messages.each do |message|
+            reservation = Reservation.find(reservation_param[:id])
+            errors << "#{l reservation.start_time, format: :short} #{message}"
+          end
+          raise ActiveRecord::Rollback  # トランザクションをロールバック
+        end
       end
     end
-
-    redirect_to questions_path, success: '募集時間が登録できました'
-    rescue ActiveRecord::RecordInvalid
-      flash.now[:danger] = "投稿に失敗しました"
+  
+    if errors.empty?
+      redirect_to questions_path, success: '募集時間が登録できました'
+    else
+      flash.now[:danger] = errors.join(', ')
       render :index, status: :unprocessable_entity
+    end
   end
-
+  
 
   def destroy
     @question = Question.find(params[:question_id])

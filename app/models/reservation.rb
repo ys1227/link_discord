@@ -4,7 +4,7 @@ class Reservation < ApplicationRecord
 
   validates :start_time, presence:true
   validate :start_check
-  validate :deadline_check
+  #validate :deadline_check
 
   def start_check
     selected_datetime = DateTime.new(
