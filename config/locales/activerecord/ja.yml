@@ -12,6 +12,7 @@ ja:
         one: '第1希望'
         two: '第2希望'
         three: '第３希望'
+        default: "-"
   activerecord:
     models:
       question: '質問'
