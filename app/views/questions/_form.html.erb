@@ -14,10 +14,10 @@
         <%= f.label :content, class: "block text-white mb-2" %>
         <%= f.text_area :content, id: 'markdown-editor', class: "w-full bg-gray-500 text-white p-2 rounded border border-gray-400 focus:outline-none", rows: 4 %>
       </div>
-      <div class="mb-6 bg-gray-600 p-4 rounded-lg">
+      <!--<div class="mb-6 bg-gray-600 p-4 rounded-lg">
         <%=f.label :deadline, class: "block text-white mb-2"%>
         <%=f.datetime_select :deadline,  { minute_step: 60, start_year: 2023, end_year: 2024 },class: "w-full bg-gray-500 text-white p-2 rounded border border-gray-400 focus:outline-none"%>
-      </div>
+      </div> -->
       <div class="mb-6 bg-gray-600 p-4 rounded-lg">
         <%= f.submit '投稿', class: "w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none" %>
       </div>

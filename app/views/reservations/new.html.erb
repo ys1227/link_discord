@@ -4,10 +4,10 @@
     <p class="text-black text-center">募集時間は３つまで登録できるよ</p>
   </div>
 
-  <div class=" text-black border-2 border-solid border-black w-1/3 p-3 mx-auto text-center text-xl my-8">
+  <!--<div class=" text-black border-2 border-solid border-black w-1/3 p-3 mx-auto text-center text-xl my-8">
     <p>締め切り設定時間</p>
     <%=l @question.deadline, format: :long %>
-  </div>
+  </div> -->
   <div class="max-w-xl mx-auto py-8">
     <%= form_with(model: [@question, @reservation], local: true, class: "bg-discord-dark-secondary shadow-md rounded px-8 pt-6 pb-8 mb-4") do |f| %>
       <%= render 'shared/error_messages', object: f.object %>

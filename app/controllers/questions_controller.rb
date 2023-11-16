@@ -48,9 +48,24 @@ class QuestionsController < ApplicationController
     @question_reservatins = @question.reservations
   end
 
+  def create_deadline
+    @question = Question.find(params[:id])
+    @question_reservations = @question.reservations
+    start_times = @question_reservations.map(&:start_time)
+    eariest_start_time = start_times.min
+    deadline = eariest_start_time - 24.hours
+
+    if @question.update(deadline: deadline)
+      redirect_to questions_path, success: '募集を開始しました'
+    else
+      flash.now[:danger] ='投稿が失敗しました' 
+      render :show_reservations, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def question_params
-    params.require(:question).permit(:title, :content, :role, :deadline)
+    params.require(:question).permit(:title, :content, :role)
   end
 end

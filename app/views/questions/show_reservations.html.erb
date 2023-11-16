@@ -14,5 +14,10 @@
         </div>
       </div>
     <% end %>
+    <div class="flex flex-col justify-center items-center">
+      <div>このボタンを押したら最終決定するよ。募集を開始したら時間の変更と削除はできないから変更があったら今変更しておこう！</div>
+      <div class="text-center">質問自体をクローズすることはできるよ！</div>
+      <%=button_to "最終決定する",create_deadline_question_path(@question), class: "btn btn-primary "%>
+    </div>
   </div>
 </div>
