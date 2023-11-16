@@ -1,0 +1,19 @@
+<div class="min-h-screen bg-white">
+  <div class="flex justify-center mx-auto flex-col w-1/2">
+  <%= form_with(url: bulk_update_question_reservations_path(@question), method: :patch, local: true) do |f| %>
+    <% @question_reservations.each do |reservation| %>
+      <%= f.fields_for "reservations[]", reservation do |rf| %>
+        <%= rf.hidden_field :id %>
+        <p class="text-black text-sm font-bold mb-2"><%= (l reservation.start_time, format: :short) %></p>
+        <%= render 'shared/error_messages', object: rf.object %>
+        <%= rf.label :rank, Reservation.ranks_i18n.invert %>
+        <%= rf.select :rank ,Reservation.ranks_i18n.invert, { include_blank: "希望順位を選択してください" }, class: "block appearance-none w-full bg-gray-100 text-black border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %> 
+      <% end %>
+    <% end %>
+    <%= f.submit "更新する" %>
+  <% end %>
+  <%=link_to "戻る", new_question_reservation_path(@question,@reservation)%>
+  <%=link_to "最終確認へ", show_reservations_question_path(@question)%>
+  </div>
+</div>
+

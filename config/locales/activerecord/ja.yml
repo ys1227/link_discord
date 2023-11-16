@@ -7,14 +7,28 @@ ja:
         job_serching: '就活'
         portfolio : 'アプリ'
         others: その他
+    reservation:
+      rank:
+        one: '第1希望'
+        two: '第2希望'
+        three: '第３希望'
   activerecord:
     models:
       question: '質問'
+      reservation: '予約'
     attributes:
       question:
         role: 'カテゴリー'
         title: 'タイトル'
         content: '内容'
         deadline: '締切日時'
+      reservation:
+        rank: '希望順位'
+        start_time: '希望時間'
+  time:
+    formats:
+      time_only: "%H:%M"
+
+
           
 

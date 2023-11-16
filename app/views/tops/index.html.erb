@@ -7,7 +7,6 @@
     <p class="py-6 text-black">Discordで質問したり雑談をする仲間を集めに行こう!</p>
     <% if logged_in? %>
       <%= link_to "質問する", new_question_path, class: "btn btn-primary" %>
-      <%= link_to "予約する", "#", class: "btn btn-primary" %>
     <% end %>
     <%= link_to "見つけに行く", questions_path, class: "btn btn-primary" %>
   </div>
