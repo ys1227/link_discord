@@ -50,7 +50,7 @@ class ReservationsController < ApplicationController
     end
   
     if errors.empty?
-      redirect_to questions_path, success: '募集時間が登録できました'
+      redirect_to show_reservations_question_path(@question), success: '募集時間が登録できました'
     else
       flash.now[:danger] = errors.join(', ')
       render :index, status: :unprocessable_entity

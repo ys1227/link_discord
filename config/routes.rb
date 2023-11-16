@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :questions do
     member do
       get :show_reservations
+      post :create_deadline
     end
     resources :reservations do
       collection do
