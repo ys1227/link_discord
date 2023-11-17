@@ -55,10 +55,11 @@ class QuestionsController < ApplicationController
     eariest_start_time = start_times.min
     deadline = eariest_start_time - 24.hours
 
-    if @question.update(deadline: deadline)
+    if @question.valid?(:create_deadline)
+      @question.update(deadline: deadline)
       redirect_to questions_path, success: '募集を開始しました'
     else
-      flash.now[:danger] ='投稿が失敗しました' 
+      flash.now[:danger] = "希望順位が正しく設定されていません。戻るを押して設定し直してね。"
       render :show_reservations, status: :unprocessable_entity
     end
   end

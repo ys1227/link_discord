@@ -29,6 +29,9 @@ class ReservationsController < ApplicationController
   def bulk_update
     @question = Question.find(params[:question_id])
     @question_reservations = @question.reservations
+    @question_reservations.each do |reservation|
+      reservation.update_columns(rank:"default")
+    end
     @reservations_params = second_reservation_params
     errors = []
   
