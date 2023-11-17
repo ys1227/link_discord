@@ -1,6 +1,7 @@
 class User < ApplicationRecord
    has_many :questions, dependent: :destroy
    has_many :messages, dependent: :destroy
+   has_many :votes, dependent: :destroy
  
    validates :email, uniqueness: true
  

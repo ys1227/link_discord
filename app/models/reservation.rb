@@ -1,13 +1,17 @@
 class Reservation < ApplicationRecord
   belongs_to :question
+  has_many :votes, dependent: :destroy
+  
   enum rank: { default:0, one:10, two:20, three:30 }
 
   validates :start_time, presence:true
   validate :start_check
-  validate :reservation_count_check
+  validate :reservation_count_check, on: :create
+  validate :reservation_time_check, on: :crate
   validate :rank_count_check, on: :bulk_update
   validate :rank_not_default_check, on: :bulk_update
-  validate :reservation_time_check, on: :create
+  validate :rank_not_same_check, on: :create_deadline
+
 
   #validate :deadline_check
 
@@ -47,7 +51,7 @@ class Reservation < ApplicationRecord
   def reservation_count_check
     @question = Question.find(self.question.id)
       @saved_question_reservation = @question.reservations.count
-      if @saved_question_reservation > 3
+      if @saved_question_reservation >= 3
         errors.add(:start_time,"は3つまでしか登録できません")
       end
   end
@@ -66,14 +70,11 @@ class Reservation < ApplicationRecord
   #{ id: data[:id], rank: data[:rank] }
 
   def rank_count_check
-    @question = Question.find(self.question.id)
-    ranks = []
-    @question_reservations = @question.reservations
-      @question.reservations.each do |reservation|
-        ranks << reservation.rank
-      end
-    if  ranks.include?(self.rank && self.rank != "default")
-      errors.add(:rank,"が重複して登録されています。")
+    @question = Question.find(self.question_id)
+    existing_ranks = @question.reservations.where.not(id: self.id).pluck(:rank)
+
+    if existing_ranks.include?(self.rank) && self.rank != "default"
+      errors.add(:rank, "が重複して登録されています。もう一度選択し直してください。")
     end
   end
 
@@ -84,4 +85,27 @@ class Reservation < ApplicationRecord
     end
   end
 
+  def rank_not_same_check
+    question = Question.find(self.question_id)
+    question_reservations = question.reservations
+    ranks_array = []
+    question.reservations.each do |reservation|
+      ranks_array << reservation.rank
+    end
+    valid_arrays = [
+    ["one"],
+    ["one", "two"],
+    ["two", "one"],
+    ["one", "two", "three"],
+    ["one", "three", "two"],
+    ["two", "one", "three"],
+    ["two", "three", "one"],
+    ["three", "two", "one"],
+    ["three", "one", "two"]
+  ]
+
+    unless valid_arrays.include?(ranks_array)
+      errors.add(:rank, "希望順位が正しくありません")
+    end
+  end
 end
