@@ -7,13 +7,10 @@ class Reservation < ApplicationRecord
   validates :start_time, presence:true
   validate :start_check
   validate :reservation_count_check, on: :create
-  validate :reservation_time_check, on: :crate
+  validate :reservation_time_check, on: :create
   validate :rank_count_check, on: :bulk_update
   validate :rank_not_default_check, on: :bulk_update
   validate :rank_not_same_check, on: :create_deadline
-
-
-  #validate :deadline_check
 
 
   def start_check
@@ -24,29 +21,13 @@ class Reservation < ApplicationRecord
       start_time.hour,
       start_time.min,
       0,
-      Rails.application.config.time_zone # アプリケーションのタイムゾーンに合わせます
+      Rails.application.config.time_zone 
     )
   
     if selected_datetime <= DateTime.current
       errors.add(:start_time, "は現在の時間より遅い時間を選択してください")
     end
   end
-
-  # def deadline_check
-  #   @question = Question.find(self.question.id)
-  #   selected_datetime = DateTime.new(
-  #     start_time.year,
-  #     start_time.month,
-  #     start_time.day,
-  #     start_time.hour,
-  #     start_time.min,
-  #     0, # 秒は0秒として扱いますが、必要に応じて変更
-  #     Rails.application.config.time_zone # アプリケーションのタイムゾーンに合わせます
-  #   )
-  #   if selected_datetime <= @question.deadline
-  #     errors.add(:start_time, "は募集締め切りに設定した時間より遅い時間を選択してください")
-  #   end
-  # end
 
   def reservation_count_check
     @question = Question.find(self.question.id)
@@ -63,10 +44,11 @@ class Reservation < ApplicationRecord
       @question.reservations.each do |reservation|
         start_times << reservation.start_time
       end
-    if  start_times.include?(self.start_time)
+    if start_times.include?(self.start_time)
       errors.add(:start_time,"が重複して登録されています。")
     end
   end
+
   #{ id: data[:id], rank: data[:rank] }
 
   def rank_count_check

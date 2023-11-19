@@ -26,8 +26,8 @@ class User < ApplicationRecord
    end
   end
 
-  def vote(reservation)
-    vote_reservations << reservation
-  end
+  # def vote(reservation)
+  #   vote_reservations << reservation
+  # end
     
 end 

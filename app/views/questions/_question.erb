@@ -2,7 +2,11 @@
   <div class="h-full bg-discord-dark bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
     <div class="mb-4">
       <div class="flex justify-center items-center mb-2">
+        <% if question.user.image? == true  %>
         <%= image_tag question.user.image, alt: question.user.name, class: "h-16 w-16 rounded-full" %>
+        <%else%>
+        <%= image_tag "1_test.png", alt: question.user.name, class: "h-16 w-16 rounded-full"%>
+        <%end%>
         <h2 class="title-font sm:text-2xl text-xl font-medium text-white ml-4">
           <%= question.user.name %>
         </h2>
@@ -16,9 +20,11 @@
         </p>
       </div>
     </div>
-    <%= link_to "質問を見に行く", question_path(question), class: "text-discord-blurple inline-flex items-center mt-4" %>
+    <%= link_to "質問詳細", question_path(question), class: "text-discord-blurple inline-flex items-center mt-4" %>
     <!---<%= link_to "チャット", chat_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %> --->
+    <%if question.user == current_user%>
     <%= link_to "予約を修正する", show_reservations_question_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %>
+    <%end%>
     <%= link_to "予約する", new_question_reservation_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %>
     <%= link_to "投票する", index_vote_question_reservations_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %>
 
