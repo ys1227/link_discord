@@ -70,6 +70,7 @@ class ReservationsController < ApplicationController
   end
 
   def index_vote
+    @vote = Vote.new
     @question = Question.find(params[:question_id])
     @question_reservations = @question.reservations
     @user = @question.user_id
