@@ -20,5 +20,7 @@
     <!---<%= link_to "チャット", chat_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %> --->
     <%= link_to "予約を修正する", show_reservations_question_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %>
     <%= link_to "予約する", new_question_reservation_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %>
+    <%= link_to "投票する", index_vote_question_reservations_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %>
+
   </div>
 </div>
