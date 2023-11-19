@@ -1,0 +1,19 @@
+<div class="min-h-screen bg-white">
+  <div class="flex justify-center">
+    <div class="p-8 text-xl text-black text-center border-4 border-double border-black my-10">
+      自分が参加したい日にちを投票しよう！！
+      <p>締め切り時間が来たら一番投票者が多かった日にちに開催日時が決定するよ！</p>
+    </div>
+  </div>
+
+  <div class="flex justify-center">
+    <div class="p-8 text-xl text-black text-center border-2 border-solid border-black my-2 w-1/3 p-px">
+      <p>締め切り時間</p>
+      <%=l @question.deadline, format: :short%>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap justify-center items-center">
+  <%= render @question_reservations, question: @question %>
+  </div>
+</div>

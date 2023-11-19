@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'reservations/index'
-  get 'reservations/create'
   root :to => 'tops#index'
   
   get 'auth/:provider/callback', to: 'user_sessions#create'
@@ -17,10 +15,14 @@ Rails.application.routes.draw do
       get :show_reservations
       post :create_deadline
     end
+  
     resources :reservations do
       collection do
         patch :bulk_update
+        get :index_vote
       end
+  
+      resources :votes
     end
   end
   resources :users, only: %i[new create]

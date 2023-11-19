@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_16_121951) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_17_123210) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,8 +57,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_16_121951) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "reservation_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reservation_id"], name: "index_votes_on_reservation_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "messages", "questions"
   add_foreign_key "messages", "users"
   add_foreign_key "questions", "users"
   add_foreign_key "reservations", "questions"
+  add_foreign_key "votes", "reservations"
+  add_foreign_key "votes", "users"
 end

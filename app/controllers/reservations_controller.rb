@@ -68,6 +68,12 @@ class ReservationsController < ApplicationController
 
     redirect_to new_question_reservation_path(@question), status: :see_other
   end
+
+  def index_vote
+    @question = Question.find(params[:question_id])
+    @question_reservations = @question.reservations
+    @user = @question.user_id
+  end
   
   private
   

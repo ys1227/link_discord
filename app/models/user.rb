@@ -2,16 +2,17 @@ class User < ApplicationRecord
    has_many :questions, dependent: :destroy
    has_many :messages, dependent: :destroy
    has_many :votes, dependent: :destroy
- 
+   has_many :vote_reservations, through: :votes, source: :reservation
+
    validates :email, uniqueness: true
  
    class << self
-     def find_or_create_from_auth_hash(auth_hash)
+    def find_or_create_from_auth_hash(auth_hash)
        user_params = user_params_from_auth_hash(auth_hash)
        find_or_create_by(uid: user_params[:uid]) do |user|
          user.update(user_params)
        end
-      end
+    end
  
    private
  
@@ -24,4 +25,9 @@ class User < ApplicationRecord
      }
    end
   end
+
+  def vote(reservation)
+    vote_reservations << reservation
+  end
+    
 end 
