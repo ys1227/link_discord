@@ -17,10 +17,11 @@
           <div class="flex flex-col items-center">
             <%= image_tag(vote.user.image, class: "w-12 h-12 object-cover rounded-full mb-1") %>
             <span><%= vote.user.name %></span>
+            <%= link_to "削除する",question_reservation_vote_path(question,reservation,vote),  data: { turbo_method: :delete },class:""%>
           </div>
         <% end %>
       </div>
     </div>
-    <%= button_to "投票する", question_reservation_votes_path(question, reservation), method: :post, class: "mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <%= button_to "参加できる", question_reservation_votes_path(question, reservation), method: :post, class: "mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
   </div>
 </div>
