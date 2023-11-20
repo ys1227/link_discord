@@ -57,6 +57,7 @@ class QuestionsController < ApplicationController
 
     if @question.valid?(:create_deadline)
       @question.update(deadline: deadline)
+      @question.update(is_closed: false)
       redirect_to questions_path, success: '募集を開始しました'
     else
       flash.now[:danger] = "希望順位が正しく設定されていません。戻るを押して設定し直してね。"
