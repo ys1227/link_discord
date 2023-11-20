@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.includes(:user)
+    @questions = Question.includes(:user).where(is_closed: false)
   end
 
   def show
