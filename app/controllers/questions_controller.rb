@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.includes(:user).where(is_closed: false)
+    @questions = Question.includes(:user).where(state: "published")
   end
 
   def show
@@ -57,7 +57,7 @@ class QuestionsController < ApplicationController
 
     if @question.valid?(:create_deadline)
       @question.update(deadline: deadline)
-      @question.update(is_closed: false)
+      @question.update(state: "published")
       redirect_to questions_path, success: '募集を開始しました'
     else
       flash.now[:danger] = "希望順位が正しく設定されていません。戻るを押して設定し直してね。"
