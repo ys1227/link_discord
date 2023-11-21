@@ -60,6 +60,8 @@ gem 'rails-i18n'
 
 gem 'enum_help'
 
+gem 'discordrb'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
