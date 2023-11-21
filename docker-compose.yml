@@ -23,5 +23,7 @@ services:
     tty: true
     depends_on:
       - db
+    env_file:
+      - .env
 volumes:
   postgres_volume:

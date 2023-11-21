@@ -27,6 +27,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: %i[new create]
 
-  mount ActionCable.server => '/cable'
-  get 'rooms/show/:id' => 'rooms#show', :as => :chat
+  # mount ActionCable.server => '/cable'
+  # get 'rooms/show/:id' => 'rooms#show', :as => :chat
 end
