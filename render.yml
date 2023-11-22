@@ -1,7 +1,7 @@
 databases:
   - name: Link_disco
     databaseName: link_discord
-    user: saki
+    user: Link_Disco
     region: singapore
 
 services:
