@@ -3,10 +3,10 @@ require 'discordrb'
 # Bot を作成
 bot = Discordrb::Bot.new client_id: ENV['DISCORD_CLIENT_ID'], token: ENV['DISCORD_BOT_TOKEN'],intents: [:server_messages]
 
-メッセージの投稿に反応して実行するメソッドを定義
-bot.message(content: 'Ping!') do |event|
-  event.respond 'Pong!'
-end
+# メッセージの投稿に反応して実行するメソッドを定義
+# bot.message(content: 'Ping!') do |event|
+#   event.respond 'Pong!'
+# end
 
 
 bot.message(with_text: '!dm') do |event|
