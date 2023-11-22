@@ -6,7 +6,7 @@ databases:
 
 services:
   - type: web
-    name: Link_disco
+    name: Link_Disco
     env: ruby
     region: singapore
     plan: free
