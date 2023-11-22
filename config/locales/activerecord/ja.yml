@@ -7,6 +7,10 @@ ja:
         job_serching: '就活'
         portfolio : 'アプリ'
         others: その他
+      state:
+        draft: '下書き'
+        publishd: '公開中'
+        closed: 'クローズ'
     reservation:
       rank:
         one: '第1希望'

@@ -22,7 +22,7 @@
     </div>
     <%= link_to "質問詳細", question_path(question), class: "text-discord-blurple inline-flex items-center mt-4" %>
     <!---<%= link_to "チャット", chat_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %> --->
-    <%if question.user == current_user && question.is_closed == true %>
+    <%if question.user == current_user && question.state == "draft" %>
     <%= link_to "予約を修正する", new_question_reservation_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %>
     <%end%>
     <%= link_to "投票する", index_vote_question_reservations_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %>
