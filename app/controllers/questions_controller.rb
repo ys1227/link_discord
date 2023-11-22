@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
   def create 
     @question = current_user.questions.build(question_params)
     if @question.save
-      redirect_to new_question_reservation_path(@question), success: '投稿が成功しました'
+      redirect_to choose_schedule_question_path(@question), success: '投稿が成功しました'
     else
       flash.now[:danger] ='投稿が失敗しました' 
       render :new, status: :unprocessable_entity
@@ -63,6 +63,10 @@ class QuestionsController < ApplicationController
       flash.now[:danger] = "希望順位が正しく設定されていません。戻るを押して設定し直してね。"
       render :show_reservations, status: :unprocessable_entity
     end
+  end
+
+  def choose_schedule
+    @question = Question.find(params[:id])
   end
 
   private

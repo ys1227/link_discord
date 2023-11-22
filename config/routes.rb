@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :questions do
     member do
       get :show_reservations
+      get :choose_schedule
       post :create_deadline
     end
   
