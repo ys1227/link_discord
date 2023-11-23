@@ -8,3 +8,6 @@ yarn build # jsファイルをesbuildでバンドルしているため
 bundle exec rails assets:clobber
 bundle exec rails assets:precompile  # cssはsprocketsを使っているため
 bundle exec rails db:migrate # migrateはridgepoleを使っているため（標準のmigrateを使うならbundle exec rails db:migrateで良いかと思います）
+service cron status
+bundle exec whenever --update-crontab
+crontab  -l

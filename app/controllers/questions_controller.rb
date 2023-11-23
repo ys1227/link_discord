@@ -53,7 +53,9 @@ class QuestionsController < ApplicationController
     @question_reservations = @question.reservations
     start_times = @question_reservations.map(&:start_time)
     eariest_start_time = start_times.min
-    deadline = eariest_start_time - 24.hours
+    # deadline = eariest_start_time - 12.hours
+    deadline = eariest_start_time - 1.hours
+
 
     if @question.valid?(:create_deadline)
       @question.update(deadline: deadline)
