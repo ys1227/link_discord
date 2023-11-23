@@ -18,7 +18,3 @@ set :runner_command, "rails runner"
  every 1.minute do
   runner 'Batch::MinuteStateConfirm.update_question_state'
  end
-
- #  every 1.minute do
-#   runner 'Batch::MinuteExecute.outputText'
-#  end
