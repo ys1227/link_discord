@@ -24,8 +24,9 @@ class Reservation < ApplicationRecord
       Rails.application.config.time_zone 
     )
   
-    if selected_datetime <= DateTime.current
-      errors.add(:start_time, "は現在の時間より遅い時間を選択してください")
+    if selected_datetime <= DateTime.current + 1.hours
+      # DateTime.current + 24.hoursにする予定
+      errors.add(:start_time, "は現在の時間より24時間遅い時間を選択してください")
     end
   end
 

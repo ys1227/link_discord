@@ -39,9 +39,13 @@ end
 namespace :question_state do
   desc 'publishedの中で、deadlineカラムが過去になっているものがあれば、ステータスをclosedに変更されるようにする'
   task update_question_state: :environment do
-    Question.published.past_closed.find_each(&:closed!)
+    Question.published.past_closed.find_each |question|
+      question.update!(state: "closed")
+    end
   end
-end
+
+
+  
 
 # Question.publishedでstatusカラムがpublishedのオブジェクトが表示される
 # past_closedメソッドでdeadlineカラムが現在時刻よりも前になってしまっているquestionオブジェクトを探す

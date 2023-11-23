@@ -12,7 +12,7 @@
               <%=@question.content%>
             </p>
             <% if current_user == @question.user %>
-              <%= link_to "削除する", question_path(@question), method: :delete, class: "text-white border border-white rounded py-2 px-4 hover:bg-white hover:text-discord-dark transition ease-in-out duration-150" %>
+              <%= link_to "削除する", question_path(@question), data: { turbo_method: :delete }, class: "text-white border border-white rounded py-2 px-4 hover:bg-white hover:text-discord-dark transition ease-in-out duration-150" %>
               <%= link_to "編集する", edit_question_path(@question), class: "text-white border border-white rounded py-2 px-4 hover:bg-white hover:text-discord-dark transition ease-in-out duration-150 ml-4" %>
             <% end %>
           </div>

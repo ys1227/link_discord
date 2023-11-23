@@ -62,6 +62,8 @@ gem 'enum_help'
 
 gem 'discordrb'
 
+gem 'whenever', require: false
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
