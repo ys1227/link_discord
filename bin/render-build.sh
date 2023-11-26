@@ -7,6 +7,3 @@ yarn install
 bundle exec rails assets:precompile  # cssはsprocketsを使っているため
 bundle exec rails assets:clean 
 bundle exec rails db:migrate
-bundle exec whenever 
-bundle exec whenever --update-crontab
-crontab  -l

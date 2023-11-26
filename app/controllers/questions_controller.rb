@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.includes(:user).where(state: "published")
+    @questions = Question.includes(:user)#.where(state: "published")
   end
 
   def show
