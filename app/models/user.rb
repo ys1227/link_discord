@@ -12,57 +12,77 @@ class User < ApplicationRecord
          user.update(user_params)
        end
     end
-    
-    # DMを定期実行で送るメソッド
-    def send_dm_to_question_user(reservation)
-      bot = Discordrb::Bot.new client_id: ENV['DISCORD_CLIENT_ID'], token: ENV['DISCORD_BOT_TOKEN'],intents: [:server_messages]
-      begin
-        # ユーザーのDiscord IDをもとにダイレクトメッセージ用のチャンネルを取得(pmメソッド)
-        # userメソッドで引数にidをとってuserの情報を取得
-        channel = bot.user(self.uid)&.pm
-        if channel
-          # メッセージを送信
-          channel.send_message("あなたが募集した集合時間が決まりました。#{reservation.start_time}です！")
-        else
-          puts "Error: ダイレクトメッセージ用のチャンネルが見つかりませんでした。"
-        end
-      rescue Discordrb::Errors::NoPermission
-        puts "Error: ダイレクトメッセージの送信権限がありません。"
-      end
-    end
   
+    require 'json'
+    def send_dm_to_question_user(reservation)
+      user = reservation.question.user
+      question_id = reservation.question.id
+      # tokenを渡してOauth認証を行なっている.これでチャンネルのidのなどの情報が帰ってくる
+      # https://discord.com/developers/docs/resources/user#create-dm
+      # https://discord.com/developers/docs/resources/channel#channel-object chennelのオブジェクトをcrete_dmで返す
+      channel_objects = Discordrb::API::User.create_pm("Bot #{ENV['DISCORD_BOT_TOKEN']}", user.uid)
+      parse_objects = JSON.parse(channel_objects)
+      channel_id = parse_objects["id"]
+      # DMチャンネルIDを使用してメッセージを送信する
+      Discordrb::API::Channel.create_message(
+        "Bot #{ENV['DISCORD_BOT_TOKEN']}", 
+        channel_id,
+        '⚡️LinKDiscoアプリのお知らせBotです⚡️ あなたが募集したテーマの集合時間が決定したのでお知らせに来ました🤖',
+        false, # tts
+        [{
+          title: '🚀あなたが募集した質問をクリックして見に行く🚀',
+          description: "あなたが募集したテーマに対して集合時間が決まりました！\n 
+          ⏰#{reservation.start_time.strftime('%m月%d日 %H時%M分')}からスタート⏰ \n 
+          質問の詳細を見るには上記のリンクにアクセスしてね。 \n 🪐Let`s GO !! 🪐",
+          url: "http://localhost:3000/questions/#{question_id}/reservations/index_vote"
+        }]
+      )
+    end
+    
     def send_dm_to_most_voted_user(reservation)
-      bot = Discordrb::Bot.new client_id: ENV['DISCORD_CLIENT_ID'], token: ENV['DISCORD_BOT_TOKEN'],intents: [:server_messages]
-      begin
-        # ユーザーのDiscord IDをもとにダイレクトメッセージ用のチャンネルを取得(pmメソッド)
-        # userメソッドで引数にidをとってuserの情報を取得
-        channel = bot.user(self.uid)&.pm
-        if channel
-          # メッセージを送信
-          channel.send_message("集合時間が決まりました。#{reservation.start_time}です！")
-        else
-          puts "Error: ダイレクトメッセージ用のチャンネルが見つかりませんでした。"
-        end
-      rescue Discordrb::Errors::NoPermission
-        puts "Error: ダイレクトメッセージの送信権限がありません。"
-      end
+      question_id = reservation.question.id
+      # tokenを渡してOauth認証を行なっている.これでチャンネルのidのなどの情報が帰ってくる
+      # https://discord.com/developers/docs/resources/user#create-dm
+      # https://discord.com/developers/docs/resources/channel#channel-object chennelのオブジェクトをcrete_dmで返す
+      channel_objects = Discordrb::API::User.create_pm("Bot #{ENV['DISCORD_BOT_TOKEN']}", self.uid)
+      parse_objects = JSON.parse(channel_objects)
+      channel_id = parse_objects["id"]
+      # DMチャンネルIDを使用してメッセージを送信する
+      Discordrb::API::Channel.create_message(
+        "Bot #{ENV['DISCORD_BOT_TOKEN']}", 
+        channel_id,
+        '⚡️LinKDiscoアプリのお知らせBotです⚡️ あなた投票したテーマの集合時間が決定したのでお知らせに来ました🤖',
+        false, # tts
+        [{
+          title: '🚀あなたが投票した質問をクリックして見に行く🚀',
+          description: "あなたが投票したテーマに対して集合時間が決まりました！\n 
+          ⏰#{reservation.start_time.strftime('%m月%d日 %H時%M分')}からスタート⏰ \n 
+          質問の詳細を見るには上記のリンクにアクセスしてね。 \n 🪐Let`s GO !! 🪐",
+          url: "http://localhost:3000/questions/#{question_id}/reservations/index_vote"
+        }]
+      )
     end
   
     def send_dm_about_no_voted_user
-      bot = Discordrb::Bot.new client_id: ENV['DISCORD_CLIENT_ID'], token: ENV['DISCORD_BOT_TOKEN'],intents: [:server_messages]
-      begin
-        # ユーザーのDiscord IDをもとにダイレクトメッセージ用のチャンネルを取得(pmメソッド)
-        # userメソッドで引数にidをとってuserの情報を取得
-        channel = bot.user(self.uid)&.pm
-        if channel
-          # メッセージを送信
-          channel.send_message("誰も投票していませんでした。もう一度募集する場合は再度テーマを投稿してね。")
-        else
-          puts "Error: ダイレクトメッセージ用のチャンネルが見つかりませんでした。"
-        end
-      rescue Discordrb::Errors::NoPermission
-        puts "Error: ダイレクトメッセージの送信権限がありません。"
-      end
+      # tokenを渡してOauth認証を行なっている.これでチャンネルのidのなどの情報が帰ってくる
+      # https://discord.com/developers/docs/resources/user#create-dm
+      # https://discord.com/developers/docs/resources/channel#channel-object chennelのオブジェクトをcrete_dmで返す
+      channel_objects = Discordrb::API::User.create_pm("Bot #{ENV['DISCORD_BOT_TOKEN']}", self.uid)
+      parse_objects = JSON.parse(channel_objects)
+      channel_id = parse_objects["id"]
+      # DMチャンネルIDを使用してメッセージを送信する
+      Discordrb::API::Channel.create_message(
+        "Bot #{ENV['DISCORD_BOT_TOKEN']}", 
+        channel_id,
+        '⚡️LinKDiscoアプリのお知らせBotです⚡️ あなた募集したテーマの締め切り時間がきたので結果をお知らせに来ました🤖',
+        false, # tts
+        [{
+          title: '🚀あなたが投票した質問をクリックして見に行く🚀',
+          description: "あなたが投票したテーマは投票人数が0人でした。応募する場合は質問を作成して募集してみてね！\n 
+          質問の詳細を見るには上記のリンクにアクセスしてね。 \n 🪐Let`s GO !! 🪐",
+          url: "http://localhost:3000/questions/#{question_id}/reservations/index_vote"
+        }]
+      )
     end
  
    private
@@ -75,8 +95,4 @@ class User < ApplicationRecord
        uid: auth_hash.uid,
      }
    end
-
-  # def vote(reservation)
-  #   vote_reservations << reservation
-  # end  
 end 
