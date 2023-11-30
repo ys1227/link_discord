@@ -64,6 +64,8 @@ gem 'discordrb'
 
 gem 'whenever', require: false
 
+gem 'sidekiq'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
