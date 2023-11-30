@@ -17,13 +17,46 @@ services:
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/link_discord
+      - bunlde_volume:/usr/local/bundle
     ports:
       - 3000:3000
     stdin_open: true
     tty: true
-    depends_on:
-      - db
+    environment:
+      REDIS_URL: redis://redis:6379
     env_file:
       - .env
+  
+  sidekiq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      REDIS_URL: redis://redis:6379
+    volumes:
+      - .:/sidekiq
+    depends_on:
+      - db
+      - redis
+    command: bundle exec sidekiq
+  
+  redis:
+     image: redis:latest
+     ports:
+       - 6379:6379
+     volumes:
+       - ./redis:/data
+     command: redis-server --appendonly yes
+     
 volumes:
   postgres_volume:
+  bunlde_volume:
+
+  
+
+# dbはvolマウントでdocker volume lsで確認できる
+# depend_onは起動の順番の制御
+# commandはサービス起動コマンドの上書き
+# contextはDockerfileがあるディレクトリのことを指す。.でdocker-compose.ymlファイルがあるディレクトリのをカレントディレクトリとする相対パスになる(docker buildを実行するディレクトリ)
+# https://qiita.com/sam8helloworld/items/e7fffa9afc82aea68a7a
+# volumesとして定義されていないがサービスで定義されている場合は匿名vol.になる
