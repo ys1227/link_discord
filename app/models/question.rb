@@ -21,16 +21,16 @@ class Question < ApplicationRecord
     end
     reservations.sort_by { |id, rank, start_time, votes| [-votes, rank] }
     if reservations.all? { |reservation| reservation[3] == 0 }
-      self.user.send_dm_about_no_voted_user
+      self.user.send_dm_about_no_voted_user.set(wait: 30.second).perform_later
     else
       MatchingTime.create!(reservation_id:reservations[0][0],matching_data:reservations[0][2])
         Reservation.find(reservations[0][0]).votes.each do |vote|
           voted_user = vote.user
           voted_reservation = Reservation.find(reservations[0][0])
-          voted_user.send_dm_to_most_voted_user(voted_reservation)
+          voted_user.send_dm_to_most_voted_user(voted_reservation).set(wait: 30.second).perform_later
         end
       voted_reservation = Reservation.find(reservations[0][0])
-      self.user.send_dm_to_question_user(voted_reservation)
+      self.user.send_dm_to_question_user(voted_reservation).set(wait: 30.second).perform_later
     end
   end
 

@@ -15,8 +15,5 @@ set :output, 'log/execute.log'
 # set :output, "#{Rails.root}/log/cron.log"  # ログファイルの出力先
 # set :runner_command, "rails runner"
 
- every 1.minute do
-  runner 'Batch::MinuteStateConfirm.update_question_state'
- end
 
  

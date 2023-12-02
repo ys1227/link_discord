@@ -38,3 +38,5 @@
 **/.DS_Store
 
 /.env
+/redis/appendonlydir/*
+/redis/dump.rdb
