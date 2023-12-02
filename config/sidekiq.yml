@@ -1,0 +1,5 @@
+:scheduler:
+  :schedule:
+    send_dm_job:
+      cron: '0 * * * * *'   # Runs once per minute
+      class: SendDmJob

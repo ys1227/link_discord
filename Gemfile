@@ -66,6 +66,8 @@ gem 'whenever', require: false
 
 gem 'sidekiq'
 
+gem 'sidekiq-scheduler' 
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
