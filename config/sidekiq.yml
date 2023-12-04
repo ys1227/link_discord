@@ -1,5 +1,9 @@
+:concurrency: 1
+:queues:
+  - default
+  - confirm_date
 :scheduler:
   :schedule:
-    send_dm_job:
-      cron: '0 * * * * *'   # Runs once per minute
-      class: SendDmJob
+    change_question_state_job:
+      cron: '*/3 * * * *'    # Runs once per minute
+      class: ChangeQuestionStateJob
