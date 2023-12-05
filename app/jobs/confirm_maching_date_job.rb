@@ -13,7 +13,7 @@ class ConfirmMachingDateJob < ApplicationJob
     if sorted_reservations.all? { |reservation| reservation[3] == 0 }
       NotifyUnvotedQuestionOwnerJob.perform_later(question.user,question)
     else
-      MatchingTime.create!(reservation_id:sorted_reservations[0][0],matching_data:sorted_reservations[0][2])
+      MatchingTime.create!(reservation_id:sorted_reservations[0][0],matching_data:sorted_reservations[0][2], question_id: question.id)
       reservation = Reservation.find(sorted_reservations[0][0])
       wait_time = 5
       reservation.votes.each do |vote|
