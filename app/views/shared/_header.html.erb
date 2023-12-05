@@ -1,17 +1,17 @@
-<header class="bg-gray-800 w-full">
+<header class="bg-black w-full">
   <div class="mx-auto max-w-full px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
     <div class="flex items-center justify-between">
       <div>
-        <h1 class="text-2xl font-bold text-white sm:text-3xl">
+        <h1 class="text-2xl font-russo text-white sm:text-3xl">
           Link_Disco
         </h1>
       </div>
       <div class="flex items-center">
-        <%= link_to "ホームへ戻る", root_path, class: "inline-flex items-center justify-center gap-1.5 rounded-lg bg-gray-600 px-5 py-3 text-white transition hover:bg-indigo-700 focus:outline-none" %>
-        <%= link_to "ログアウト", log_out_path,  data: { turbo_method: :delete }, class: "inline-flex items-center justify-center gap-1.5 rounded-lg bg-gray-600 px-5 py-3 text-white transition hover:bg-red-700 focus:outline-none mr-4" %>
+        <%= link_to "ホームへ戻る", root_path, class: "font-dotgothic inline-flex items-center justify-center gap-1.5 rounded-lg bg-gray-600 px-5 py-3 text-white transition hover:bg-indigo-700 focus:outline-none" %>
+        <%= link_to "ログアウト", log_out_path,  data: { turbo_method: :delete }, class: "font-dotgothic inline-flex items-center justify-center gap-1.5 rounded-lg bg-gray-600 px-5 py-3 text-white transition hover:bg-red-700 focus:outline-none mr-4" %>
         <% if current_user.image.present? %>
-          <%= image_tag current_user.image, alt: current_user.name, class: "h-16 w-16 rounded-full" %>
-          <p class="ml-2 text-white">
+          <%= image_tag current_user.image, alt: current_user.name, class: "font-dotgothic h-16 w-16 rounded-full" %>
+          <p class="ml-2 text-white font-dotgothic">
             <%= current_user.name %>
           </p>
         <% end %>

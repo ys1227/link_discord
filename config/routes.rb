@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 Rails.application.routes.draw do
+  get 'matching_times/index'
   mount Sidekiq::Web, at: '/sidekiq'
   root :to => 'tops#index'
   
@@ -19,12 +20,14 @@ Rails.application.routes.draw do
       get :choose_schedule
       post :create_deadline
     end
-  
+    resources :matching_times, only: %i[index]
+
     resources :reservations do
       collection do
         patch :bulk_update
         get :index_vote
       end
+    
   
       resources :votes
     end

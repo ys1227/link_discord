@@ -1,0 +1,25 @@
+<div class="min-h-screen bg-white flex flex-col items-center justify-center">
+  <div class="p-8 text-xl text-black text-center border-4 border-double border-black my-10 max-w-lg">
+    <%= "集まる時間は#{l(@matching_time.reservation.start_time, format: :long)}からだよ！"%>
+  </div>
+
+  <div class="w-full max-w-2xl text-center mb-6">
+    <h1 class="text-2xl font-bold"><%= @question.user.name %></h1>
+    <h1 class="text-xl font-semibold mt-4 mb-2">集まるメンバー</h1>
+  </div>
+
+  <div class="flex flex-wrap justify-center gap-4 mb-6">
+    <% @votes.each do |vote| %>
+      <div class="flex flex-col items-center">
+        <% if vote.user.image? %>
+          <%= image_tag vote.user.image, alt: vote.user.name, class: "h-16 w-16 rounded-full" %>
+        <% else %>
+          <%= image_tag "1_test.png", alt: vote.user.name, class: "h-16 w-16 rounded-full" %>
+        <% end %>
+        <h2 class="text-xl font-medium text-black mt-2">
+          <%= vote.user.name %>
+        </h2>
+      </div>
+    <% end %>
+  </div>
+</div>

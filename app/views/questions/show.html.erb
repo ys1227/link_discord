@@ -1,23 +1,30 @@
-<div class="min-h-screen bg-white">
-  <h1 class="text-xl text-center text-gray-900 pt-10">投稿詳細画面</h1>
-  <div class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap -m-4">
-        <div class="p-4 lg:w-1/3">
-          <div class="h-full bg-discord-dark bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-            <h1 class="title-font sm:text-2xl text-xl font-medium text-white mb-3">
-              <%=@question.title%>
-            </h1>
-            <p class="leading-relaxed text-white mb-3">
-              <%=@question.content%>
-            </p>
-            <% if current_user == @question.user %>
-              <%= link_to "削除する", question_path(@question), data: { turbo_method: :delete }, class: "text-white border border-white rounded py-2 px-4 hover:bg-white hover:text-discord-dark transition ease-in-out duration-150" %>
-              <%= link_to "編集する", edit_question_path(@question), class: "text-white border border-white rounded py-2 px-4 hover:bg-white hover:text-discord-dark transition ease-in-out duration-150 ml-4" %>
-            <% end %>
-          </div>
+  <div class="min-h-screen flex justify-center items-center mt-10">
+    <div class="h-full bg-discord-dark bg-opacity-75 px-52 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+      <div class="mb-4">
+        <div class=" text-white text-center text-xl border-solid border-2 mb-4"><%= @question.state_i18n%></div>
+        <div class="flex justify-center items-center mb-2">
+          <% if @question.user.image? == true %>
+          <%= image_tag @question.user.image, alt: @question.user.name, class: "h-16 w-16 rounded-full" %>
+          <%else%>
+          <%= image_tag "1_test.png", alt: @question.user.name, class: "h-16 w-16 rounded-full"%>
+          <%end%>
+          <h2 class="title-font sm:text-2xl text-xl font-medium text-white ml-4">
+            <%= @question.user.name %>
+          </h2>
+        </div>
+        <div class="bg-discord-container p-4 rounded-lg">
+          <p class="text-white font-bold border-solid border-2 border-white"><%= @question.role_i18n %></p>
+          <p class="text-white mb-3"><%= l @question.deadline %></p>
+          <h2 class="text-white font-bold mb-3"><%= @question.title %></h2>
+          <p class="text-white leading-relaxed mb-3">
+            <%= @question.content %>
+          </p>
         </div>
       </div>
+      <%if @question.state == "closed"%>
+      <%= link_to "集合時間を確認する",   question_matching_times_path(@question), class: "text-discord-blurple inline-flex items-center mt-2" %>
+      <%end%>
     </div>
   </div>
-</div>
+<div>
+

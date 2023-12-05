@@ -9,8 +9,8 @@ ja:
         others: その他
       state:
         draft: '下書き'
-        publishd: '公開中'
-        closed: 'クローズ'
+        published: '募集中'
+        closed: '募集終了'
     reservation:
       rank:
         one: '第1希望'
