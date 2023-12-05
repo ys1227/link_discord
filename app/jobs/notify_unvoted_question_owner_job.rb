@@ -3,6 +3,7 @@ class NotifyUnvotedQuestionOwnerJob < ApplicationJob
   queue_as :default
 
   def perform(user,question)
+    begin
     puts "質問者さんへ誰も投票しませんでした"
   # end
     question_id = question.id
@@ -22,5 +23,10 @@ class NotifyUnvotedQuestionOwnerJob < ApplicationJob
         url: "http://localhost:3000/questions/#{question_id}"
       }]
     )
+    rescue => e
+      puts e
+    # リトライ処理にうつる
+    raise e
+    end
   end
 end

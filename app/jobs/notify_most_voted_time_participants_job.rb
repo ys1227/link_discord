@@ -3,6 +3,7 @@ class NotifyMostVotedTimeParticipantsJob < ApplicationJob
   queue_as :default
 
   def perform(reservation, user)
+    begin
     puts "投票者さんへ投票時間が決まりました"
     question_id = reservation.question.id
     channel_objects = Discordrb::API::User.create_pm("Bot #{ENV['DISCORD_BOT_TOKEN']}", user.uid)
@@ -22,5 +23,9 @@ class NotifyMostVotedTimeParticipantsJob < ApplicationJob
         url: "http://localhost:3000/questions/#{question_id}/matching_times"
       }]
     )
+    rescue => e
+      puts e
+      raise e
+    end
   end
 end

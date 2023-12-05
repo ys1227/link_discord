@@ -2,6 +2,7 @@ class ConfirmMachingDateJob < ApplicationJob
   queue_as :confirm_date
 
   def perform(question)
+    begin
     reservations = []
     question.reservations.each do |reservation|
       voted_count = reservation.votes.count
@@ -22,6 +23,10 @@ class ConfirmMachingDateJob < ApplicationJob
         wait_time += 5
       end
       NotifySelectedMeetingTimeToQuestionOwnerJob.set(wait: wait_time.seconds).perform_later(reservation,question.user)
+    end
+    rescue => e
+      puts e
+      rails e
     end
   end
 end
