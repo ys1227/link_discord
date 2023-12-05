@@ -1,9 +1,10 @@
 :concurrency: 1
+:max_retries: 2
 :queues:
   - default
   - confirm_date
 :scheduler:
   :schedule:
     change_question_state_job:
-      cron: '*/3 * * * *'    # Runs once per minute
+      cron: '0 0 * * * *'    # １時間ごと
       class: ChangeQuestionStateJob

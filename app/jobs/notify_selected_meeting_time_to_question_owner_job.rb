@@ -3,7 +3,8 @@ class NotifySelectedMeetingTimeToQuestionOwnerJob < ApplicationJob
   queue_as :default
 
   def perform(reservation, user)
-   puts "質問者さんへ投表時間が決まりました"
+    begin
+    puts "質問者さんへ投表時間が決まりました"
     user = reservation.question.user
     question_id = reservation.question.id
     channel_objects = Discordrb::API::User.create_pm("Bot #{ENV['DISCORD_BOT_TOKEN']}", user.uid)
@@ -23,5 +24,9 @@ class NotifySelectedMeetingTimeToQuestionOwnerJob < ApplicationJob
         url: "http://localhost:3000/questions/#{question_id}/matching_times"
       }]
     )
+    rescue => e
+      puts e
+      raise e
+    end
   end
 end
