@@ -31,7 +31,7 @@ class User < ApplicationRecord
    def self.guild_member?(uid)
     # parse_objects = JSON.parse(guild_objects)
     # user_objects = parse_objects["user"]["id"]
-    if guild_objects = Discordrb::API::Server.resolve_member("Bot #{ENV['DISCORD_BOT_TOKEN']}", ENV['DISCORD_SERVER_ID'],uid)
+    if guild_objects = Discordrb::API::Server.resolve_member("Bot #{ENV['DISCORD_BOT_TOKEN']}", ENV['DISCORD_SERVER_ID'],uid.to_i)
     return true
     else
       return false
