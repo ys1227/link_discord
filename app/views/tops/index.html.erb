@@ -1,14 +1,29 @@
-<div class="min-h-screen flex items-center justify-center bg-white-600">
-  <div class="text-center">
-    <div class="mb-8">
-      <!-- 仮のイラストパスを実際のものに置き換える -->
-    </div>
-    <h1 class="font-russo text-5xl text-black">Link_Discord </h1>
-    <p class="py-6 text-black font-dotgothic">Discordで質問したり雑談をする仲間を集めに行こう!</p>
-    <% if logged_in? %>
-      <%= link_to "質問する", new_question_path, class: "font-dotgothic btn btn-primary" %>
-    <% end %>
-    <%= link_to "見つけに行く", questions_path, class: "font-dotgothic btn btn-primary" %>
-
+<div class="sky flex-1">
+  <div class="stars">
+    <span class="s"></span>
+    <span class="s"></span>
+    <span class="s"></span>
+    <span class="s"></span>
+    <span class="s"></span>
+    <span class="m"></span>
+    <span class="m"></span>
+    <span class="m"></span>
+    <span class="m"></span>
+    <span class="m"></span>
+    <span class="l"></span>
+    <span class="l"></span>
+    <span class="l"></span>
+    <span class="l"></span>
+    <span class="l"></span>
+  </div>
+  <div class=" flex items-center justify-center">
+    <div class="text-center">
+      <h1 class="font-russo text-6xl text-white ">Link_Discord </h1>
+      <p class="py-6 text-white font-dotgothic">Discordで質問したり雑談をする仲間を集めに行こう!</p>
+      <% if logged_in? %>
+        <%= link_to "質問する", new_question_path, class: "font-dotgothic btn btn-primary bg-discord-dark hover:bg-indigo-700 transition duration-300 transform hover:scale-105 " %>
+      <% end %>
+      <%= link_to "見つけに行く", questions_path, class: "font-dotgothic btn btn-primary bg-discord-dark hover:bg-indigo-700 transition duration-300 transform hover:scale-105" %>
+      </div>
   </div>
 </div>

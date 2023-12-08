@@ -13,7 +13,7 @@
   border-radius: 8px;
 }
 
-.bg-discord-dark {
+.bg-discord-black {
   background-color: #36393f; /* Discordのダークテーマ背景色 */
 }
 
@@ -53,6 +53,119 @@
 .bg-discord-blurple-dark { background-color: #677bc4; }
 .bg-discord-focus { border-color: #00aff4; }
 
-.bg-star-dark{ background-color:#020E34;}
+.bg-star-dark{ background-color:#080f1c;}
+
+
+body{
+  padding:0;
+  margin:0;
+  width: 100%;
+}
+
+.sky{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+  width: 100%;
+  height:250px;
+  background:#07071d;
+  overflow: hidden;
+}
+.sky p{
+  padding:20px;
+  margin:0;
+  font-size:40px;
+  font-weight: bold;
+  color:#FFF;
+}
+
+.stars{
+  position: absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height:100%;
+}
+
+.stars span{
+  position:relative;
+}
+
+.stars span:before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  
+  /*星のサイズ調節*/
+  transform:scale(0.20);
+}
+
+.stars span.s:before{
+  
+   /*20px 20pxが中央*/
+  box-shadow: 20px 20px #FFFFFF;
+}
+
+.stars span.m:before{
+  box-shadow: 
+    /*1段目*/
+    20px 10px #FFF176,
+    /*2段目*/
+    10px 20px #FFF176,
+    20px 20px #FFFFFF,
+    30px 20px #FFF176,
+    /*3段目*/
+    20px 30px #FFF176
+}
+
+.stars span.l:before{
+  box-shadow: 
+    /*0段目*/
+    20px  0px #FDD835,
+    /*1段目*/
+    20px 10px #FFF176,
+    /*2段目*/
+     0px 20px #FDD835,
+    10px 20px #FFF176,
+    20px 20px #FFFFFF,
+    30px 20px #FFF176,
+    40px 20px #FDD835,
+    /*3段目*/
+    20px 30px #FFF176,
+    /*4段目*/
+    20px 40px #FDD835;
+}
+
+
+ /*
+星の位置とアニメーション指定
+最初の秒はアニメーション時間、2つ目は開始までの時間
+*/
+.stars span:nth-child(1){left:10%; top:10%; animation: star-anim 8s 0s infinite;}
+.stars span:nth-child(2){left:80%; top:20%; animation: star-anim 6s 1s infinite;}
+.stars span:nth-child(3){left:60%; top:40%; animation: star-anim 5s 2s infinite;}
+.stars span:nth-child(4){left:20%; top:70%; animation: star-anim 7s 3s infinite;}
+.stars span:nth-child(5){left:80%; top:80%; animation: star-anim 7s 4s infinite;}
+
+.stars span:nth-child(6){left:40%; top:10%; animation: star-anim 4s 0s infinite;}
+.stars span:nth-child(7){left:10%; top:50%; animation: star-anim 7s 1s infinite;}
+.stars span:nth-child(8){left:50%; top:50%; animation: star-anim 8s 2s infinite;}
+.stars span:nth-child(9){left:90%; top:90%; animation: star-anim 5s 3s infinite;}
+.stars span:nth-child(10){left:80%; top:50%; animation: star-anim 7s 4s infinite;}
+
+.stars span:nth-child(11){left:90%; top:10%; animation: star-anim 5s 0s infinite;}
+.stars span:nth-child(12){left:10%; top:80%; animation: star-anim 6s 1s infinite;}
+.stars span:nth-child(13){left:30%; top:20%; animation: star-anim 7s 2s infinite;}
+.stars span:nth-child(14){left:60%; top:90%; animation: star-anim 8s 3s infinite;}
+.stars span:nth-child(15){left:80%; top:50%; animation: star-anim 7s 4s infinite;}
+
+/*アニメーションキーフレーム*/
+@keyframes star-anim {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
 
 
