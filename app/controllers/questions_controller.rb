@@ -26,7 +26,8 @@ class QuestionsController < ApplicationController
   def create 
     @question = current_user.questions.build(question_params)
     if @question.save
-      redirect_to choose_schedule_question_path(@question), success: '投稿が成功しました'
+      #redirect_to choose_schedule_question_path(@question), success: '投稿が成功しました'
+      redirect_to new_question_reservation_path(@question), success: '投稿が成功しました'
     else
       flash.now[:danger] ='投稿が失敗しました' 
       render :new, status: :unprocessable_entity
@@ -55,7 +56,6 @@ class QuestionsController < ApplicationController
     eariest_start_time = start_times.min
     # deadline = eariest_start_time - 12.hours
     deadline = eariest_start_time - 1.hours
-
 
     if @question.valid?(:create_deadline)
       @question.update(deadline: deadline)
