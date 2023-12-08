@@ -102,24 +102,6 @@ body{
   transform:scale(0.20);
 }
 
-.stars span.s:before{
-  
-   /*20px 20pxが中央*/
-  box-shadow: 20px 20px #FFFFFF;
-}
-
-.stars span.m:before{
-  box-shadow: 
-    /*1段目*/
-    20px 10px #FFF176,
-    /*2段目*/
-    10px 20px #FFF176,
-    20px 20px #FFFFFF,
-    30px 20px #FFF176,
-    /*3段目*/
-    20px 30px #FFF176
-}
-
 .stars span.l:before{
   box-shadow: 
     /*0段目*/
@@ -138,6 +120,116 @@ body{
     20px 40px #FDD835;
 }
 
+.stars span.m:before{
+  /*これが一番大きい黄色いスタイル*/
+  box-shadow: 
+    /*1段目*/
+    20px 10px #FFF176,
+    /*2段目*/
+    10px 20px #FFF176,
+    20px 20px #FFFFFF,
+    30px 20px #FFF176,
+    /*3段目*/
+    20px 30px #FFF176
+}
+
+.stars span.n:before{
+  /*これが一番大きい黄色いスタイル*/
+  box-shadow: 
+    /*1段目*/
+    20px 10px #FFF176,
+    /*2段目*/
+    10px 20px #FFF176,
+    20px 20px #FFFFFF,
+    30px 20px #FFF176,
+    /*3段目*/
+    20px 30px #FFF176
+}
+
+.stars span.o:before{
+  /*これが一番大きい黄色いスタイル*/
+  box-shadow: 
+    /*0段目*/
+    20px  0px #FDD835,
+    /*1段目*/
+    20px 10px #FFF176,
+    /*2段目*/
+     0px 20px #FDD835,
+    10px 20px #FFF176,
+    20px 20px #FFFFFF,
+    30px 20px #FFF176,
+    40px 20px #FDD835,
+    /*3段目*/
+    20px 30px #FFF176,
+    /*4段目*/
+    20px 40px #FDD835;
+}
+
+.stars span.p:before{
+  /* 新しい星のスタイル */
+  box-shadow: 
+    20px 10px #FFF176,
+    10px 20px #FFF176,
+    20px 20px #FFFFFF,
+    30px 20px #FFF176,
+    20px 30px #FFF176;
+}
+
+.stars span.q:before{
+  /* 新しい星のスタイル */
+  box-shadow: 
+    20px  0px #FDD835,
+    20px 10px #FFF176,
+    0px 20px #FDD835,
+    10px 20px #FFF176,
+    20px 20px #FFFFFF,
+    30px 20px #FFF176,
+    40px 20px #FDD835,
+    20px 30px #FFF176,
+    20px 40px #FDD835;
+}
+
+.stars span.r:before{
+  box-shadow: 
+    /*1段目*/
+    20px 10px #FFF176,
+    /*2段目*/
+    10px 20px #FFF176,
+    20px 20px #FFFFFF,
+    30px 20px #FFF176,
+    /*3段目*/
+    20px 30px #FFF176
+}
+
+
+.stars span.s:before{
+  
+  box-shadow: 
+  /*1段目*/
+  20px 10px #FFF176,
+  /*2段目*/
+  10px 20px #FFF176,
+  20px 20px #FFFFFF,
+  30px 20px #FFF176,
+  /*3段目*/
+  20px 30px #FFF176
+}
+
+
+.stars span.t:before{
+  
+  box-shadow: 
+  /*1段目*/
+  20px 10px #FFF176,
+  /*2段目*/
+  10px 20px #FFF176,
+  20px 20px #FFFFFF,
+  30px 20px #FFF176,
+  /*3段目*/
+  20px 30px #FFF176
+}
+
+
 
  /*
 星の位置とアニメーション指定
@@ -145,27 +237,62 @@ body{
 */
 .stars span:nth-child(1){left:10%; top:10%; animation: star-anim 8s 0s infinite;}
 .stars span:nth-child(2){left:80%; top:20%; animation: star-anim 6s 1s infinite;}
-.stars span:nth-child(3){left:60%; top:40%; animation: star-anim 5s 2s infinite;}
+.stars span:nth-child(3){left:10%; top:40%; animation: star-anim 5s 2s infinite;}
 .stars span:nth-child(4){left:20%; top:70%; animation: star-anim 7s 3s infinite;}
 .stars span:nth-child(5){left:80%; top:80%; animation: star-anim 7s 4s infinite;}
 
 .stars span:nth-child(6){left:40%; top:10%; animation: star-anim 4s 0s infinite;}
 .stars span:nth-child(7){left:10%; top:50%; animation: star-anim 7s 1s infinite;}
 .stars span:nth-child(8){left:50%; top:50%; animation: star-anim 8s 2s infinite;}
-.stars span:nth-child(9){left:90%; top:90%; animation: star-anim 5s 3s infinite;}
+.stars span:nth-child(9){left:80%; top:80%; animation: star-anim 5s 3s infinite;}
 .stars span:nth-child(10){left:80%; top:50%; animation: star-anim 7s 4s infinite;}
 
 .stars span:nth-child(11){left:90%; top:10%; animation: star-anim 5s 0s infinite;}
 .stars span:nth-child(12){left:10%; top:80%; animation: star-anim 6s 1s infinite;}
 .stars span:nth-child(13){left:30%; top:20%; animation: star-anim 7s 2s infinite;}
-.stars span:nth-child(14){left:60%; top:90%; animation: star-anim 8s 3s infinite;}
+.stars span:nth-child(14){left:10%; top:90%; animation: star-anim 8s 3s infinite;}
 .stars span:nth-child(15){left:80%; top:50%; animation: star-anim 7s 4s infinite;}
+
+.stars span:nth-child(16){left:10%; top:10%; animation: star-anim 5s 0s infinite;}
+.stars span:nth-child(17){left:20%; top:15%; animation: star-anim 6s 1s infinite;}
+.stars span:nth-child(18){left:30%; top:20%; animation: star-anim 7s 2s infinite;}
+.stars span:nth-child(19){left:40%; top:30%; animation: star-anim 8s 3s infinite;}
+.stars span:nth-child(20){left:50%; top:40%; animation: star-anim 7s 4s infinite;}
+
+.stars span:nth-child(21){left:90%; top:10%; animation: star-anim 5s 0s infinite;}
+.stars span:nth-child(22){left:10%; top:80%; animation: star-anim 6s 1s infinite;}
+.stars span:nth-child(23){left:30%; top:20%; animation: star-anim 7s 2s infinite;}
+.stars span:nth-child(24){left:5%; top:95%; animation: star-anim 8s 3s infinite;}
+.stars span:nth-child(25){left:20%; top:50%; animation: star-anim 7s 4s infinite;}
+
+.stars span:nth-child(26){left:90%; top:10%; animation: star-anim 5s 0s infinite;}
+.stars span:nth-child(27){left:10%; top:80%; animation: star-anim 6s 1s infinite;}
+.stars span:nth-child(28){left:30%; top:20%; animation: star-anim 7s 2s infinite;}
+.stars span:nth-child(29){left:20%; top:90%; animation: star-anim 8s 3s infinite;}
+.stars span:nth-child(30){left:80%; top:50%; animation: star-anim 7s 4s infinite;}
+
+.stars span:nth-child(31){left:90%; top:30%; animation: star-anim 8s 0s infinite;}
+.stars span:nth-child(32){left:10%; top:40%; animation: star-anim 8s 1s infinite;}
+.stars span:nth-child(33){left:20%; top:40%; animation: star-anim 8s 2s infinite;}
+.stars span:nth-child(34){left:10%; top:30%; animation: star-anim 8s 3s infinite;}
+.stars span:nth-child(35){left:80%; top:60%; animation: star-anim 8s 4s infinite;}
+
+.stars span:nth-child(36){left:10%; top:2%; animation: star-anim 8s 0s infinite;}
+.stars span:nth-child(37){left:10%; top:5%; animation: star-anim 8s 1s infinite;}
+.stars span:nth-child(38){left:20%; top:10%; animation: star-anim 8s 2s infinite;}
+.stars span:nth-child(39){left:10%; top:30%; animation: star-anim 8s 3s infinite;}
+.stars span:nth-child(40){left:90%; top:7%; animation: star-anim 8s 4s infinite;}
+
+.stars span:nth-child(41){left:10%; top:60%; animation: star-anim 8s 0s infinite;}
+.stars span:nth-child(42){left:30%; top:60%; animation: star-anim 8s 1s infinite;}
+.stars span:nth-child(43){left:40%; top:55%; animation: star-anim 8s 2s infinite;}
+.stars span:nth-child(44){left:10%; top:80%; animation: star-anim 8s 3s infinite;}
+.stars span:nth-child(45){left:10%; top:75%; animation: star-anim 8s 4s infinite;}
+
 
 /*アニメーションキーフレーム*/
 @keyframes star-anim {
-  0% { opacity: 0; transform: scale(0.5); }
-  50% { opacity: 1; transform: scale(1.2); }
-  100% { opacity: 0; transform: scale(0.5); }
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  5%, 95% { opacity: 1; transform: scale(1.2); }
+  50% { opacity: 0; transform: scale(0.5); }
 }
-
-
