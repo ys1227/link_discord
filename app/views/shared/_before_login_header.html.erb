@@ -7,8 +7,8 @@
         </h1>
       </div>
       <div class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
-        <%=link_to "ホームへ戻る",root_path,class:"inline-flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 bg-discord-dark px-5 py-3 text-white transition hover:text-gray-700 focus:outline-none"%>
-        <%= button_to "Discordでログイン", "/auth/discord", method: :post, data: { turbo: false }, class: "text-white bg-discord-dark" %>
+      <%= link_to "ホームへ戻る", root_path, class: "inline-flex items-center justify-center gap-1.5 rounded-lg px-5 py-3 text-white transition bg-discord-dark border border-gray-200 hover:bg-gray-700 focus:outline-none" %>
+      <%= button_to "Discordでログイン", "/auth/discord", method: :post, data: { turbo: false }, class: "inline-flex items-center justify-center gap-1.5 rounded-lg px-5 py-3 text-white transition bg-discord-dark border border-gray-200 hover:bg-gray-700 focus:outline-none focus:ring focus:border-blue-300" %>
         </div>
     </div>
   </div>

@@ -296,3 +296,16 @@ body{
   5%, 95% { opacity: 1; transform: scale(1.2); }
   50% { opacity: 0; transform: scale(0.5); }
 }
+
+
+
+/*光る文字*/
+@keyframes glowing {
+  0% { color: #FFF; text-shadow: 0 0 5px #FFF; }
+  50% { color: #FFF; text-shadow: 0 0 10px #FFF; opacity: 0.7; }
+  100% { color: #FFF; text-shadow: 0 0 5px #FFF; }
+}
+
+.font-glow {
+  animation: glowing 4s ease-in-out infinite;
+}
