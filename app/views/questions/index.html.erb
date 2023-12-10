@@ -1,7 +1,17 @@
-<div class="bg-star-dark">
-  <div class="min-h-screen container px-5 py-24 mx-auto">
+<div class="bg-star-dark flex flex-col items-center">
+  <div class="container ">
+    <%= search_form_for @q, url: questions_path do |f| %>
+      <div class="flex flex-col md:flex-row md:items-center mb-10 rounded-full">
+        <%= f.search_field :title_cont, class: 'form-control flex-auto mb-2 md:mb-0 md:mr-2 rounded-full', placeholder: 'タイトルを入力してね' %>
+        <div class="col-auto">
+          <%= f.select :role_eq, Question.roles_i18n.invert.map{|key, value| [key, Question.roles[value]]}, { include_blank: t("カテゴリーを選択してね") }, { class: 'form-control mr-1 rounded-full' } %>
+        </div>
+        <%= f.submit '検索', class: 'font-dotgothic inline-flex items-center justify-center gap-1.5 rounded-lg bg-discord-dark px-5 py-3 text-white transition hover:bg-red-700 focus:outline-none mr-4' %>
+      </div>
+    <% end %>
+
     <div class="flex flex-wrap -m-4">
-      <%=render @questions, question:@question %>
+      <%= render @questions, question: @question %>
     </div>
   </div>
 </div>

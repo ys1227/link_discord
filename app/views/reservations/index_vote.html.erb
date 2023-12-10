@@ -1,16 +1,16 @@
-<div class="min-h-screen bg-white">
+<div class="min-h-screen bg-gray-800 text-white">
   <%= render 'shared/error_messages', object: @vote %>
   <div class="flex justify-center">
-    <div class="p-8 text-xl text-black text-center border-4 border-double border-black my-10">
-      自分が参加することが可能な日にちを登録しよう！！
-      <p>締め切り時間が来たら一番人数が多かった日にちに開催日時が決定するよ！</p>
+    <div class="p-8 text-xl text-white text-center border-4 border-double border-white my-10">
+      🚀自分が参加することが可能な日にちを登録しよう！！🚀
+      <p>🪐締め切り時間が来たら一番人数が多かった日にちに開催日時が決定するよ！🪐</p>
     </div>
   </div>
 
   <div class="flex justify-center">
-    <div class="p-8 text-xl text-black text-center border-2 border-solid border-black my-2 w-1/3 p-px">
-      <p>締め切り時間</p>
-      <%=l @question.deadline, format: :short%>
+    <div class="p-8 text-xl text-white text-center my-2 w-1/3 p-px">
+      <p class="text-xl">⏰締め切り時間⏰</p>
+      <p class="text-3xl"><%=l @question.deadline, format: :long %>
     </div>
   </div>
 

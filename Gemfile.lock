@@ -266,6 +266,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.1.0)
+    ransack (3.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.6.0)
       psych (>= 4.0.0)
     redis-client (0.18.0)
@@ -372,6 +376,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.7)
   rails-i18n
+  ransack (= 3.2.1)
   selenium-webdriver
   sidekiq
   sidekiq-scheduler

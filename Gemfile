@@ -68,6 +68,8 @@ gem 'sidekiq'
 
 gem 'sidekiq-scheduler' 
 
+gem 'ransack', "3.2.1"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
