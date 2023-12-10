@@ -1,11 +1,13 @@
 class QuestionsController < ApplicationController
   skip_before_action :check_logged_in,only: %i[index show]
+  
   def new
     @question = Question.new
   end
 
   def index
-    @questions = Question.includes(:user)#.where(state: "published")
+    @q = Question.ransack(params[:q])
+    @questions = @q.result(distinct: true).includes(:user)#.where(state: "published")
   end
 
   def show
@@ -70,6 +72,7 @@ class QuestionsController < ApplicationController
   def choose_schedule
     @question = Question.find(params[:id])
   end
+
 
   private
 

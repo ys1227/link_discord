@@ -72,7 +72,7 @@ class ReservationsController < ApplicationController
   def index_vote
     @vote = Vote.new
     @question = Question.find(params[:question_id])
-    @question_reservations = @question.reservations
+    @question_reservations = @question.reservations.order(:rank)
     @user = @question.user_id
   end
   
