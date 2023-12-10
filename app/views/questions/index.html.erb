@@ -6,6 +6,9 @@
         <div class="col-auto">
           <%= f.select :role_eq, Question.roles_i18n.invert.map{|key, value| [key, Question.roles[value]]}, { include_blank: t("カテゴリーを選択してね") }, { class: 'form-control mr-1 rounded-full' } %>
         </div>
+        <div class="col-auto">
+          <%= f.select :state_eq, Question.states_i18n.invert.map{|key, value| [key, Question.states[value]]}, { include_blank: t("募集状況を選択してね") }, { class: 'form-control mr-1 rounded-full' } %>
+        </div>
         <%= f.submit '検索', class: 'font-dotgothic inline-flex items-center justify-center gap-1.5 rounded-lg bg-discord-dark px-5 py-3 text-white transition hover:bg-red-700 focus:outline-none mr-4' %>
       </div>
     <% end %>
