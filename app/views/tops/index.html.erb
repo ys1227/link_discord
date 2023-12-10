@@ -50,12 +50,12 @@
 
   <div class="flex flex-col items-center">
     <div class="text-center">
-      <h1 class="font-glow text-7xl text-white mt-20 ">Link_Discord </h1>
+      <h1 class="font-glow text-7xl text-white mt-20 ">Link_Disco </h1>
       <h2 class="py-6 text-white text-2xl mt-4">💫Discordで質問したり雑談をする仲間を集めに行こう!💫</h2>
       <% if logged_in? %>
-        <%= link_to "質問する", new_question_path, class: "inline-flex items-center justify-center gap-1.5 rounded-lg px-5 py-3 text-white transition bg-discord-dark border border-gray-200 hover:bg-gray-700 focus:outline-none transition duration-300 transform" %>
+        <%= link_to "Let's Post", new_question_path, class: "inline-flex items-center justify-center gap-1.5 rounded-lg px-5 py-3 text-white transition bg-discord-dark border border-gray-200 hover:bg-gray-700 focus:outline-none transition duration-300 transform" %>
       <% end %>
-      <%= link_to "見つけに行く", questions_path, class: "inline-flex mt-4 items-center justify-center gap-1.5 rounded-lg px-5 py-3 text-white transition bg-discord-dark border border-gray-200 hover:bg-gray-700 focus:outline-none transition duration-300 transform" %>
+      <%= link_to "Go To Find ", questions_path, class: "inline-flex mt-4 items-center justify-center gap-1.5 rounded-lg px-5 py-3 text-white transition bg-discord-dark border border-gray-200 hover:bg-gray-700 focus:outline-none transition duration-300 transform" %>
     </div>
     
     <div class="flex md:items-center md:flex-row flex-col mt-24 md:mb-64 mb-32">
@@ -64,7 +64,7 @@
         <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐Discordで集まりたいテーマを投稿して集まる人を募集できるよ！🪐</h2>
       </div>
       <div class="md:flex-1">
-        <%= image_tag "1_test.png", class: "rounded border shadow-lg" %>
+        <%= image_tag "question_create.png", class: "rounded border shadow-lg" %>
       </div>
     </div>
 
@@ -74,7 +74,7 @@
         <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐集まりたい時間を３つまで登録して投票してもらおう！🪐</h2>
       </div>
       <div class="md:flex-1">
-        <%= image_tag "1_test.png", class: "rounded border shadow-lg" %>
+        <%= image_tag "show_reservation.png", class: "rounded border shadow-lg" %>
       </div>
     </div>
 
@@ -84,17 +84,17 @@
         <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐自分が参加できる時間を選んでみてね！🪐</h2>
       </div>
       <div class="md:flex-1">
-        <%= image_tag "1_test.png", class: "rounded border shadow-lg" %>
+        <%= image_tag "question_index.png", class: "rounded border shadow-lg" %>
       </div>
     </div>
 
     <div class="flex md:items-center md:flex-row flex-col mt-24 md:mb-64 mb-32">
-      <div class="md:flex-1 pr-10">
+      <div class="md:flex-1 pr-10 ">
         <h1 class="text-4xl my-2 text-white text-center">🚀4. 締め切り時間が来たら投票終了!!🚀</h1>
-        <h2 class="text-white md:mb-0 mb-8 text-2xl text-center mr-10">🪐投票人数が一番多かった時間で集合時間が決定されるよ🪐</h2>
+        <h2 class="text-white md:mb-0 mb-8 text-2xl text-center mr-10">🪐投票人数が一番多かった時間で集合時間が決定！！🪐</h2>
       </div>
       <div class="md:flex-1">
-        <%= image_tag "1_test.png", class: "rounded border shadow-lg" %>
+        <%= image_tag "voted_member.png", class: "rounded border shadow-lg" %>
       </div>
     </div>
 
@@ -102,13 +102,10 @@
       <div class="md:flex-1 pr-10">
         <h1 class="text-4xl my-2 text-white text-center">🚀5. 集合時間はDiscordのDMでお知らせが届くよ！🚀</h1>
         <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐募集した人にも応募した人にもお知らせが届くよ!🪐</h2>
-        <h3 class="text-white text-center ">※DMが届くのは応募した人と一1番投票人数が多い日に投票した人だけです。</h3>
+        <h3 class="text-white text-center ">※DMが届くのは応募した人と一1番投票人数が多い日に投票した人だけだよ！</h3>
       </div>
-      <div class="md:basis-1/4">
-        <%= image_tag "1_test.png", class: "rounded border shadow-lg mr-2" %>
-      </div>
-      <div class="hidden md:block md:basis-1/4">
-        <%= image_tag "1_test.png", class: "rounded border shadow-lg ml-2" %>
+      <div class="md:flex-1">
+        <%= image_tag "send_dm.png", class: "rounded border shadow-lg mr-2" %>
       </div>
     </div>
 
