@@ -1,9 +1,12 @@
 require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 Rails.application.routes.draw do
+  root 'static_pages#top'
+  get 'static_pages/terms'
+  get 'static_pages/privacy'
+  
   get 'matching_times/index'
   mount Sidekiq::Web, at: '/sidekiq'
-  root :to => 'tops#index'
   
   get 'auth/:provider/callback', to: 'user_sessions#create'
   get 'auth/failure', to: redirect('/')
