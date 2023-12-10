@@ -23,7 +23,7 @@
     <%if @question.state == "closed"%>
       <%= link_to "集合時間を確認する",   question_matching_times_path(@question), class: "text-discord-blurple inline-flex items-center mt-2" %>
       <%end%>
-      <%if @question.user == current_user%>
+      <%if @question.user == current_user && @question.state != "closed"%>
       <%= link_to "編集する", edit_question_path(@question), class: "text-discord-blurple inline-flex items-center mt-2" %>
       <%= link_to "削除する", question_path(@question),data: { turbo_method: :delete }, class: "text-discord-blurple inline-flex items-center mt-2" %>
       <%end%>
