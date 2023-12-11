@@ -1,7 +1,7 @@
 <div class="flex-1 w-full bg-gray-800 flex items-center justify-center p-4 mt-atuo">
   <div class="bg-discord-dark bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
     <div class="mb-4">
-    <p class= "text-white">応募締め切り</p>
+    <p class= "text-white">締め切り</p>
     <p class="text-white mb-3 text-xl mb-5"><%= l @question.deadline %></p>
       <p class="text-white text-center text-xl font-dotgothic border-2 border-double mb-4 rounded-full "><%= @question.state_i18n%><p>
       <div class="flex justify-center items-center mb-2">
@@ -23,9 +23,9 @@
     <%if @question.state == "closed"%>
       <%= link_to "集合時間を確認する",   question_matching_times_path(@question), class: "text-discord-blurple inline-flex items-center mt-2" %>
       <%end%>
-      <%if @question.user == current_user && @question.state != "closed"%>
-      <%= link_to "編集する", edit_question_path(@question), class: "text-discord-blurple inline-flex items-center mt-2" %>
-      <%= link_to "削除する", question_path(@question),data: { turbo_method: :delete }, class: "text-discord-blurple inline-flex items-center mt-2" %>
+      <% if @question.user == current_user && (@question.state != "closed" || @question.state == "draft") || current_user.present? %>
+        <%= link_to "編集する", edit_question_path(@question), class: "text-discord-blurple inline-flex items-center mt-2" %>
+        <%= link_to "削除する", question_path(@question),data: { turbo_method: :delete }, class: "text-discord-blurple inline-flex items-center mt-2" %>
       <%end%>
       <%= link_to "投稿一覧に戻る", questions_path, class: "text-discord-blurple inline-flex items-center mt-2" %>
 
