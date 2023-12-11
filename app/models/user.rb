@@ -32,9 +32,12 @@ class User < ApplicationRecord
     # parse_objects = JSON.parse(guild_objects)
     # user_objects = parse_objects["user"]["id"]
     if guild_objects = Discordrb::API::Server.resolve_member("Bot #{ENV['DISCORD_BOT_TOKEN']}", ENV['DISCORD_SERVER_ID'],uid.to_i)
-    return true
+      return true
     else
       return false
     end
+    rescue Discordrb::Errors::UnknownMember => e
+    # Discordrb::Errors::UnknownMemberエラーが発生した場合の処理
+      return false
   end
 end 
