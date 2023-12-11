@@ -10,8 +10,11 @@ class User < ApplicationRecord
     def self.find_or_create_from_auth_hash(auth_hash)
        user_params = user_params_from_auth_hash(auth_hash)
        if guild_member?(user_params[:uid]) == true
-        find_or_create_by(uid: user_params[:uid]) do |user|
+        User.find_or_create_by!(uid: user_params[:uid]) do |user|
           user.update(user_params)
+          if user.image == nil
+            user.image = Discordrb::API::User.default_avatar(auth_hash[:extra][:raw_info][:discriminator])
+          end
         end          
       end
     end
