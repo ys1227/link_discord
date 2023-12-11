@@ -8,3 +8,7 @@
     change_question_state_job:
       cron: '0 0 * * * *'    # １時間ごと
       class: ChangeQuestionStateJob
+    access_route_page_job:
+      cron: '0 */10 * * * *'
+      class: AccessRoutePageJob
+
