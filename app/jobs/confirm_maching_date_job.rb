@@ -16,11 +16,11 @@ class ConfirmMachingDateJob < ApplicationJob
     else
       MatchingTime.create!(reservation_id:sorted_reservations[0][0],matching_data:sorted_reservations[0][2], question_id: question.id)
       reservation = Reservation.find(sorted_reservations[0][0])
-      wait_time = 5
+      wait_time = 15
       reservation.votes.each do |vote|
         voted_user = vote.user
         NotifyMostVotedTimeParticipantsJob.set(wait: wait_time.seconds).perform_later(reservation,voted_user)
-        wait_time += 5
+        wait_time += 15
       end
       NotifySelectedMeetingTimeToQuestionOwnerJob.set(wait: wait_time.seconds).perform_later(reservation,question.user)
     end
