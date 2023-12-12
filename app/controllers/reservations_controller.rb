@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  skip_before_action :check_logged_in,only: %i[index_vote]
+
   def index
     @question = Question.find(params[:question_id])
     @reservation = Reservation.new
