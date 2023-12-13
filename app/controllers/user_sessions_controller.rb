@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
       log_in user
       redirect_to root_path, success: 'ログインに成功しました'
     else
-    redirect_to root_path, danger: 'ログインに失敗しました。サーバーに参加していないとログインできないので参加しているか確認してみてね！'
+    redirect_to root_path, danger: 'ログインに失敗しました。RUNTEQサーバーに参加していないとログインできないので参加しているか確認してみてね！'
     end
   end
    
