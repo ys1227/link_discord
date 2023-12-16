@@ -1,7 +1,7 @@
 <div class="flex-1 flex flex-col items-center justify-between px-4 lg:px-0 bg-gray-800">
   <div class="max-w-screen-lg mx-auto p-8 text-3xl text-white text-center border-4 border-solid border-white my-10 rounded-lg">
-  <% if @question.reservations.all? { |reservation| reservation.votes.empty? } %>
-    <p> 投票人数が0人でした。
+  <% if @question.reservations.all? { |reservation| reservation.votes.nil? } %>
+      <p> 投票人数が0人でした。
     <p> 再度応募する場合は質問をもう一度作成して応募してみよう!!
   <%else%>
     <%= "⏰集まる時間は#{l(@matching_time.reservation.start_time, format: :long)}からだよ！⏰"%>
