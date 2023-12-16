@@ -12,6 +12,7 @@
   <div class="max-w-screen-lg mx-auto">
     <h1 class="text-xl font-semibold mt-4 mb-2 text-center text-gray-300">🤖集まるメンバー🤖</h1>
     <div class="flex flex-wrap justify-center gap-4 mb-6">
+    <%if @votes != nil%>
       <% @votes.each do |vote| %>
         <div class="flex flex-col items-center">
           <% if vote.user.image? %>
@@ -21,6 +22,7 @@
           <% end %>
           <h2 class="text-xl font-medium text-gray-300 mt-2"><%= vote.user.name %></h2>
         </div>
+      <% end %>
       <% end %>
     </div>
   </div>
