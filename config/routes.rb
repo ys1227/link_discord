@@ -1,17 +1,12 @@
 require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 
-authenticate :user, lambda { |u| u.id == 1 } do
-  mount Sidekiq::Web => '/sidekiq'
-end
-
 Rails.application.routes.draw do
   root 'static_pages#top'
   get 'static_pages/terms'
   get 'static_pages/privacy'
   
   get 'matching_times/index'
-  mount Sidekiq::Web, at: '/sidekiq'
   
   get 'auth/:provider/callback', to: 'user_sessions#create'
   get 'auth/failure', to: redirect('/')
