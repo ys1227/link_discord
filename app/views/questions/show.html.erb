@@ -30,7 +30,7 @@
       <%= link_to "投稿一覧に戻る", questions_path, class: "text-discord-blurple inline-flex items-center mt-4" %>
       <div class ="mt-4">
       <%if @question.user == current_user%>
-        <%= link_to "https://twitter.com/share?&text=【🚀Link_Disco🚀】💫募集を開始しました!💫&url=#{request.url}", target: '_blank' do %>
+        <%= link_to "https://twitter.com/share?&text=【🚀Link_Disco🚀】💫募集を開始しました!💫", target: '_blank' do %>
           <i class="fa-brands fa-square-x-twitter fa-4lg custom-icon mt-2 "></i>
           <p class="text-white text-center mt-2">💫Go to X share💫
         <% end %>
