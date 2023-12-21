@@ -310,3 +310,7 @@ body{
   animation: glowing 4s ease-in-out infinite;
 }
 
+.custom-icon {
+  color: #ffffffc4;
+  font-size: 24px;
+}
