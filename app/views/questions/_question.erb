@@ -3,7 +3,11 @@
     <div class="mb-4">
     <p class= "text-white">締め切り</p>
     <p class="text-white mb-3 text-xl mb-5"><%= l question.deadline %></p>
+      <%if question.state == "published"%>
+      <p class="bg-yellow text-white text-center text-xl font-dotgothic border-2 border-double  border-black mb-4 rounded-full discord-orenge"><%= question.state_i18n%><p>
+      <%else%>
       <p class="text-white text-center text-xl font-dotgothic border-2 border-double mb-4 rounded-full "><%= question.state_i18n%><p>
+      <%end%>
       <div class="flex justify-center items-center mb-2">
         <% if question.user.image? == true  %>
         <%= image_tag question.user.image, alt: question.user.name, class: "h-16 w-16 rounded-full" %>
