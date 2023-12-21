@@ -1,4 +1,4 @@
-<header class="bg-star-dark w-full">
+<header class="bg-star-dark w-full hーscreen">
 <div class="mx-auto max-w-full px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
 <div class="sm:flex sm:items-center sm:justify-between">
       <div class="text-center sm:text-left">
@@ -8,7 +8,7 @@
       </div>
       <div class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
       <%= link_to "Go Home", root_path, class: "inline-flex items-center justify-center gap-1.5 rounded-lg px-5 py-3 text-white transition bg-discord-dark border border-gray-200 hover:bg-gray-700 focus:outline-none" %>
-      <%= button_to "Login", "/auth/discord", method: :post, data: { turbo: false }, class: "inline-flex items-center justify-center gap-1.5 rounded-lg px-5 py-3 text-white transition bg-discord-dark border border-gray-200 hover:bg-gray-700 focus:outline-none focus:ring focus:border-blue-300" %>
+      <%= button_to "Login with Discord", "/auth/discord", method: :post, data: { turbo: false }, class: "inline-flex items-center justify-center gap-1.5 rounded-lg px-5 py-3 text-white transition bg-discord-dark border border-gray-200 hover:bg-gray-700 focus:outline-none focus:ring focus:border-blue-300" %>
         </div>
     </div>
   </div>
