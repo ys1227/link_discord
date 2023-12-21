@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&amp;subset=japanese" rel="stylesheet">  
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css">
 
-    <%= display_meta_tags site: "Link_Disco" %>
+    <%= display_meta_tags(default_meta_tags) %>
   </head>
 
   <body class="min-h-screen flex flex-col">
@@ -26,5 +26,5 @@
   <%= yield %>
   <%= render 'shared/footer' %>
   </body>
-  
+
 </html>
