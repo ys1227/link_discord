@@ -1,5 +1,10 @@
 require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
+
+authenticate :user, lambda { |u| u.id == 1 } do
+  mount Sidekiq::Web => '/sidekiq'
+end
+
 Rails.application.routes.draw do
   root 'static_pages#top'
   get 'static_pages/terms'
