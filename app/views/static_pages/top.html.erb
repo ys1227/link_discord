@@ -61,63 +61,65 @@
     <i class="fa-solid fa-angles-down mt-40 fa-4lg custom-icon"></i>
     <i class="fa-solid fa-angles-down mt-14 fa-4lg custom-icon"></i>
     <i class="fa-solid fa-angles-down mt-14 fa-4lg custom-icon"></i>
-    <div class="flex justify-center">
-      <h1 class="text-white mt-32 text-4xl">How to use?</h1>
-    </div>
-    
-    <div class="flex md:items-center md:flex-row flex-col mt-24 md:mb-64 mb-32">
-      <div class="md:flex-1 pr-10">
-        <h1 class="text-4xl my-2 text-white text-center">🚀1. テーマを投稿する🚀</h1>
-        <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐Discordで集まりたいテーマを投稿して集まる人を募集できるよ！🪐</h2>
+    <div class="container max-w-screen-lg">
+      <div class="flex justify-center">
+        <h1 class="text-white mt-32 text-4xl">How to use?</h1>
       </div>
-      <div class="md:flex-1">
-        <%= image_tag "question_create.png", class: "rounded border shadow-lg" %>
-      </div>
-    </div>
 
-    <div class="flex md:items-center md:flex-row flex-col mt-24 md:mb-64 mb-32">
-      <div class="md:flex-1 pr-10">
-        <h1 class="text-4xl my-2 text-white text-center">🚀2. 集まりたい時間を登録する🚀</h1>
-        <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐集まりたい時間を３つまで登録して投票してもらおう！🪐</h2>
-        <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐一番早い募集時間の12時間前に投票の締め切り時間が設定されます🪐</h2>
+      <div class="flex md:items-center md:flex-row flex-col mt-24 md:mb-64 mb-32">
+        <div class="md:flex-1 pr-10">
+          <h1 class="text-4xl my-2 text-white text-center">🚀1. テーマを投稿する🚀</h1>
+          <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐Discordで集まりたいテーマを投稿して集まる人を募集できるよ！🪐</h2>
+        </div>
+        <div class="md:flex-1">
+          <%= image_tag "question_create.png", class: "rounded border shadow-lg" %>
+        </div>
       </div>
-      <div class="md:flex-1">
-        <%= image_tag "show_reservation.png", class: "rounded border shadow-lg" %>
+
+      <div class="flex md:items-center md:flex-row flex-col mt-24 md:mb-64 mb-32">
+        <div class="md:flex-1 pr-10">
+          <h1 class="text-4xl my-2 text-white text-center">🚀2. 集まりたい時間を登録する🚀</h1>
+          <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐集まりたい時間を３つまで登録して投票してもらおう！🪐</h2>
+          <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐一番早い募集時間の12時間前に投票の締め切り時間が設定されます🪐</h2>
+        </div>
+        <div class="md:flex-1">
+          <%= image_tag "show_reservation.png", class: "rounded border shadow-lg" %>
+        </div>
+      </div>
+
+      <div class="flex md:items-center md:flex-row flex-col mt-24 md:mb-64 mb-32">
+        <div class="md:flex-1 pr-10">
+          <h1 class="text-4xl my-2 text-white text-center">🚀3. 気になるテーマがあったら投票してみよう！🚀</h1>
+          <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐自分が参加できる時間を選んでみてね！🪐</h2>
+        </div>
+        <div class="md:flex-1">
+          <%= image_tag "question_indexs.png", class: "rounded border shadow-lg" %>
+        </div>
+      </div>
+
+      <div class="flex md:items-center md:flex-row flex-col mt-24 md:mb-64 mb-32">
+        <div class="md:flex-1 pr-10 ">
+          <h1 class="text-4xl my-2 text-white text-center">🚀4. 締め切り時間が来たら投票終了!!🚀</h1>
+          <h2 class="text-white md:mb-0 mb-8 text-2xl text-center mr-10">🪐投票人数が一番多かった時間で集合時間が決定！！🪐</h2>
+        </div>
+        <div class="md:flex-1">
+          <%= image_tag "voted_member.png", class: "rounded border shadow-lg" %>
+        </div>
+      </div>
+
+      <div class="flex md:items-center md:flex-row flex-col mt-24 mb-32">
+        <div class="md:flex-1 pr-10">
+          <h1 class="text-4xl my-2 text-white text-center">🚀5. 集合時間はDiscordのDMでお知らせします！🚀</h1>
+          <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐締め切り時間になったらお知らせが届くよ!🪐</h2>
+          <h3 class="text-white text-center ">※DMが届くのは応募した人と一1番投票人数が多い日に投票した人だけだよ！</h3>
+        </div>
+        <div class="md:flex-1">
+          <%= image_tag "send_dm.png", class: "rounded border shadow-lg mr-2" %>
+        </div>
       </div>
     </div>
-
-    <div class="flex md:items-center md:flex-row flex-col mt-24 md:mb-64 mb-32">
-      <div class="md:flex-1 pr-10">
-        <h1 class="text-4xl my-2 text-white text-center">🚀3. 気になるテーマがあったら投票してみよう！🚀</h1>
-        <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐自分が参加できる時間を選んでみてね！🪐</h2>
-      </div>
-      <div class="md:flex-1">
-        <%= image_tag "question_indexs.png", class: "rounded border shadow-lg" %>
-      </div>
-    </div>
-
-    <div class="flex md:items-center md:flex-row flex-col mt-24 md:mb-64 mb-32">
-      <div class="md:flex-1 pr-10 ">
-        <h1 class="text-4xl my-2 text-white text-center">🚀4. 締め切り時間が来たら投票終了!!🚀</h1>
-        <h2 class="text-white md:mb-0 mb-8 text-2xl text-center mr-10">🪐投票人数が一番多かった時間で集合時間が決定！！🪐</h2>
-      </div>
-      <div class="md:flex-1">
-        <%= image_tag "voted_member.png", class: "rounded border shadow-lg" %>
-      </div>
-    </div>
-
-    <div class="flex md:items-center md:flex-row flex-col mt-24 mb-32">
-      <div class="md:flex-1 pr-10">
-        <h1 class="text-4xl my-2 text-white text-center">🚀5. 集合時間はDiscordのDMでお知らせします！🚀</h1>
-        <h2 class="text-white md:mb-0 mb-8 text-2xl text-center">🪐締め切り時間になったらお知らせが届くよ!🪐</h2>
-        <h3 class="text-white text-center ">※DMが届くのは応募した人と一1番投票人数が多い日に投票した人だけだよ！</h3>
-      </div>
-      <div class="md:flex-1">
-        <%= image_tag "send_dm.png", class: "rounded border shadow-lg mr-2" %>
-      </div>
-    </div>
-
   </div>
 </div>
+
 
   
