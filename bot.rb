@@ -8,13 +8,11 @@ require 'discordrb'
 #   event.respond 'Pong!'
 # end
 
-
 # bot.message(with_text: '!dm') do |event|
 #   user_id = event.user.id # ユーザーのIDを取得
 #   user = bot.user(user_id) # IDからユーザーオブジェクトを取得
 #   user.dm('ここにDMの内容を入れる') # ユーザーにDMを送る
 # end
-
 
 # Bot を実行
 # bot.run

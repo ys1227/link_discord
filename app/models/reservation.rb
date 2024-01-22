@@ -3,7 +3,7 @@ class Reservation < ApplicationRecord
   has_many :votes, dependent: :destroy
   has_one :matching_time, dependent: :destroy
   
-  enum rank: { default:0, one:10, two:20, three:30 }
+  enum rank: { default: 0, one: 10, two: 20, three: 30 }
 
   validates :start_time, presence:true
   validate :start_check
@@ -12,7 +12,6 @@ class Reservation < ApplicationRecord
   validate :rank_count_check, on: :bulk_update
   validate :rank_not_default_check, on: :bulk_update
   validate :rank_not_same_check, on: :create_deadline
-
 
   def start_check
     selected_datetime = DateTime.new(
@@ -33,26 +32,25 @@ class Reservation < ApplicationRecord
 
   def reservation_count_check
     @question = Question.find(self.question.id)
-      @saved_question_reservation = @question.reservations.count
-      if @saved_question_reservation >= 3
-        errors.add(:start_time,"は3つまでしか登録できません")
-      end
+    @saved_question_reservation = @question.reservations.count
+    if @saved_question_reservation >= 3
+      errors.add(:start_time, "は3つまでしか登録できません")
+    end
   end
 
   def reservation_time_check
     start_times = []
     @question = Question.find(self.question.id)
     @question_reservations = @question.reservations
-      @question.reservations.each do |reservation|
-        start_times << reservation.start_time
-      end
+    @question.reservations.each do |reservation|
+      start_times << reservation.start_time
+    end
     if start_times.include?(self.start_time)
-      errors.add(:start_time,"が重複して登録されています。")
+      errors.add(:start_time, "が重複して登録されています。")
     end
   end
 
-  #{ id: data[:id], rank: data[:rank] }
-
+  # { id: data[:id], rank: data[:rank] }
   def rank_count_check
     @question = Question.find(self.question_id)
     existing_ranks = @question.reservations.where.not(id: self.id).pluck(:rank)
@@ -65,7 +63,7 @@ class Reservation < ApplicationRecord
   def rank_not_default_check
     @question = Question.find(self.question.id)
     if self.rank == "default"
-      errors.add(:rank,"が-になっています。")
+      errors.add(:rank, "が-になっています。")
     end
   end
 
@@ -77,15 +75,15 @@ class Reservation < ApplicationRecord
       ranks_array << reservation.rank
     end
     valid_arrays = [
-    ["one"],
-    ["one", "two"],
-    ["two", "one"],
-    ["one", "two", "three"],
-    ["one", "three", "two"],
-    ["two", "one", "three"],
-    ["two", "three", "one"],
-    ["three", "two", "one"],
-    ["three", "one", "two"]
+      ["one"],
+      ["one", "two"],
+      ["two", "one"],
+      ["one", "two", "three"],
+      ["one", "three", "two"],
+      ["two", "one", "three"],
+      ["two", "three", "one"],
+      ["three", "two", "one"],
+      ["three", "one", "two"]
   ]
 
     unless valid_arrays.include?(ranks_array)

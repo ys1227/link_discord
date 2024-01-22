@@ -1,5 +1,4 @@
 class VotesController < ApplicationController
-
   def index
   end
 
@@ -26,5 +25,4 @@ class VotesController < ApplicationController
     @vote.destroy!
     redirect_to index_vote_question_reservations_path(@question), status: :see_other
   end
-  
 end

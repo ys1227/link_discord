@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   include UserSessionsHelper
   before_action :check_logged_in
   add_flash_types :success, :danger

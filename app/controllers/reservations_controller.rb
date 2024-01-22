@@ -1,11 +1,10 @@
 class ReservationsController < ApplicationController
-  skip_before_action :check_logged_in,only: %i[index_vote]
+  skip_before_action :check_logged_in, only: %i[index_vote]
 
   def index
     @question = Question.find(params[:question_id])
     @reservation = Reservation.new
     @question_reservations = @question.reservations
-
   end
 
   def new
@@ -32,16 +31,16 @@ class ReservationsController < ApplicationController
     @question = Question.find(params[:question_id])
     @question_reservations = @question.reservations
     @question_reservations.each do |reservation|
-      reservation.update_columns(rank:"default")
+      reservation.update_columns(rank: "default")
     end
     @reservations_params = second_reservation_params
     errors = []
-  
+
     ActiveRecord::Base.transaction do
       @reservations_params.each do |reservation_param|
         reservation = Reservation.find(reservation_param[:id])
         reservation.rank = reservation_param[:rank]
-  
+
         if reservation.valid?(:bulk_update)
           reservation.save!
         else
@@ -53,7 +52,7 @@ class ReservationsController < ApplicationController
     rescue ActiveRecord::RecordInvalid
       raise ActiveRecord::Rollback # トランザクションをロールバック
     end
-  
+
     if errors.empty?
       redirect_to show_reservations_question_path(@question), success: '募集時間が登録できました'
     else
@@ -61,7 +60,6 @@ class ReservationsController < ApplicationController
       render :index, status: :unprocessable_entity
     end
   end
-  
 
   def destroy
     @question = Question.find(params[:question_id])
@@ -77,9 +75,9 @@ class ReservationsController < ApplicationController
     @question_reservations = @question.reservations.order(:rank)
     @user = @question.user_id
   end
-  
+
   private
-  
+
   def reservations_params
     params.require(:reservation).permit(:rank, :start_time)
   end
@@ -91,5 +89,3 @@ class ReservationsController < ApplicationController
     end
   end
 end
-
-
