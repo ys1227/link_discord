@@ -40,5 +40,3 @@
 /.env
 /redis/appendonlydir/*
 /redis/dump.rdb
-/.rubocop_todo.yml
-/.rubocop.yml
