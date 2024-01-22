@@ -11,8 +11,8 @@ class RoomChannel < ApplicationCable::Channel
   # この後receivedに渡せるようにデータ保存後にmessege.rbのjobが機能してreceivedへ
   def speak(data)
     question = Question.find(data['question_id'])
-    message = question.messages.build(content: data['message']) 
-    message.user = current_user 
+    message = question.messages.build(content: data['message'])
+    message.user = current_user
     message.save!
   end
 end
