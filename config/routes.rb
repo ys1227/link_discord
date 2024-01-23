@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     member do
       get :show_reservations
       get :choose_schedule
+      get :draft
+      get 'published'
+      get 'voted'
       post :create_deadline
     end
     resources :matching_times, only: %i[index]

@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 
   def index
     @q = Question.ransack(params[:q])
-    @questions = @q.result(distinct: true).includes(:user).order(deadline: :desc)
+    @questions = @q.result(distinct: true).includes(:user).order(deadline: :desc).where(state: %i[published closed])
   end
 
   def show
@@ -71,6 +71,22 @@ class QuestionsController < ApplicationController
 
   def choose_schedule
     @question = Question.find(params[:id])
+  end
+
+  def draft
+    @q = current_user.questions.draft.ransack(params[:q])
+    @questions = @q.result(distinct: true).includes(:user).order(deadline: :desc)
+  end
+
+  def published
+    @q = current_user.questions.published.draft.ransack(params[:q])
+    @questions = @q.result(distinct: true).includes(:user).order(deadline: :desc)
+  end
+
+  def voted
+    @voted_questions = current_user.vote_questions
+    @q = @voted_questions.ransack(params[:q])
+    @questions = @q.result(distinct: true).includes(:user).order(deadline: :desc)
   end
 
   private

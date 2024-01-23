@@ -2,6 +2,7 @@ class Reservation < ApplicationRecord
   belongs_to :question
   has_many :votes, dependent: :destroy
   has_one :matching_time, dependent: :destroy
+  has_many :votes, dependent: :destroy
   
   enum rank: { default: 0, one: 10, two: 20, three: 30 }
 

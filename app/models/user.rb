@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :vote_reservations, through: :votes, source: :reservation
+  has_many :vote_questions, through: :vote_reservations, source: :question
 
   validates :email, uniqueness: true
 
