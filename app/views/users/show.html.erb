@@ -1,0 +1,30 @@
+<div class="flex-1 bg-gray-900 text-white flex flex-col">
+  <div class="flex flex-col items-center p-6">
+    <%= image_tag current_user.image, alt: current_user.name, class: "mt-10 h-30 w-30 mb-10 rounded-full" %>
+    <p class="text-2xl font-semibold">
+      <%= current_user.name %>
+    </p>
+  </div>
+  <div class="flex-grow flex flex-col items-center justify-center space-y-4">
+    <div class="group">
+      <%= link_to "#", class: "flex items-center space-x-2 text-gray-300 hover:bg-gray-700 px-4 py-2 rounded-md" do %>
+        <i class="fas fa-file-alt fa-lg"></i>
+        <span class="text-lg font-medium">下書き</span>
+      <% end %>
+    </div>
+
+    <div class="group">
+      <%= link_to "#", class: "flex items-center space-x-2 text-gray-300 hover:bg-gray-700 px-4 py-2 rounded-md" do %>
+        <i class="fas fa-user fa-lg"></i>
+        <span class="text-lg font-medium">投稿</span>
+      <% end %>
+    </div>
+
+    <div class="group">
+      <%= link_to "#", class: "flex items-center space-x-2 text-gray-300 hover:bg-gray-700 px-4 py-2 rounded-md" do %>
+        <i class="fas fa-check-circle fa-lg"></i>
+        <span class="text-lg font-medium">投票済み</span>
+      <% end %>
+    </div>
+  </div>
+</div>

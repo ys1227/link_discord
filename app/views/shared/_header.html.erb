@@ -10,14 +10,18 @@
       <%= link_to "Go Home", root_path, data: {"turbolinks" => false}, class: "inline-flex items-center justify-center gap-1.5 rounded-lg bg-discord-dark px-5 py-3 text-white transition hover:bg-indigo-700 focus:outline-none" %>
       <%= link_to "Log Out", log_out_path,  data: { turbo_method: :delete }, class: "inline-flex items-center justify-center gap-1.5 rounded-lg bg-discord-dark px-5 py-3 text-white transition hover:bg-red-700 focus:outline-none" %>
       <%= link_to "Find Post", questions_path, class: "inline-flex items-center justify-center gap-1.5 rounded-lg bg-discord-dark px-5 py-3 text-white transition hover:bg-red-700 focus:outline-none mr-2 " %>
+      <%= link_to user_path(current_user) do %>
+        <div class="flex items-center">
         <% if current_user.image.present? %>
-          <%= image_tag current_user.image, alt: current_user.name, class: "font-dotgothic h-16 w-16 rounded-full" %>
+          <%= image_tag current_user.image, alt: current_user.name, class: "font-dotgothic h-16 w-16 rounded-full " %>
         <%else%>
           <%= image_tag '1_test.png', alt: current_user.name, class: "font-dotgothic h-16 w-16 rounded-full" %>
         <% end %>
         <p class="ml-2 text-white font-dotgothic">
-            <%= current_user.name %>
-          </p>
+          <%= current_user.name %>
+        </p>
+        </div>
+      <%end%>
       </div>
     </div>
   </div>
