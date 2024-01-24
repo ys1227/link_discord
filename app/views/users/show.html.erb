@@ -1,6 +1,10 @@
 <div class="flex-1 bg-gray-900 text-white flex flex-col">
   <div class="flex flex-col items-center p-6">
-    <%= image_tag current_user.image, alt: current_user.name, class: "mt-10 h-30 w-30 mb-10 rounded-full" %>
+    <%if current_user.image%>
+      <%= image_tag current_user.image, alt: current_user.name, class: "mt-10 h-30 w-30 mb-10 rounded-full" %>
+    <%else%>
+    <%= image_tag '1_test.png', alt: current_user.name, class: "font-dotgothic h-20 w-20 mb-10  rounded-full" %>
+    <%end%>
     <p class="text-2xl font-semibold">
       <%= current_user.name %>
     </p>
