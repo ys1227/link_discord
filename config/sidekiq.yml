@@ -12,4 +12,7 @@
     access_route_page_job:
       cron: '0 */10 * * * *'
       class: AccessRoutePageJob
+    delete_guest_user_job:
+      cron: '0 0 * * * *'  
+      class: DeleteGuestUserJob 
 

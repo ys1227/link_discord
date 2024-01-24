@@ -67,6 +67,8 @@ class QuestionsController < ApplicationController
       @question.update(state: "published")
       if current_user.is_guest?
         DeleteGuestDateJob.set(wait: 5.seconds).perform_later(@question)
+        redirect_to questions_path, success: 'ゲストとして投稿しました。投稿は5秒後に削除されます。'
+        return
       end
       redirect_to questions_path, success: '募集を開始しました'
     else
