@@ -2,9 +2,6 @@ require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
-  
-  mount Sidekiq::Web, at: '/sidekiq'
-
   root 'static_pages#top'
   get 'static_pages/terms'
   get 'static_pages/privacy'
