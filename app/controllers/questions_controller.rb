@@ -20,6 +20,9 @@ class QuestionsController < ApplicationController
 
   def create
     @question = current_user.questions.build(question_params)
+    if current_user.is_guest?
+      @question.is_demo = true
+    end
     if @question.save
       # redirect_to choose_schedule_question_path(@question), success: '投稿が成功しました'
       redirect_to new_question_reservation_path(@question), success: '投稿が成功しました'
@@ -62,6 +65,11 @@ class QuestionsController < ApplicationController
     if @question.valid?(:create_deadline)
       @question.update(deadline: deadline)
       @question.update(state: "published")
+      if current_user.is_guest?
+        DeleteGuestDateJob.set(wait: 5.seconds).perform_later(@question)
+        redirect_to questions_path, success: 'ゲストとして投稿しました。投稿は5秒後に削除されます。'
+        return
+      end
       redirect_to questions_path, success: '募集を開始しました'
     else
       flash.now[:danger] = "希望順位が正しく設定されていません。戻るを押して設定し直してね。"

@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
+  scope :past_hour_user_create, -> { where('created_at < ?', Time.current - 1.hours) }
+
   def self.find_or_create_from_auth_hash(auth_hash)
     user_params = user_params_from_auth_hash(auth_hash)
     if guild_member?(user_params[:uid]) == true
@@ -17,6 +19,12 @@ class User < ApplicationRecord
           user.image = Discordrb::API::User.default_avatar(auth_hash[:extra][:raw_info][:discriminator])
         end
       end
+    end
+  end
+
+  def is_guest?
+    if is_guest == true
+      return true
     end
   end
 
