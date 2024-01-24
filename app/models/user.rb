@@ -20,6 +20,12 @@ class User < ApplicationRecord
     end
   end
 
+  def is_guest?
+    if name == "ゲスト"
+      return true
+    end
+  end
+
   private
 
   def self.user_params_from_auth_hash(auth_hash)

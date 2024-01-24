@@ -3,6 +3,7 @@
 :queues:
   - default
   - confirm_date
+  - guest
 :scheduler:
   :schedule:
     change_question_state_job:
