@@ -20,7 +20,8 @@ class UserSessionsController < ApplicationController
     name: 'Guest',
     email: SecureRandom.alphanumeric(10) + "@email.com",
     crypted_password: 'password',
-    salt: 'password'
+    salt: 'password',
+    is_guest: true
     )
     auto_login(@guest_user)
     redirect_to root_path, success: 'ゲストとしてログインしました'

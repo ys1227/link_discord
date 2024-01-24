@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  scope :past_hour_user_create, -> { where('created_at < ?', Time.current - 1.hour) }
+  scope :past_hour_user_create, -> { where('created_at < ?', Time.current - 1.hours) }
 
   def self.find_or_create_from_auth_hash(auth_hash)
     user_params = user_params_from_auth_hash(auth_hash)
@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def is_guest?
-    if name == "Guest"
+    if is_guest == true
       return true
     end
   end
