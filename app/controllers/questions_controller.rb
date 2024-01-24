@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   skip_before_action :check_logged_in, only: %i[index show]
 
+
   def index
     @q = Question.ransack(params[:q])
     @questions = @q.result(distinct: true).includes(:user).order(deadline: :desc).where(state: %i[published closed])
@@ -94,4 +95,5 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:title, :content, :role)
   end
+
 end
