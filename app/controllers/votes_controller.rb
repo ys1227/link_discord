@@ -3,6 +3,10 @@ class VotesController < ApplicationController
   end
 
   def create
+    if current_user.is_guest?
+      redirect_to questions_path, success: 'ゲストユーザーは投票できません。'
+      return
+    end
     @question = Question.find(params[:question_id])
     @question_reservations = @question.reservations
     reservation = Reservation.find(params[:reservation_id])
