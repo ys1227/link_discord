@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     member do
       get :show_reservations
       get :choose_schedule
+      get :draft
+      get 'published'
+      get 'voted'
       post :create_deadline
     end
     resources :matching_times, only: %i[index]
@@ -34,7 +37,7 @@ Rails.application.routes.draw do
       resources :votes
     end
   end
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create show]
 
   mount ActionCable.server => '/cable'
   get 'rooms/show/:id' => 'rooms#show', :as => :chat

@@ -18,9 +18,9 @@
           <%= question.user.name %>
         </h2>
       </div>
-      <div class="bg-discord-container p-4 rounded-lg">
+      <div class="bg-discord-container fixed-height p-4 rounded-lg flex flex-col justify-center items-center">
         <p class="text-white font-bold "><%="🚀#{question.role_i18n}🚀" %></p>
-        <h2 class="text-white font-bold mb-3"><%= question.title %></h2>
+        <h2 class="text-white font-bold mb-3 "><%= question.title %></h2>
       </div>
     </div>
     <%= link_to "質問詳細", question_path(question), class: "text-discord-blurple inline-flex items-center mt-4" %>

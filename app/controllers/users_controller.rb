@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @questions = current_user.questions
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

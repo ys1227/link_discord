@@ -325,3 +325,13 @@ body{
 .discord-gray-midle {
   color: #424549
 }
+
+.fixed-height {
+  height: 120px !important;
+}
+
+.min-w {
+  min-width: 80px;
+  height: auto !important;
+  height: 100px;
+  }
