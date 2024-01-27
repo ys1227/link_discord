@@ -24,7 +24,9 @@
       </div>
     </div>
     <%= link_to "質問詳細", question_path(question), class: "text-discord-blurple inline-flex items-center mt-4" %>
-    <!---<%= link_to "チャット", chat_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %> --->
+    <%if current_user%>
+    <%= link_to "チャット", chat_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %> 
+    <%end%>
     <%if question.user == current_user && question.state == "draft" %>
     <%= link_to "予約を修正する", new_question_reservation_path(question), class: "text-discord-blurple inline-flex items-center mt-2" %>
     <%end%>

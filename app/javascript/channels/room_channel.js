@@ -14,25 +14,30 @@ document.addEventListener("turbo:load", () => {
   const appRoom = consumer.subscriptions.create({channel:"RoomChannel", question_id: questionId},{
 
   received(data) {
-    console.log("accepted")
-    console.log(data)
+    console.log("レシーブ")
     const messages = document.getElementById("messages");
     messages.insertAdjacentHTML('beforeend', data['body']);
+    function scrollToBottom() {
+      messages.scrollTop = messages.scrollHeight;
+    }
+    scrollToBottom();
   },
 
   speak: function(message) {
     console.log(message)
     console.log(currentUserId)
     console.log(questionId)
-    return this.perform('speak', {message: message, question_id: questionId});
+    this.perform("speak", { message: message });
   }
 });
 
-window.addEventListener("keypress", function(e) {
-  if (e.keyCode === 13) {
-    appRoom.speak(e.target.value); // メッセージを送信
-    e.target.value = ''; // テキストボックスをクリア
-    e.preventDefault(); // デフォルトのキー操作を抑制
+window.addEventListener("keydown", 
+  event => {
+  if (event.key === 'Enter') {
+    console.log("呼び出されたよ")
+    appRoom.speak(event.target.value); // メッセージを送信
+    event.target.value = ''; // テキストボックスをクリア
+    event.preventDefault(); // デフォルトのキー操作を抑制
   }
 });
 })

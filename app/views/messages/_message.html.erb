@@ -1,5 +1,10 @@
-<div class="message flex flex-col ">
-    <div class="self-end bg-blue-500 text-white rounded-r-lg rounded-bl-lg p-2" data-user-id="<%= message.user_id %>">
-      <p><%= message.content %></p>
-    </div>  
+<div class="message flex items-center mb-2.5">
+  <%= image_tag message.user.image, alt: message.user.name, class: "font-dotgothic h-16 w-16 rounded-full w-10 h-10 rounded-full mr-2.5" %>
+  <div>
+    <div class="text-white">
+      <%= message.user.name %>
+      <span class="text-gray-500 text-xs"><%= message.created_at.strftime('%H:%M') %></span>
+    </div>
+    <p class="text-gray-300"><%= message.content %></p>
+  </div>
 </div>

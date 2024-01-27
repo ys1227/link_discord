@@ -1,6 +1,8 @@
 development:
-  adapter: async
-
+  adapter: redis
+  url: redis://redis:6379
+  channel_prefix: link_discord_development
+  
 test:
   adapter: test
 

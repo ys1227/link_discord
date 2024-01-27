@@ -72,6 +72,8 @@ gem 'ransack', "3.2.1"
 
 gem 'meta-tags'
 
+gem "redis"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
