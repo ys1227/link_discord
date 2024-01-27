@@ -282,6 +282,8 @@ GEM
       i18n
     rdoc (6.6.0)
       psych (>= 4.0.0)
+    redis (5.0.8)
+      redis-client (>= 0.17.0)
     redis-client (0.18.0)
       connection_pool
     regexp_parser (2.8.2)
@@ -411,6 +413,7 @@ DEPENDENCIES
   rails (~> 7.0.7)
   rails-i18n
   ransack (= 3.2.1)
+  redis
   rubocop
   rubocop-performance
   rubocop-rails

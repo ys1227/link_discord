@@ -1,8 +1,14 @@
 class MessageBroadcastJob < ApplicationJob
-  queue_as :default
+  queue_as :broadcast
 
   def perform(message)
-    ActionCable.server.broadcast("chat_#{message.question_id}", { body: render_message(message) })
+    ActionCable.server.broadcast(
+      "chat_#{message.question_id}", 
+      { 
+        sent_by: message.user.name,
+        body: render_message(message) 
+      }
+      )
   end
 
   private

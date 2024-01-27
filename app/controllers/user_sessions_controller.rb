@@ -21,6 +21,7 @@ class UserSessionsController < ApplicationController
     email: SecureRandom.alphanumeric(10) + "@email.com",
     crypted_password: 'password',
     salt: 'password',
+    image: '1_test.png',
     is_guest: true
     )
     auto_login(@guest_user)

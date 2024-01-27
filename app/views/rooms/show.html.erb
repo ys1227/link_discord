@@ -1,8 +1,12 @@
+<div class="flex-1 bg-discord-dark">
 <h1>Chat room</h1>
-<div id="messages" data-current-user-id="<%= current_user.id %>" data-question-id="<%= @question.id %>">
+<div class="">
+<div id="messages" data-current-user-id="<%= current_user.id %>" data-question-id="<%= @question.id %>" class="overflow-y-auto max-h-[500px]">
   <%= render @messages %>
 </div>
 <form>
   <label>Say something:</label><br>
   <input type="text" data-behavior="room_speaker">
 </form>
+</div>
+
