@@ -1,5 +1,10 @@
 import consumer from "./consumer"
 
+function scrollToBottom() {
+  const messages = document.getElementById("messages");
+  messages.scrollTop = messages.scrollHeight;
+}
+
 document.addEventListener("turbo:load", () => {
   const messages = document.querySelector('#messages');
   if (messages === null) {
@@ -8,6 +13,7 @@ document.addEventListener("turbo:load", () => {
   const currentUserId = messages.dataset.currentUserId;
   const questionId = messages.dataset.questionId;
   console.log("notnull")
+  scrollToBottom();
 
 // 「const appRoom =」を追記
 // ここで配信するチャンネルを作成してチャンネルにquestionIdを持たせ、購読しているクライアントに配信している？
@@ -17,9 +23,6 @@ document.addEventListener("turbo:load", () => {
     console.log("レシーブ")
     const messages = document.getElementById("messages");
     messages.insertAdjacentHTML('beforeend', data['body']);
-    function scrollToBottom() {
-      messages.scrollTop = messages.scrollHeight;
-    }
     scrollToBottom();
   },
 
@@ -31,13 +34,15 @@ document.addEventListener("turbo:load", () => {
   }
 });
 
-window.addEventListener("keydown", 
+window.addEventListener("keyup", 
   event => {
   if (event.key === 'Enter') {
     console.log("呼び出されたよ")
     appRoom.speak(event.target.value); // メッセージを送信
-    event.target.value = ''; // テキストボックスをクリア
+    event.target.value = '';
+    scrollToBottom(); // テキストボックスをクリア
     event.preventDefault(); // デフォルトのキー操作を抑制
   }
 });
 })
+

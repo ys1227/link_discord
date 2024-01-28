@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       post :create_deadline
     end
     resources :matching_times, only: %i[index]
+    resources :messages, only: %i[destroy]
 
     resources :reservations do
       collection do
