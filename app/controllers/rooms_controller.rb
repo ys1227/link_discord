@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :check_guest_login, only: %i[show]
   def show
     @question = Question.find(params[:id])
     @messages = @question.messages.all
