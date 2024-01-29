@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
       # redirect_to choose_schedule_question_path(@question), success: '投稿が成功しました'
       redirect_to new_question_reservation_path(@question), success: '投稿が成功しました'
     else
-      flash.now[:danger] ='投稿が失敗しました'
+      flash.now[:danger] = '投稿が失敗しました'
       render :new, status: :unprocessable_entity
     end
   end

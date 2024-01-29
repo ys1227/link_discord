@@ -24,11 +24,9 @@ class User < ApplicationRecord
 
   def is_guest?
     if is_guest == true
-      return true
+      true
     end
   end
-
-  private
 
   def self.user_params_from_auth_hash(auth_hash)
     {
@@ -44,12 +42,12 @@ class User < ApplicationRecord
     # parse_objects = JSON.parse(guild_objects)
     # user_objects = parse_objects["user"]["id"]
     if guild_objects = Discordrb::API::Server.resolve_member("Bot #{ENV['DISCORD_BOT_TOKEN']}", ENV['DISCORD_SERVER_ID'], uid.to_i)
-      return true
+      true
     else
-      return false
+      false
     end
   rescue Discordrb::Errors::UnknownMember => e
     # Discordrb::Errors::UnknownMemberエラーが発生した場合の処理
-    return false
+    false
   end
 end

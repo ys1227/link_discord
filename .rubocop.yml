@@ -27,10 +27,6 @@ AllCops:
 
 ### ルールのカスタマイズ
 
-# 設定が厳しいので一旦全てfalseにする
-Metrics:
-  Enabled: false
-
 # 一行あたりの文字数
 Layout/LineLength:
   Enabled: false
@@ -95,40 +91,3 @@ Rails/LexicallyScopedActionFilter:
 # 環境変数をfetchで設定する指摘
 Style/FetchEnvVar:
   Enabled: false
-
-Layout/SpaceAroundOperators:
-  Enabled: false
-
-Layout/SpaceInsidePercentLiteralDelimiters:
-  Enabled: false
-
-Lint/IneffectiveAccessModifier:
-  Enabled: false
-
-Lint/ShadowedArgument:
-  Enabled: false
-
-Lint/UnusedBlockArgument:
-  Enabled: false
-
-Lint/UnusedMethodArgument:
-  Enabled: false
-
-Lint/UselessAccessModifier:
-  Enabled: false
-
-Style/RedundantSelf:
-  Enabled: false
-
-Style/RedundantReturn:
-  Enabled: false
-
-
-# 設定追加
-Rails/SkipsModelValidations:
-  Exclude:
-    - 'app/controllers/reservations_controller.rb'
-
-Rails/HelperInstanceVariable:
-  Exclude:
-    - 'app/helpers/user_sessions_helper.rb'
