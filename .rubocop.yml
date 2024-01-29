@@ -27,14 +27,6 @@ AllCops:
 
 ### ルールのカスタマイズ
 
-# 設定が厳しいので一旦全てfalseにする
-Metrics:
-  Enabled: false
-
-# 一行あたりの文字数
-Layout/LineLength:
-  Enabled: false
-
 # メソッドの改行ルール
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
@@ -84,51 +76,47 @@ Lint/AssignmentInCondition:
 Naming/PredicateName:
   Enabled: false
 
-# 未i18nのチェック（バリデーションエラーメッセージをi18nに登録するのはやや冗長？なためfalse）
+# 未i18nのチェック
 Rails/I18nLocaleTexts:
-  Enabled: false
-
-# before_actionの際の未定義メソッドのチェック（deviseとの兼ね合いで一旦false）
-Rails/LexicallyScopedActionFilter:
   Enabled: false
 
 # 環境変数をfetchで設定する指摘
 Style/FetchEnvVar:
   Enabled: false
 
-Layout/SpaceAroundOperators:
-  Enabled: false
+Metrics/AbcSize:
+  Max: 70
 
-Layout/SpaceInsidePercentLiteralDelimiters:
-  Enabled: false
+Metrics/BlockLength:
+  Max: 40
 
-Lint/IneffectiveAccessModifier:
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/LineLength:
+  Max: 150
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Style/StringConcatenation:
   Enabled: false
 
 Lint/ShadowedArgument:
   Enabled: false
 
-Lint/UnusedBlockArgument:
+Lint/UselessAssignment:
   Enabled: false
 
-Lint/UnusedMethodArgument:
-  Enabled: false
-
-Lint/UselessAccessModifier:
-  Enabled: false
-
-Style/RedundantSelf:
-  Enabled: false
-
-Style/RedundantReturn:
-  Enabled: false
-
-
-# 設定追加
 Rails/SkipsModelValidations:
   Exclude:
     - 'app/controllers/reservations_controller.rb'
 
 Rails/HelperInstanceVariable:
   Exclude:
-    - 'app/helpers/user_sessions_helper.rb'
+    - 'app/helpers/user_sessions_helper.rb' # HelperInstanceVariableを特定のファイルで無視する
+
+Lint/UnusedBlockArgument:
+  Exclude:
+    - 'app/jobs/confirm_maching_date_job.rb' # UnusedBlockArgumentを特定のファイルで無視する
+

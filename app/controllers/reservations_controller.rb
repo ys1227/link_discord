@@ -22,7 +22,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to new_question_reservation_path(@question), success: '募集時間が登録できました'
     else
-      flash.now[:danger] ="投稿に失敗しました"
+      flash.now[:danger] = "投稿に失敗しました"
       render :new, status: :unprocessable_entity
     end
   end

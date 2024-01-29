@@ -14,7 +14,7 @@ class VotesController < ApplicationController
     if @vote.save
       redirect_to index_vote_question_reservations_path(@question), success: '投稿が成功しました'
     else
-      flash.now[:danger] ="投稿に失敗しました"
+      flash.now[:danger] = "投稿に失敗しました"
       render 'reservations/index_vote', status: :unprocessable_entity
     end
   end

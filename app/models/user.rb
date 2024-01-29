@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  scope :past_hour_user_create, -> { where('created_at < ?', Time.current - 1.hours) }
+  scope :past_hour_user_create, -> { where('created_at < ?', 1.hour.ago) }
 
   def self.find_or_create_from_auth_hash(auth_hash)
     user_params = user_params_from_auth_hash(auth_hash)
@@ -24,11 +24,9 @@ class User < ApplicationRecord
 
   def is_guest?
     if is_guest == true
-      return true
+      true
     end
   end
-
-  private
 
   def self.user_params_from_auth_hash(auth_hash)
     {
@@ -43,13 +41,14 @@ class User < ApplicationRecord
   def self.guild_member?(uid)
     # parse_objects = JSON.parse(guild_objects)
     # user_objects = parse_objects["user"]["id"]
-    if guild_objects = Discordrb::API::Server.resolve_member("Bot #{ENV['DISCORD_BOT_TOKEN']}", ENV['DISCORD_SERVER_ID'], uid.to_i)
-      return true
+    if guild_objects = Discordrb::API::Server.resolve_member("Bot #{ENV['DISCORD_BOT_TOKEN']}",
+                                                             ENV['DISCORD_SERVER_ID'], uid.to_i)
+      true
     else
-      return false
+      false
     end
   rescue Discordrb::Errors::UnknownMember => e
     # Discordrb::Errors::UnknownMemberエラーが発生した場合の処理
-    return false
+    false
   end
 end
