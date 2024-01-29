@@ -20,9 +20,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = current_user.questions.build(question_params)
-    if current_user.is_guest?
-      @question.is_demo = true
-    end
+    @question.is_demo = true if current_user.is_guest?
     if @question.save
       # redirect_to choose_schedule_question_path(@question), success: '投稿が成功しました'
       redirect_to new_question_reservation_path(@question), success: '投稿が成功しました'

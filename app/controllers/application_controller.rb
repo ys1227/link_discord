@@ -10,9 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def check_guest_login
-    if current_user.is_guest? == true
-
-    redirect_to root_path, danger: 'ログインしてください'
-    end
+    redirect_to root_path, danger: 'ログインしてください' if current_user.is_guest? == true
   end
 end
