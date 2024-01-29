@@ -5,21 +5,7 @@ function scrollToBottom() {
   messages.scrollTop = messages.scrollHeight;
 }
 
-function confirm_message() {
-  if (messages === nil) {
-    console.log('変数はありません')
-  };
-}
-
-history.replaceState(null, null, null);
-window.addEventListener('popstate', function(e) {
-  if (appRoom === nil) {
-    console.log('変数はありません')
-  };
-});
-
 document.addEventListener("turbo:load", () => {
-  confirm_message;
   const messages = document.querySelector('#messages');
   
   if (messages === null) {
@@ -33,7 +19,7 @@ document.addEventListener("turbo:load", () => {
 // 「const appRoom =」を追記
 // ここで配信するチャンネルを作成してチャンネルにquestionIdを持たせ、購読しているクライアントに配信している？
   const appRoom = consumer.subscriptions.create({channel:"RoomChannel", question_id: questionId},{
-
+// ここからはcreateのコールバック関数
   received(data) {
     console.log("レシーブ")
     const messages = document.getElementById("messages");
@@ -46,16 +32,21 @@ document.addEventListener("turbo:load", () => {
     this.perform("speak", { message: message });
   }
 });
+ //createメソッド終わり
+
+if (appRoom) {
+  console.log('Roomを新しく作ったよ');
+}
+
 
 window.addEventListener("keyup", 
   event => {
   const messages = document.getElementById("messages");
   if (event.key === 'Enter') {
     if (messages === null) {
-      consumer.subscriptions.remove(appRoom);
       return;
     }
-    console.log("呼び出されたよ")
+    console.log("enter")
     appRoom.speak(event.target.value); // メッセージを送信
     event.target.value = '';
     scrollToBottom(); // テキストボックスをクリア
@@ -65,13 +56,20 @@ window.addEventListener("keyup",
 
 window.addEventListener("beforeunload", () => {
   consumer.subscriptions.remove(appRoom);
-  
+  console.log('Roomを消したよ1')
 });
 
 document.addEventListener("turbo:before-visit", () => {
   consumer.subscriptions.remove(appRoom);
+  console.log('Roomを消したよturbo')
 });
 
+history.replaceState(null, null, null);
+window.addEventListener('popstate', function(e) {
+  consumer.subscriptions.remove(appRoom);
+  console.log('Roomを消したよ3')
+});
 
 })
+// turboのイベントリスナー終わり
 
