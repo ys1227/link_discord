@@ -39,33 +39,33 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 | トップ画面 |　ログイン画面 |
 | ---- | ---- |
 | ![Top画面](https://raw.github.com/wiki/ys1227/link_discord/images/01_top.png) | ![ログイン画面](https://raw.github.com/wiki/ys1227/link_discord/images/02_login_discord.png) |
-| 登録せずにサービスをお試しいただくためのトライアル機能を実装しました。 | ログインIDとパスワードでの認証機能を実装しました。 |
+| 登録せずにサービスをお試しいただくためのゲストログイン機能を実装しました。 | Discordによる外部認証機能を実装しました。 |
 
 | 募集作成画面 |　募集作成画面 |
 | ---- | ---- |
-| ![事業者選択画面](https://raw.github.com/wiki/ys1227/link_discord/images/05_post.png) | ![請求書作成画面](https://raw.github.com/wiki/ys1227/link_discord/images/06_post.png) |
-| 登録済みの複数の事業者の中から、請求書を作成したい事業者を選択する機能を実装しました。 | 請求書の作成機能・マスタデータの呼び出し機能・税率変更機能・税率別内訳の計算機能、合計金額の計算機能を実装しました。 |
+| ![募集作成(カテゴリ設定)画面](https://raw.github.com/wiki/ys1227/link_discord/images/05_post.png) | ![募集作成作成画面](https://raw.github.com/wiki/ys1227/link_discord/images/06_post.png) |
+| 募集するテーマに沿ったカテゴリを設定する機能を実装しました。 | 募集を行う際のタイトルや内容などを設定できるように実装しました。 |
 
-| 予約時間投稿画面 |　優先順位設定画面 |
+| 募集時間投稿画面 |　優先順位設定画面 |
 | ---- | ---- |
-| ![請求書詳細画面](https://raw.github.com/wiki/ys1227/link_discord/images/07_reservations.png) | ![　PDF出力画面](https://raw.github.com/wiki/ys1227/link_discord/images/08_rank_posts.png) |
-| 請求書データの表示機能を実装しました。 | PDFでの請求書発行機能を実装しました。 |
+| ![募集時間投稿細画面](https://raw.github.com/wiki/ys1227/link_discord/images/07_reservations.png) | ![　優先順位設定画面](https://raw.github.com/wiki/ys1227/link_discord/images/08_rank_posts.png) |
+| 募集時間を第三希望まで設定できるように実装しました。 | 希望時間に対して優先順位を設定できるように実装しました。 |
 
-|  |　マスタの登録画面 |
+| 投稿確認画面 |　投稿一覧画面 |
 | ---- | ---- |
-| ![請求書詳細画面](https://raw.github.com/wiki/ys1227/link_discord/images/09_confirmanation.png) | ![　PDF出力画面](https://raw.github.com/wiki/ys1227/link_discord/images/10_post.png) |
-| 事業者情報と備考欄情報のマスタ登録機能を実装しました。 | マスタ情報の登録をすることで、請求書の作成時にデータを呼び出すことができます。 |
+| ![投稿確認画面](https://raw.github.com/wiki/ys1227/link_discord/images/09_confirmanation.png) | ![　投稿一覧画面](https://raw.github.com/wiki/ys1227/link_discord/images/10_post.png) |
+| 時間と優先順位に関して最終確認をできるようにしました。 | 投稿一覧画面から受講生が募集しているテーマを探しに行くことができます。 |
 
 
-|  |　マスタの登録画面 |
+| 投票画面 |　集合時間確認画面 |
 | ---- | ---- |
-| ![請求書詳細画面](https://raw.github.com/wiki/ys1227/link_discord/images/11_reservations.png) | ![　PDF出力画面](https://raw.github.com/wiki/ys1227/link_discord/images/12_matching_time.png) |
-| 事業者情報と備考欄情報のマスタ登録機能を実装しました。 | マスタ情報の登録をすることで、請求書の作成時にデータを呼び出すことができます。 |
+| ![投票画面](https://raw.github.com/wiki/ys1227/link_discord/images/11_reservations.png) | ![　集合時間確認画面](https://raw.github.com/wiki/ys1227/link_discord/images/12_matching_time.png) |
+| 受講生が参加したい時間に対して投票できるようになっています。 | アプリケーションで決定した集合時間を確認することができます。 |
 
-|  |　マスタの登録画面 |
+| チャット画面|　DiscordへのDM送信画面 |
 | ---- | ---- |
-| ![請求書詳細画面](https://raw.github.com/wiki/ys1227/link_discord/images/13_send_dm.png) | ![　PDF出力画面](https://raw.github.com/wiki/ys1227/link_discord/images/14_chat.png) |
-| 事業者情報と備考欄情報のマスタ登録機能を実装しました。 | マスタ情報の登録をすることで、請求書の作成時にデータを呼び出すことができます。 |
+| ![チャット画面](https://raw.github.com/wiki/ys1227/link_discord/images/14_chat.png) | ![　DiscordへのDM送信画面](https://raw.github.com/wiki/ys1227/link_discord/images/13_send_dm.png) |
+| チャットを行うことができるように実装しました。 | 集合時間が決定するとDMでお知らせを行います。 |
 
 
 <br />
