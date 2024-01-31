@@ -22,11 +22,12 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 
 ![demo](https://raw.github.com/wiki/ys1227/link_discord/images/way_of_use.gif)
 
-* RUNTEQ生のみにログインを限定しています。  
+🤖RUNTEQ生のみにログインを限定しています。🤖   
 (※RUNTEQ生以外の方でもゲストログイン機能を使ってお試しいただけます。)
+ 
 ![demo](https://raw.github.com/wiki/ys1227/link_discord/images/failure_login.png)
 
-* 集合時間が決定したらDiscordのDMにお知らせが届きます。
+🤖集合時間が決定したらDiscordのDMにお知らせが届きます。🤖
 ![demo](https://raw.github.com/wiki/ys1227/link_discord/images/13_send_dm.png)
 
 
