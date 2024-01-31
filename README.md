@@ -62,7 +62,14 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 | ![請求書詳細画面](https://raw.github.com/wiki/ys1227/link_discord/images/11_reservations.png) | ![　PDF出力画面](https://raw.github.com/wiki/ys1227/link_discord/images/12_matching_time.png) |
 | 事業者情報と備考欄情報のマスタ登録機能を実装しました。 | マスタ情報の登録をすることで、請求書の作成時にデータを呼び出すことができます。 |
 
+|  |　マスタの登録画面 |
+| ---- | ---- |
+| ![請求書詳細画面](https://raw.github.com/wiki/ys1227/link_discord/images/13_send_dm.png) | ![　PDF出力画面](https://raw.github.com/wiki/ys1227/link_discord/images/14_chat.png) |
+| 事業者情報と備考欄情報のマスタ登録機能を実装しました。 | マスタ情報の登録をすることで、請求書の作成時にデータを呼び出すことができます。 |
+
+
 <br />
+
 ## 🚀サービスの利用イメージ🚀
 以下のようなサービスの利用イメージを考えています。  
 Discordで集まる人を募集したいユーザーAは以下の項目を設定。　　
