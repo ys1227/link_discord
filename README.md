@@ -1,6 +1,6 @@
 ![Discordで集まろう (1)](https://github.com/ys1227/link_discord/assets/132570742/711e1f67-b71d-4ce3-8770-602e414acee9)
 
-
+https://raw.github.com/wiki/ys1227/link_discord/images/way_of_use.gif
 ## 🚀サービス概要🚀
 このサービスはDiscordで集まる人を募集し、集まる時間を調整するためのマッチングアプリです。  
 集まる人を募集したいユーザーは主に質問や雑談といった集まる目的を設定し、集まることができる時間を投稿して、Discordで集まる人を探すことができます。  
