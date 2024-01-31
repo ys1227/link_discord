@@ -1,10 +1,12 @@
 ![Discordで集まろう (1)](https://github.com/ys1227/link_discord/assets/132570742/711e1f67-b71d-4ce3-8770-602e414acee9)
 
+<br />
 
 ## 🚀サービスのURL🚀
 ゲストログイン機能を実装いたしましたので、RUNTEQスクール生以外でもお使いいただくことができます。  
 https://link-disco.onrender.com/
 
+<br />
 
 ## 🚀サービスへの想い🚀
 私はRUNTEQというプログラミングスクールに通っています。  
@@ -17,20 +19,44 @@ RUNTEQではカリキュラムなどで分からない問題があったとき�
 これらの問題を解決し、受講生同士が気軽に学習や就職活動の相談を行うことができればと思い、  
 Discordに集まる日程や時間を調整できる日程調整アプリとして「Link_Disco」を作成しました。  
 
-  
+<br />  
+
 ## 🚀アプリケーションのイメージ🚀
 
 ![demo](https://raw.github.com/wiki/ys1227/link_discord/images/way_of_use.gif)
 
-🤖RUNTEQ生のみにログインを限定しています。🤖   
+### 🤖RUNTEQ生のみにログインを限定しています。🤖  
 (※RUNTEQ生以外の方でもゲストログイン機能を使ってお試しいただけます。)
  
 ![demo](https://raw.github.com/wiki/ys1227/link_discord/images/failure_login.png)
 
-🤖集合時間が決定したらDiscordのDMにお知らせが届きます。🤖
+### 🤖集合時間が決定したらDiscordのDMにお知らせが届きます。🤖
 ![demo](https://raw.github.com/wiki/ys1227/link_discord/images/13_send_dm.png)
 
+<br />
 
+## 機能一覧
+| トップ画面 |　ログイン画面 |
+| ---- | ---- |
+| ![Top画面](/docs/img/app-view/welcome_1.1.png) | ![ログイン画面](/docs/img/app-view/login_1.1.png) |
+| 登録せずにサービスをお試しいただくためのトライアル機能を実装しました。 | ログインIDとパスワードでの認証機能を実装しました。 |
+
+| 事業者選択画面 |　請求書作成画面 |
+| ---- | ---- |
+| ![事業者選択画面](/docs/img/app-view/select-business_1.1.png) | ![請求書作成画面](/docs/img/app-view/create-invoice_1.1.png) |
+| 登録済みの複数の事業者の中から、請求書を作成したい事業者を選択する機能を実装しました。 | 請求書の作成機能・マスタデータの呼び出し機能・税率変更機能・税率別内訳の計算機能、合計金額の計算機能を実装しました。 |
+
+| 請求書詳細画面 |　PDF出力画面 |
+| ---- | ---- |
+| ![請求書詳細画面](/docs/img/app-view/invoice-detail_1.1.png) | ![　PDF出力画面](/docs/img/app-view/print-invoice_1.1.png) |
+| 請求書データの表示機能を実装しました。 | PDFでの請求書発行機能を実装しました。 |
+
+| 登録するマスタの選択画面 |　マスタの登録画面 |
+| ---- | ---- |
+| ![請求書詳細画面](/docs/img/app-view/select-master_1.1.png) | ![　PDF出力画面](/docs/img/app-view/master-register-form_1.1.png) |
+| 事業者情報と備考欄情報のマスタ登録機能を実装しました。 | マスタ情報の登録をすることで、請求書の作成時にデータを呼び出すことができます。 |
+
+<br />
 ## 🚀サービスの利用イメージ🚀
 以下のようなサービスの利用イメージを考えています。  
 Discordで集まる人を募集したいユーザーAは以下の項目を設定。　　
