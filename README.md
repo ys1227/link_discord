@@ -53,7 +53,13 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 
 |  |　マスタの登録画面 |
 | ---- | ---- |
-| ![請求書詳細画面](/docs/img/app-view/select-master_1.1.png) | ![　PDF出力画面](/docs/img/app-view/master-register-form_1.1.png) |
+| ![請求書詳細画面](https://raw.github.com/wiki/ys1227/link_discord/images/09_confirmanation.png) | ![　PDF出力画面](https://raw.github.com/wiki/ys1227/link_discord/images/10_post.png) |
+| 事業者情報と備考欄情報のマスタ登録機能を実装しました。 | マスタ情報の登録をすることで、請求書の作成時にデータを呼び出すことができます。 |
+
+
+|  |　マスタの登録画面 |
+| ---- | ---- |
+| ![請求書詳細画面](https://raw.github.com/wiki/ys1227/link_discord/images/11_reservations.png) | ![　PDF出力画面](https://raw.github.com/wiki/ys1227/link_discord/images/12_matching_time.png) |
 | 事業者情報と備考欄情報のマスタ登録機能を実装しました。 | マスタ情報の登録をすることで、請求書の作成時にデータを呼び出すことができます。 |
 
 <br />
