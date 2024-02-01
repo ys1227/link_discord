@@ -88,20 +88,36 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 
 ## 🚀使用技術🚀
 
-| Category          | Technology Stack                                     |
-| ----------------- | --------------------------------------------------   |
-| Frontend          | Tailwind CSS, deisyUI, JavaScript,                       |
-| Backend           | Ruby, Ruby on Rails, Sidekiq, Sidekiq-cron, ActionCable |
-| Infrastructure    | Render                    |
-| Database          | PostgreSQL, Redis                                    |
-| Environment setup | Docker                                               |
-| Design            | Figma                                      |
-| etc.              | Rubocop, Git, GitHub |
+### バックエンド
+* Ruby 3.1.4
+* Ruby on Rails 7.0.8
+* Action Cable
+* Sidekiq
+* Sidekiq-cron
+* Redis
+
+### フロントエンド
+* JavaScript
+* Tailwind CSS
+* Daisy UI
+
+### 外部API
+* Discord API
+
+### インフラ
+* Render
+
+### データベース
+＊ PostgreSQL
+* Redis
+
+## 開発環境
+* Docker
 
 <br />
 
 ### 🚀画面遷移図🚀
-https://www.figma.com/file/BQ9l33fGotPvEgNMRJQPXY/Link_discord?type=design&node-id=0%3A1&mode=design&t=aKdGn3DPRintsHKm-1
+![Figmaのリンクはこちらをご覧ください。](https://www.figma.com/file/BQ9l33fGotPvEgNMRJQPXY/Link_discord?type=design&node-id=0%3A1&mode=design&t=aKdGn3DPRintsHKm-1)
 
 ### 🚀ER図🚀
 
