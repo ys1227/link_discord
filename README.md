@@ -108,7 +108,7 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 * Render
 
 ### データベース
-＊ PostgreSQL
+* PostgreSQL
 * Redis
 
 ## 開発環境
