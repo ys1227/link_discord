@@ -93,43 +93,17 @@ XやMattermostで宣伝することを考えています。
 類似サービスは存在しませんでした。  
 このサービスの強みとしては、テキストメッセージで予定を調整するのではなく予約システムを活用してスムーズに予定を調整できる点が強みだと感じています。  
 
-## 🚀機能一覧🚀
-1. ユーザー新規登録機能
-2. ログイン機能
-3. 投稿機能(index/show/create/update/edit/destroy/new)
-4. 予約機能
-5. 投票機能
-6. RedisとSidekiqで非同期処理
-7. SidekiqーcronでJobを設定する機能
-8. カテゴリ設定機能
-9. カテゴリ検索機能
-10. Discord通知機能でマッチングが成立した際にDMで通知が届くように設定。
-11. 利用規約
-12. プライバシーポリシー
-13. WebSocket/ActionCaboleでチャット機能導入
+## 🚀使用技術🚀
 
-
-### 🚀マッチング機能の詳細🚀
-ユーザーは募集期限と集まりたいテーマ(質問や雑談など)の内容と集まることが可能な時間帯(第三希望まで)を設定しマッチできる人を募集します。  　
-募集が開始されたら希望時間の中から一番速い時間の12時間前まに募集締め切り時間が自動で設定されます。
-別のユーザーBは"参加できる"ボタンで集まることが可能な時間を設定し投票します。  
-締め切り時間がきたら1番投票人数が多かった時間帯で集合時間が決定し
-集合時間を参加者と募集社にDiscordのDMでお知らせします。
-
-## 🚀使用予定の技術🚀
-### フロントエンド
-* JavaScript
-* React (実装するかは未定。一旦Railsで実装して、Reactキャッチアップ後開発にかかる時間やレベルの面できそうなら使用したいと思っています。)
-### バックエンド
-* Rails: 7.0.7
-* Ruby: 3.1.2
-* データベース: PostgreSQL
-* Redis
-### インフラ
-* Render
-### その他使用予定の技術
-* Discord通知: LINE Messaging API
-* チャット機能: WebSocket(ActionCable)
+| Category          | Technology Stack                                     |
+| ----------------- | --------------------------------------------------   |
+| Frontend          | Tailwind CSS, deisyUI, JavaScript,                       |
+| Backend           | Ruby, Ruby on Rails, Sidekiq, Sidekiq-cron, ActionCable |
+| Infrastructure    | Render                    |
+| Database          | PostgreSQL, Redis                                    |
+| Environment setup | Docker                                               |
+| Design            | Figma                                      |
+| etc.              | Rubocop, Git, GitHub |
 
 
 ### 🚀画面遷移図🚀
