@@ -82,9 +82,8 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 2. 参加したい側の操作
 ![demo](https://raw.github.com/wiki/ys1227/link_discord/images/how_to_use_02.png)
 
-集まる人を探している別のユーザーBは投稿一覧画面から気になるテーマの投稿を選び、"参加できる"ボタンを押します。  
-締め切り時間が来たら予定調整システムによって集まる時間を調整し。  
-予定時間が決まったらDiscordのDMで通知を行います。 
+3. 締め切り時間到来後の流れ
+![demo](https://raw.github.com/wiki/ys1227/link_discord/images/how_to_use_03.png)
 
 ## 🚀ユーザーの獲得について🚀
 XやMattermostで宣伝することを考えています。  
