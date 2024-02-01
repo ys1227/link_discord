@@ -111,14 +111,14 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 * PostgreSQL
 * Redis
 
-## 開発環境
+### 開発環境
 * Docker
 
 <br />
 
 ### 🚀画面遷移図🚀
-![Figmaのリンクはこちらをご覧ください。](https://www.figma.com/file/BQ9l33fGotPvEgNMRJQPXY/Link_discord?type=design&node-id=0%3A1&mode=design&t=aKdGn3DPRintsHKm-1)
-
+Figmaのリンクは![こちら](https://www.figma.com/file/BQ9l33fGotPvEgNMRJQPXY/Link_discord?type=design&node-id=0%3A1&mode=design&t=aKdGn3DPRintsHKm-1)
+をご覧ください。
 ### 🚀ER図🚀
 
 ![ER図](./link_discord.svg)
