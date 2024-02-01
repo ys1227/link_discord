@@ -76,7 +76,7 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 
 ## 🚀サービスの利用イメージ🚀
 
-![demo](https://raw.github.com/wiki/ys1227/link_discord/images/how_to_use.png)
+![demo](https://raw.github.com/wiki/ys1227/link_discord/images/how_to_use_01.png)
 
 
 集まる人を探している別のユーザーBは投稿一覧画面から気になるテーマの投稿を選び、"参加できる"ボタンを押します。  
