@@ -22,15 +22,13 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 
 ## 🚀アプリケーションのイメージ🚀
 
-<br />  
+<br /> 
+<br />
 
 ![demo](https://raw.github.com/wiki/ys1227/link_discord/images/way_of_use.gif)
 
 <br />  
 <br />  
-
-
-<br />
 
 ## 機能一覧
 | トップ画面 |　ログイン画面 |
@@ -41,7 +39,7 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 | ログイン制限 |　ゲストログイン機能 |
 | ---- | ---- |
 | ![ログイン制限画面](https://raw.github.com/wiki/ys1227/link_discord/images/failure_login.png) | ![ゲストログイン画面](https://raw.github.com/wiki/ys1227/link_discord/images/15_guest_login.png) |
-| RUNTEQ生のみにログインを制限しました。 | ゲストログイン機能でRUNTEQ生以外でもお使いいただけます。 |
+| RUNTEQ生のみにログインを制限しました。 | ゲストログイン機能でRUNTEQ生以外でも投稿などの機能をお試しいただけます。 |
 
 
 | 募集作成画面 |　募集作成画面 |
