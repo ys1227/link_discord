@@ -29,10 +29,6 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 <br />  
 <br />  
 
-| ログイン制限 |　DM送信 |
-| ---- | ---- |
-| ![ログイン制限画面](https://raw.github.com/wiki/ys1227/link_discord/images/failure_login.png) | ![Discord通知画面](https://raw.github.com/wiki/ys1227/link_discord/images/Discord.png) |
-| RUNTEQ生のみにログインを制限しました。 | DiscordのDMでお知らせが届きます。 |
 
 <br />
 
@@ -41,6 +37,12 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 | ---- | ---- |
 | ![Top画面](https://raw.github.com/wiki/ys1227/link_discord/images/01_top.png) | ![ログイン画面](https://raw.github.com/wiki/ys1227/link_discord/images/02_login_discord.png) |
 | 登録せずにサービスをお試しいただくためのゲストログイン機能を実装しました。 | Discordによる外部認証機能を実装しました。 |
+
+| ログイン制限 |　ゲストログイン画面 |
+| ---- | ---- |
+| ![ログイン制限画面](https://raw.github.com/wiki/ys1227/link_discord/images/failure_login.png) | ![ゲストログイン画面](https://raw.github.com/wiki/ys1227/link_discord/images/15_guest_login.png) |
+| RUNTEQ生のみにログインを制限しました。 | ゲストログイン機能でRUNTEQ生以外でもお使いいただけます。 |
+
 
 | 募集作成画面 |　募集作成画面 |
 | ---- | ---- |
@@ -67,7 +69,6 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 | ---- | ---- |
 | ![チャット画面](https://raw.github.com/wiki/ys1227/link_discord/images/14_chat.png) | ![　DiscordへのDM送信画面](https://raw.github.com/wiki/ys1227/link_discord/images/Discord.png) |
 | チャットを行うことができるように実装しました。 | 集合時間が決定するとDMでお知らせを行います。 |
-
 
 <br />
 
