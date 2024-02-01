@@ -85,13 +85,6 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 ### 3. 締め切り時間到来後の流れ
 ![demo](https://raw.github.com/wiki/ys1227/link_discord/images/how_to_use_03.png)
 
-## 🚀ユーザーの獲得について🚀
-XやMattermostで宣伝することを考えています。  
-また募集者と応募者の予定調整が完了したらXなどに"〜時から,このテーマで集まります"といった投稿を行う機能をつけることで、サービスの宣伝になるのではないかと考えています。  
-
-## 🚀サービスの差別化ポイント・推しポイント🚀
-類似サービスは存在しませんでした。  
-このサービスの強みとしては、テキストメッセージで予定を調整するのではなく予約システムを活用してスムーズに予定を調整できる点が強みだと感じています。  
 
 ## 🚀使用技術🚀
 
@@ -105,9 +98,14 @@ XやMattermostで宣伝することを考えています。
 | Design            | Figma                                      |
 | etc.              | Rubocop, Git, GitHub |
 
+<br />
 
 ### 🚀画面遷移図🚀
 https://www.figma.com/file/BQ9l33fGotPvEgNMRJQPXY/Link_discord?type=design&node-id=0%3A1&mode=design&t=aKdGn3DPRintsHKm-1
 
 ### 🚀ER図🚀
+
 ![ER図](./link_discord.svg)
+
+<br />
+
