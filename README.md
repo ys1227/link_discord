@@ -66,7 +66,7 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 | チャット画面|　DiscordへのDM送信画面 |
 | ---- | ---- |
 | ![チャット画面](https://raw.github.com/wiki/ys1227/link_discord/images/14_chat.png) | ![　DiscordへのDM送信画面](https://raw.github.com/wiki/ys1227/link_discord/images/Discord.png) |
-| チャットを行うことができるように実装しました。 | 集合時間が決定するとDMでお知らせを行います。 |
+| チャットを行うことができます。 | 集合時間が決定するとDiscordのDMでお知らせを行います。 |
 
 <br />
 
