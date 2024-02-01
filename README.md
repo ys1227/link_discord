@@ -45,17 +45,17 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 | 募集作成画面 |　募集作成画面 |
 | ---- | ---- |
 | ![募集作成(カテゴリ設定)画面](https://raw.github.com/wiki/ys1227/link_discord/images/05_post.png) | ![募集作成作成画面](https://raw.github.com/wiki/ys1227/link_discord/images/06_post.png) |
-| 募集するテーマに沿ったカテゴリを設定する機能を実装しました。 | 募集を行う際のタイトルや内容などを設定できるように実装しました。 |
+| 投稿時に募集するテーマに沿ったカテゴリを設定することができます。 | 募集を行う際のタイトルや内容などを設定できます。 |
 
 | 募集時間投稿画面 |　優先順位設定画面 |
 | ---- | ---- |
 | ![募集時間投稿細画面](https://raw.github.com/wiki/ys1227/link_discord/images/07_reservations.png) | ![　優先順位設定画面](https://raw.github.com/wiki/ys1227/link_discord/images/08_rank_posts.png) |
-| 募集時間を第三希望まで設定できるように実装しました。 | 希望時間に対して優先順位を設定できるように実装しました。 |
+| 募集時間を第三希望まで設定できます。 | 希望時間に対して優先順位を設定できます。 |
 
 | 投稿確認画面 |　投稿一覧画面 |
 | ---- | ---- |
 | ![投稿確認画面](https://raw.github.com/wiki/ys1227/link_discord/images/09_confirmanation.png) | ![　投稿一覧画面](https://raw.github.com/wiki/ys1227/link_discord/images/10_post.png) |
-| 時間と優先順位に関して最終確認をできるようにしました。 | 投稿一覧画面から受講生が募集しているテーマを探しに行くことができます。 |
+| 時間と優先順位に関して最終確認を行うことができます。 | 投稿一覧画面から受講生が募集しているテーマを探しに行くことができます。 |
 
 
 | 投票画面 |　集合時間確認画面 |
