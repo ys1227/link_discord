@@ -89,13 +89,13 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 * Ruby on Rails 7.0.8
 * Action Cable
 * Sidekiq
-* Sidekiq-cron
+* Sidekiq-Cron
 * Redis
 
 ### フロントエンド
 * JavaScript
 * Tailwind CSS
-* Daisy UI
+* daisyUI
 
 ### 外部API
 * Discord API
