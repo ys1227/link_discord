@@ -109,7 +109,7 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 
 ### データベース
 * PostgreSQL
-* Redis
+* Redis(バックグラウンド処理とActionCableのアダプタに使用)
 
 ### 開発環境
 * Docker
