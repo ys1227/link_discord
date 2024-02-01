@@ -115,6 +115,14 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 ## 🚀ER図🚀
 ![ER図](https://raw.github.com/wiki/ys1227/link_discord/images/db.svg)
 
+<br />
+
+## 🚀インフラ構成図🚀
+
+![インフラ構成図](https://raw.github.com/wiki/ys1227/link_discord/images/structure.drawio.png)
+
+<br />
+
 ### 🚀画面遷移図🚀
 Figmaのリンクは[こちら](https://www.figma.com/file/BQ9l33fGotPvEgNMRJQPXY/Link_discord?type=design&node-id=0%3A1&mode=design&t=5bwJwazwzBgvfln8-1)
 をご覧ください。
