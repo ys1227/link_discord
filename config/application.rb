@@ -21,7 +21,7 @@ module LinkDiscord
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.hosts << "link-disco.onrender.com"
+    config.hosts << "www.link-disco-app.com"
 
     # config.eager_load_paths += Dir["#{config.root}/lib"]  # 追加
     config.active_job.queue_adapter = :sidekiq
