@@ -47,10 +47,10 @@ window.addEventListener("keyup",
       return;
     }
     console.log("enter")
+    event.preventDefault(); // デフォルトのキー操作を抑制
     appRoom.speak(event.target.value); // メッセージを送信
     event.target.value = '';
     scrollToBottom(); // テキストボックスをクリア
-    event.preventDefault(); // デフォルトのキー操作を抑制
   }
 });
 

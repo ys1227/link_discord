@@ -4,7 +4,7 @@
 
 ## 🚀サービスのURL🚀
 ゲストログイン機能を実装いたしましたので、RUNTEQスクール生以外でもお試しでお使いいただくことができます。  
-https://link-disco.onrender.com/
+www.linkdisco-app.com
 
 <br />
 
