@@ -4,6 +4,7 @@
     <i class="fa-brands fa-rocketchat fa-4lg custom-icon pr-4"></i>
       Chat room
     </h1>
+    <p class="text-white">※うまくいかない場合はリロードしてみてください。
     <div id="messages" data-current-user-id="<%= current_user.id %>" data-question-id="<%= @question.id %>" class="overflow-y-auto max-h-[500px] bg-gray-700 p-4 rounded-lg space-y-2">
       <%= render @messages %>
     </div>
