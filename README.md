@@ -112,7 +112,7 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 
 <br />
 
-## 🚀ER図🚀
+## 🚀ER図🚀　
 ![ER図](https://raw.github.com/wiki/ys1227/link_discord/images/db.svg)
 
 <br />
