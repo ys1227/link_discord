@@ -20,7 +20,7 @@ class NotifySelectedMeetingTimeToQuestionOwnerJob < ApplicationJob
           description: "あなたが募集したテーマに対して集合時間が決まりました！\n
           ⏰#{reservation.start_time.strftime('%m月%d日 %H時%M分')}からスタート⏰ \n
           質問の詳細を見るには上記のリンクにアクセスしてね。 \n 🪐Let`s GO !! 🪐",
-          url: "https://link-disco.onrender.com/questions/#{question_id}/matching_times"
+          url: "https://www.linkdisco-app.com/questions/#{question_id}/matching_times"
         }]
       )
     rescue StandardError => e

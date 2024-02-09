@@ -18,7 +18,7 @@ class NotifyUnvotedQuestionOwnerJob < ApplicationJob
           title: '🚀あなたが募集した質問をクリックして見に行く🚀',
           description: "あなたが募集したテーマは投票人数が0人でした。応募する場合は質問をもう一度作成して募集してみてね！\n
           質問の詳細を見るには上記のリンクにアクセスしてね。 \n 🪐Let`s GO !! 🪐",
-          url: "https://link-disco.onrender.com/questions/#{question_id}"
+          url: "https://www.linkdisco-app.com//questions/#{question_id}"
         }]
       )
     rescue StandardError => e
