@@ -40,3 +40,5 @@
 /.env
 /redis/appendonlydir/*
 /redis/dump.rdb
+
+/vender/bundle

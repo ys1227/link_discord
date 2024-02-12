@@ -10,6 +10,17 @@ services:
     ports:
       - '5432:5432'
 
+  test-db:
+    platform: linux/x86_64
+    image: mysql:5.6
+    environment:
+      MYSQL_DATABASE: docker_test
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: test_root
+      MYSQL_PASSWORD: password
+    ports:
+      - "4307:3306"
+
   web:
     build:
       context: .
