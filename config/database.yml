@@ -58,9 +58,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: my_new_gear_test
-  username: test_root
-  password: password
+  password: second
+  username: postgres_second
   database: docker_test
   host: test-db
 
