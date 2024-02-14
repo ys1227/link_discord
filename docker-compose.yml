@@ -10,6 +10,14 @@ services:
     ports:
       - '5432:5432'
 
+  test-db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres_second
+      POSTGRES_PASSWORD: second
+    ports:
+      - "4307:5432"
+
   web:
     build:
       context: .
