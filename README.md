@@ -119,7 +119,7 @@ Discordに集まる日程や時間を調整できる日程調整アプリとし�
 
 ## 🚀インフラ構成図🚀
 
-![インフラ構成図](https://raw.github.com/wiki/ys1227/link_discord/images/structure.drawio.png)
+![インフラ構成図](https://raw.github.com/wiki/ys1227/link_discord/images/structure02.drawio.png)
 
 <br />
 
