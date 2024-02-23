@@ -17,6 +17,8 @@ services:
       POSTGRES_PASSWORD: second
     ports:
       - "4307:5432"
+    volumes:
+      - test_volume:/var/lib/postgresql/data
 
   web:
     build:
@@ -59,7 +61,7 @@ services:
 volumes:
   postgres_volume:
   bunlde_volume:
-
+  test_volume:
   
 
 # dbはvolマウントでdocker volume lsで確認できる
