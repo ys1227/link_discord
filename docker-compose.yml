@@ -57,6 +57,11 @@ services:
      volumes:
        - ./redis:/data
      command: redis-server --appendonly yes
+
+  selenium_chrome:
+    image: seleniarm/standalone-chromium
+    ports: 
+      - "4444:4444"
      
 volumes:
   postgres_volume:
