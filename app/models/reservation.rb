@@ -25,7 +25,6 @@ class Reservation < ApplicationRecord
     )
 
     if selected_datetime <= DateTime.current + 24.hours
-      # DateTime.current + 24.hoursにする予定
       errors.add(:start_time, "は現在の時間より24時間遅い時間を選択してください")
     end
   end
@@ -46,7 +45,6 @@ class Reservation < ApplicationRecord
     errors.add(:start_time, "が重複して登録されています。") if start_times.include?(start_time)
   end
 
-  # { id: data[:id], rank: data[:rank] }
   def rank_count_check
     @question = Question.find(question_id)
     existing_ranks = @question.reservations.where.not(id:).pluck(:rank)
