@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   skip_before_action :check_logged_in, only: %i[index show]
+  before_action :set_question, only: %i[show edit update destroy show_reservations create_deadline choose_schedule ]
 
   def index
     @q = Question.ransack(params[:q])
@@ -7,7 +8,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
   end
 
   def new
@@ -15,14 +15,12 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
   end
 
   def create
     @question = current_user.questions.build(question_params)
     @question.is_demo = true if current_user.is_guest?
     if @question.save
-      # redirect_to choose_schedule_question_path(@question), success: '投稿が成功しました'
       redirect_to new_question_reservation_path(@question), success: '投稿が成功しました'
     else
       flash.now[:danger] = '投稿が失敗しました'
@@ -31,8 +29,6 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
-
     if @question.update(question_params)
       redirect_to questions_path
     else
@@ -41,24 +37,20 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
     @question.destroy!
 
     redirect_to questions_path, status: :see_other
   end
 
   def show_reservations
-    @question = Question.find(params[:id])
     @question_reservatins = @question.reservations
   end
 
   def create_deadline
-    @question = Question.find(params[:id])
     @question_reservations = @question.reservations
     start_times = @question_reservations.map(&:start_time)
     eariest_start_time = start_times.min
     deadline = eariest_start_time - 12.hours
-    # deadline = eariest_start_time - 1.hours
 
     if @question.valid?(:create_deadline)
       @question.update(deadline: deadline)
@@ -76,7 +68,6 @@ class QuestionsController < ApplicationController
   end
 
   def choose_schedule
-    @question = Question.find(params[:id])
   end
 
   def draft
@@ -99,5 +90,9 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:title, :content, :role)
+  end
+
+  def set_question
+    @question = Question.find(params[:id])
   end
 end
