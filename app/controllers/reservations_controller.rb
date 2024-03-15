@@ -1,14 +1,13 @@
 class ReservationsController < ApplicationController
   skip_before_action :check_logged_in, only: %i[index_vote]
+  before_action :set_question, only: %i[index new create bulk_update destroy index_vote]
 
   def index
-    @question = Question.find(params[:question_id])
     @reservation = Reservation.new
     @question_reservations = @question.reservations
   end
 
   def new
-    @question = Question.find(params[:question_id])
     @reservations = Reservation.all || []
     @reservation = Reservation.new
     @question_reservations = @question.reservations || []
@@ -16,7 +15,6 @@ class ReservationsController < ApplicationController
 
   def create
     @reservations = Reservation.all || []
-    @question = Question.find(params[:question_id])
     @reservation = @question.reservations.build(reservations_params)
     @question_reservations = @question.reservations || []
     if @reservation.save
@@ -28,7 +26,6 @@ class ReservationsController < ApplicationController
   end
 
   def bulk_update
-    @question = Question.find(params[:question_id])
     @question_reservations = @question.reservations
     @question_reservations.each do |reservation|
       reservation.update_columns(rank: "default")
@@ -62,7 +59,6 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:question_id])
     @reservation = Reservation.find(params[:id])
     @reservation.destroy!
 
@@ -71,7 +67,6 @@ class ReservationsController < ApplicationController
 
   def index_vote
     @vote = Vote.new
-    @question = Question.find(params[:question_id])
     @question_reservations = @question.reservations.order(:rank)
     @user = @question.user_id
   end
@@ -87,5 +82,9 @@ class ReservationsController < ApplicationController
     reservations_params = permitted_params.to_h.map do |_, data|
       { id: data[:id], rank: data[:rank] }
     end
+  end
+
+  def set_question
+    @question = Question.find(params[:question_id])
   end
 end
