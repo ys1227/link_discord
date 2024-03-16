@@ -22,7 +22,8 @@ class UserSessionsController < ApplicationController
       crypted_password: 'password',
       salt: 'password',
       image: '1_test.png',
-      is_guest: true
+      is_guest: true,
+      uid: 0
     )
     auto_login(@guest_user)
     redirect_to root_path, success: 'ゲストとしてログインしました'
