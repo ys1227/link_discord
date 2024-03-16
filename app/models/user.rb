@@ -7,12 +7,17 @@ class User < ApplicationRecord
   has_many :vote_questions, through: :vote_reservations, source: :question
 
   validates :email, uniqueness: true
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :uid, presence: true
+
 
   scope :past_hour_user_create, -> { where('created_at < ?', 1.hour.ago) }
 
   def self.find_or_create_from_auth_hash(auth_hash)
     user_params = user_params_from_auth_hash(auth_hash)
     if guild_member?(user_params[:uid]) == true
+      # レコードが存在しなかった場合のみブロックの処理を実行する(find_or_create_byの仕様)
       User.find_or_create_by!(uid: user_params[:uid]) do |user|
         user.update(user_params)
         if user.image == nil
