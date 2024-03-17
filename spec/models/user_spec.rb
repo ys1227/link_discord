@@ -33,24 +33,50 @@ RSpec.describe 'User', type: :model do
     before do
       @user = FactoryBot.create(:user)
       @another_user = FactoryBot.create(:user)
+      @question = FactoryBot.create(:question, :with_reservation, user: @user)
+      @reservation = FactoryBot.create(:reservation, question: @question)
+      @message = FactoryBot.create(:message, user: @user)
+      @vote = FactoryBot.create(:vote, user:@another_user, reservation: @reservation)
     end
 
     it 'questionとの関連付けが正しく設定されていること' do
-      question = FactoryBot.create(:question, user: @user)
-      expect(@user.questions).to include question
+      expect(@user.questions).to include @question
     end
 
     it 'messageとの関連付けが正しく設定されていること' do
-      message = FactoryBot.create(:message, user: @user)
-      expect(@user.messages).to include message
+      expect(@user.messages).to include @message
     end
 
     it 'voteとの関連付けが正しく設定されていること' do
-      question = FactoryBot.create(:question, user:@user)
-      reservation = FactoryBot.create(:reservation, question: question)
-      vote = FactoryBot.create(:vote, user:@another_user, reservation: reservation)
+      expect(@another_user.votes).to include @vote
+    end
 
-      expect(@another_user.votes).to include vote
+    it 'vote_reservationの関連付けが正しくなされていること' do
+      expect(@another_user.vote_reservations).to include @reservation
+    end
+
+    it 'vote_questionの関連付けが正しくなされていること' do
+      expect(@another_user.vote_questions).to include @question
+    end
+  end
+
+  describe 'スコープに関するテスト' do
+    before do
+      @past_created_user = FactoryBot.create(:user, :past)
+      @future_created_user = FactoryBot.create(:user, :future)
+    end
+    it 'past_hour_user_createは過去1時間以内に作成されたユーザーを返すこと' do 
+      expect(User.all.past_hour_user_create).to include(@past_created_user)
+      expect(User.all.past_hour_user_create).not_to include(@future_created_user)
+    end
+
+  describe 'ログインの処理に関するテスト' do
+    it 'auth_hashからユーザーを見つけるか作成するロジックのテスト' do
+
+    end
+
+    it '指定のサーバーにユーザーが存在するかどうかをチェックするメソッドのテスト' do
+      
     end
   end
 end
