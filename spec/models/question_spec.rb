@@ -53,4 +53,14 @@ RSpec.describe Question, type: :model do
       expect(@question.reservations).to include @reservation
     end
   end
+
+  describe 'スコープに関するテスト' do
+    before do
+      @past_created_question = FactoryBot.create(:question, :past)
+    end
+
+    it '締め切り時間が現在の時間よりも前のquestionを返すこと' do
+      expect(Question.all.past_closed).to include(@past_created_question)
+    end
+  end
 end
