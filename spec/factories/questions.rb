@@ -4,6 +4,10 @@ FactoryBot.define do
     sequence(:content) {"aaaaaaaaaaaa"}
     association :user
 
+    trait :past do
+      created_at { DateTime.now.ago(1.hours) }
+    end
+
     trait :with_reservation do 
       transient do
         sequence(:start_time) { Time.current + 48.hours }

@@ -65,10 +65,12 @@ RSpec.describe 'User', type: :model do
       @past_created_user = FactoryBot.create(:user, :past)
       @future_created_user = FactoryBot.create(:user, :future)
     end
+
     it 'past_hour_user_createは過去1時間以内に作成されたユーザーを返すこと' do 
       expect(User.all.past_hour_user_create).to include(@past_created_user)
       expect(User.all.past_hour_user_create).not_to include(@future_created_user)
     end
+  end
 
   describe 'ログインの処理に関するテスト' do
     it 'auth_hashからユーザーを見つけるか作成するロジックのテスト' do
