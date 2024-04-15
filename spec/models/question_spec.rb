@@ -63,4 +63,54 @@ RSpec.describe Question, type: :model do
       expect(Question.all.past_closed).to include(@past_created_question)
     end
   end
+
+  describe 'ユーザーのenum値に関するテスト' do
+    before do 
+      @question = FactoryBot.create(:question)
+    end
+    it 'enumで定義したroleの値がモデルに正しく設定されるか' do
+      expect(@question.role).to eq 'inquiry'
+    end
+
+    it 'enumで定義したstateの値がモデルに正しく設定されるか' do
+      expect(@question.state).to eq 'published'
+    end
+
+    it 'roleに関するenumのメソッドが正しく定義されているか' do
+      expect(@question).to respond_to(:inquiry?)
+      expect(@question).to respond_to(:small_talk?)
+      expect(@question).to respond_to(:job_serching?)
+      expect(@question).to respond_to(:portfolio?)
+      expect(@question).to respond_to(:others?)
+    end
+
+    it 'roleをメソッドを使用して正しく変更できるか' do
+      @question.inquiry!
+      expect(@question.role).to eq 'inquiry'
+      @question.small_talk!
+      expect(@question.role).to eq 'small_talk'
+      @question.job_serching!
+      expect(@question.role).to eq 'job_serching'
+      @question.portfolio!
+      expect(@question.role).to eq 'portfolio'
+      @question.others!
+      expect(@question.role).to eq 'others'
+    end
+
+    it 'stateに関するenumのメソッドが正しく定義されているか' do
+      expect(@question).to respond_to(:draft?)
+      expect(@question).to respond_to(:published?)
+      expect(@question).to respond_to(:closed?)
+    end
+
+    it 'stateをメソッドを使用して正しく変更できるか' do
+      @question.draft!
+      expect(@question.state).to eq 'draft'
+      @question.published!
+      expect(@question.state).to eq 'published'
+      @question.closed!
+      expect(@question.state).to eq 'closed'
+    end
+
+  end
 end
