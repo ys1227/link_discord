@@ -53,8 +53,6 @@ RSpec.describe Question, type: :model do
       expect(@reservation.rank).to eq 'two'
       @reservation.three!
       expect(@reservation.rank).to eq 'three'
-      
-      
     end
   end
 end
