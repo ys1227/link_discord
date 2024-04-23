@@ -72,13 +72,45 @@ RSpec.describe 'User', type: :model do
     end
   end
 
-  describe 'ログインの処理に関するテスト' do
-    it 'auth_hashからユーザーを見つけるか作成するロジックのテスト' do
+  describe 'user_params_from_auth_hashメソッドに関するテスト' do
+    let(:auth_hash) do
+      OmniAuth::AuthHash.new(
+        uid: '12345678',
+        info: {
+          name: 'test',
+          email: 'test@example.com',
+          image: 'http://example.com/avatar.jpg'
+        }
+      )
+    end
+      it '正しくuserのparametersをauth_hashがreturnするかのテスト' do
+        expected = {
+        name: 'test',
+        email: 'test@example.com',
+        image: 'http://example.com/avatar.jpg',
+        uid: '12345678'
+      }
 
+      expect(User.user_params_from_auth_hash(auth_hash)).to eq(expected)
+      end
+  end
+
+  describe 'guild_memberメソッドに関するテスト' do
+    let(:uid) {'12345678'}
+    before do
+      allow(Discordrb::API::Server).to receive(:resolve_member).and_return(true)
+    end
+    it 'guild_memberだった場合にguild_memberメソッドが正しくtrueを返すか' do
+      expect(User.guild_member?(uid)).to be true
     end
 
-    it '指定のサーバーにユーザーが存在するかどうかをチェックするメソッドのテスト' do
-      
+    context 'guild_memberではなかったとき' do
+      before do
+        allow(Discordrb::API::Server).to receive(:resolve_member).and_return(false)
+      end
+      it 'guild_memberメソッドはfalseを正しく返すか' do
+        expect(User.guild_member?(uid)).to be false
+      end
     end
   end
 end
