@@ -19,11 +19,11 @@ class User < ApplicationRecord
     if guild_member?(user_params[:uid]) == true
       # レコードが存在しなかった場合のみブロックの処理を実行する(find_or_create_byの仕様)
       User.find_or_create_by!(uid: user_params[:uid]) do |user|
-        user.update(user_params)
         if user.image == nil
           user.image = Discordrb::API::User.default_avatar(auth_hash[:extra][:raw_info][:discriminator])
         end
       end
+      user.update(user_params)
     end
   end
 
