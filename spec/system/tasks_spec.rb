@@ -6,9 +6,9 @@ RSpec.describe 'Tasks', type: :system do
   describe 'ログイン前' do
     describe 'ページ遷移確認' do
       context '投稿作成画面にアクセス' do
-        it '正常にアクセスができる' do
+        it '正常にアクセスができない' do
           visit new_question_path
-          expect(current_path).to eq new_question_path
+          expect(current_path).to eq root_path
         end
       end
 
